@@ -1,6 +1,4 @@
-# iOS Phoenix SDK
-
-[![](https://gitlab.com/Nextome/nextome-ios-sdk/-/raw/master/README/cover.png)](https://nextome.net)
+# PhoenixSdk
 
 PhoenixSdk is an indoor positioning, mobile-ready, offline, Sdk, designed to be integrated into an existing mobile application effortlessly
 
@@ -40,8 +38,8 @@ Open your Podfile and add these lines:
 
 After add this pod: 
 ```pod
-  pod 'PhoenixSdk', :git => 'https://gitlab.com/Nextome/nextome-ios-sdk'
-  pod 'NextomeLegacy', :git => 'https://gitlab.com/Nextome/nextome-ios-sdk'
+  pod 'PhoenixSdk', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
+  pod 'NextomeLegacy', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
 ```
 
 Then, into general tab, add this capabilities:
@@ -61,8 +59,8 @@ If you want only to test map, you can use x86 framework version.
 Remove previous integration lines and replace with these, into your podfile:
 
 ```pod
-  pod 'PhoenixSdk_x86', :git => 'https://gitlab.com/Nextome/nextome-ios-sdk'
-  pod 'NextomeLegacy_x86', :git => 'https://gitlab.com/Nextome/nextome-ios-sdk'
+  pod 'PhoenixSdk_x86', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
+  pod 'NextomeLegacy_x86', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
 ```
 
 ##Notice
@@ -84,7 +82,7 @@ PhoenixSdk is currently design with public async observer
 
 ### Getting Started
 
-1. Create Nextome.plist file and insert it, into your main's app Target -> (You can download from here: [Download](https://gitlab.com/Nextome/nextome-ios-sdk/-/raw/master/README/Nextome.plist?inline=false))
+1. Create Nextome.plist file and insert it, into your main's app Target -> (You can see here: [Nextome.plist](https://github.com/Nextome/POD-Nextome-Sdk/blob/master/README/Nextome.plist))
 Insert bundle data and you can adjust settings* for sdk.
 **Settings Detail**
 
@@ -138,8 +136,8 @@ You can modify these settings, easily calling NextomeSdk, public interface:
 ## Bonus 1: User Position
 If you need to show, user position on virtual map, follow this step to integrate compiled flutter framework into your project: 
 
-1) open xworkspace and import our compiled flutter module, which you can find [here](https://gitlab.com/Nextome/nextome-ios-sdk/-/tree/master/flutter_map)
-2) Open flutter_map folder
+1) open xworkspace and import our compiled flutter module, which you can find [here](https://github.com/Nextome/POD-Nextome-Sdk/releases/tag/1.2.0)
+2) Download and open flutter_map.zip
 3) Choose configuration: Debug, Release, Profile
 4) drag & drop frameworks, into main workspace
 5) check "Copy items if needed" into alert windows
@@ -154,7 +152,7 @@ If you want to customize it, with different features or design, follow this step
  [Flutter Get Started](https://flutter.dev/docs/get-started/install)
 
 2. Clone into your main project's folder, Nextome Flutter Map respository
- [Repository](https://gitlab.com/Nextome/flutter_mapview)
+ [Repository](https://github.com/Nextome/flutter_mapview)
 
 3. Open flutter_mapview module with Android Studio and run it on iOS simulator.
  After finish, you're now ready to integrate modules into iOS main App.
@@ -480,5 +478,9 @@ done
 
  https://www.nextome.net/
 
-**© 2021 Nextome srl | All Rights Reserved.**
-=======
+License
+----
+
+MIT
+
+**© 2020 Nextome srl | All Rights Reserved.**
