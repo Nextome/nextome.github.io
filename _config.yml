@@ -1,8 +1,3 @@
-remote_theme: pmarsceill/just-the-docs
-color_scheme: "dark"
-logo: "https://avatars.githubusercontent.com/u/28387557?s=200&v=4"
-
-
 title: Nextome SDK Documentation
 email: info@nextome.net
 description: >- # this means to ignore newlines until "baseurl:"
@@ -13,6 +8,8 @@ url: "http://nextome.github.io" # the base hostname & protocol for your site, e.
 # Build settings
 # theme: minima
 remote_theme: pmarsceill/just-the-docs
+color_scheme: "dark"
+logo: "https://avatars.githubusercontent.com/u/28387557?s=200&v=4"
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
