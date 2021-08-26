@@ -1,4 +1,4 @@
-# PhoenixSdk
+# iOS Phoenix SDK
 
 [![](https://gitlab.com/Nextome/nextome-ios-sdk/-/raw/master/README/cover.png)](https://nextome.net)
 
