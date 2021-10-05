@@ -32,15 +32,36 @@ You can also:
 To integrate PhoenixSdk into your Xcode project using CocoaPods, open your terminal:
 
 ```sh
-pod repo add NextomeSdk https://gitlab.com/Nextome/nextome-ios-sdk
+1) gem install cocoapods-art
+
+2) nano .netrc
+
+3) paste this in you .netrc file
+
+machine nextome.jfrog.io
+login <USERNAME>
+password <PASSWORD>
+
+than close and save 
+
+3) pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-cocoapods-local"
 ```
 
 Open your Podfile and add these lines:
 
 After add this pod: 
 ```pod
-  pod 'PhoenixSdk', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
-  pod 'NextomeLegacy', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
+platform :ios, '13.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+plugin 'cocoapods-art', :sources => [
+  'nextome-cocoapods-local'
+]
+
+  pod "PhoenixSdk", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
+  pod "NextomeLegacy", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
+  
 ```
 
 Then, into general tab, add this capabilities:
@@ -60,8 +81,8 @@ If you want only to test map, you can use x86 framework version.
 Remove previous integration lines and replace with these, into your podfile:
 
 ```pod
-  pod 'PhoenixSdk_x86', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
-  pod 'NextomeLegacy_x86', :git => 'https://github.com/Nextome/POD-Nextome-Sdk'
+  pod "PhoenixSdk_x86", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
+  pod "NextomeLegacy_x86", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
 ```
 
 ##Notice
@@ -135,16 +156,25 @@ You can modify these settings, easily calling NextomeSdk, public interface:
 ***DONE***
 
 ## Bonus 1: User Position
-If you need to show, user position on virtual map, follow this step to integrate compiled flutter framework into your project: 
+If you need to show, user position on virtual map, follow this step to integrate compiled flutter framework into your project. Add these lines to your PodFile.
+Pay Attention: chose configuration TYPE = debug/release
 
-1) open xworkspace and import our compiled flutter module, which you can find [here](https://github.com/Nextome/POD-Nextome-Sdk/releases/tag/1.2.0)
-2) Download and open flutter_map.zip
-3) Choose configuration: Debug, Release, Profile
-4) drag & drop frameworks, into main workspace
-5) check "Copy items if needed" into alert windows
-6) click "general" tab of workspace -> "Frameworks, Library section"
-7) set "Embed & Sign in" of whole of them, except for FlutterPluginRegistant
+```pod
+pod "App_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz' 
 
+pod "Flutter_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz' 
+
+pod "FlutterPluginRegistrant_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz' 
+
+pod "FMDB_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz' 
+
+pod "path_provider_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz'
+
+pod "sqflite_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz'
+
+```
+ 
+ 
 ## Bonus 2: Customize flutter map
 By default, Sdk use *Compiled* Nextome Flutter Map cross-plattform module, developed to display user position and indoor map.
 If you want to customize it, with different features or design, follow this step to integrate, Nextome Flutter Map Source files.
