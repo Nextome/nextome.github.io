@@ -1,3 +1,9 @@
+---
+layout: default
+title: Nextome Docs
+nav_exclude: true
+---
+
 # Welcome to Nextome Documentation
 
 ## Mobile SDK
