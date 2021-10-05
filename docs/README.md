@@ -1,4 +1,4 @@
-# Welcome to Nextome Documentation
+# 1. Nextome SDK Documentation
 
 ## Mobile SDK
 ![Nextome Android SDK Cover](sdk/res/cover.png)
