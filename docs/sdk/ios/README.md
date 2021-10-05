@@ -1,3 +1,10 @@
+---
+layout: default
+title: iOS Integration
+has_children: true
+nav_order: 2
+---
+
 # iOS Integration Guide
 ![Nextome Android SDK Cover](../../sdk/res/cover.png)
 
