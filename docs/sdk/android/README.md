@@ -1,5 +1,5 @@
-# Nextome Phoenix SDK
-![Nextome Android Sdk Image](https://raw.githubusercontent.com/Nextome/nextome-phoenix-android-whitelabel/main/resources/img-sdk-githubBx2.png?token=ABK44BJ4J33AED564QB5BCLBGCIPK)
+# Android Integration Guide
+![Nextome Android SDK Cover](../../sdk/res/cover.png)
 
 # How to include
 1. Add our repositories in root build.gradle:

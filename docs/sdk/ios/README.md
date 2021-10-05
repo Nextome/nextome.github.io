@@ -1,4 +1,5 @@
-# PhoenixSdk
+# iOS Integration Guide
+![Nextome Android SDK Cover](../../sdk/res/cover.png)
 
 PhoenixSdk is an indoor positioning, mobile-ready, offline, Sdk, designed to be integrated into an existing mobile application effortlessly
 
