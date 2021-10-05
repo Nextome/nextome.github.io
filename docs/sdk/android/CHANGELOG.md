@@ -1,3 +1,10 @@
+---
+layout: default
+title: Changelog
+parent: Android Integration
+nav_order: 2
+---
+
 # Phoenix Andorid SDK Changelog
 ## 0.2.8
 * Add method to send locations to server:
