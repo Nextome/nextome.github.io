@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Changelog
+title: Android Changelog
 parent: Android Integration
 nav_order: 2
 ---
