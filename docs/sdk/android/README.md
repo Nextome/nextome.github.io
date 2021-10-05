@@ -1,3 +1,10 @@
+---
+layout: default
+title: Android Integration
+nav_order: 3
+has_children: true
+---
+
 # Android Integration Guide
 ![Nextome Android SDK Cover](../../sdk/res/cover.png)
 
