@@ -2,6 +2,7 @@
 layout: default
 title: Customization
 nav_order: 1
+has_children: true
 ---
 
 # Welcome to Nextome Documentation
