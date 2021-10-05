@@ -1,6 +1,5 @@
 title: "Nextome SDK Documentation"
 remote_theme: pmarsceill/just-the-docs
-color_scheme: "dark"
 logo: "sdk/res/logo.png"
 aux_links:
   "Nextome Website":
