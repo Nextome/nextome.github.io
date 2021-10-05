@@ -7,12 +7,23 @@
   allprojects {
     repositories {
       ...
-      maven { url "http://production.nextome.net:8082/artifactory/libs-release-local" }
+      maven {
+          url "https://nextome.jfrog.io/artifactory/nextome-libs-release-local"
+  
+          credentials {
+              username = $USERNAME
+              password = $PASSWORD
+          }
+      }
+      
       maven { url 'https://jitpack.io' }
     }
   }
 ```
 
+Contact Nextome to receive a valid username/password to access our repository.
+<br>
+<br>
 
 2. Add SDK dependency in app's build.gradle:
 
