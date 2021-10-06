@@ -47,7 +47,7 @@ To integrate PhoenixSdk into your Xcode project using CocoaPods, open your termi
 
 machine nextome.jfrog.io
 login <USERNAME>
-password <PASSWORD>
+password <ENCRYPTED-PASSWORD>
 
 than close and save 
 
