@@ -68,7 +68,6 @@ plugin 'cocoapods-art', :sources => [
 
   pod "PhoenixSdk", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
   pod "NextomeLegacy", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
-  
 ```
 
 Then, into general tab, add this capabilities:
@@ -111,8 +110,10 @@ PhoenixSdk is currently design with public async observer
 
 ### Getting Started
 
-1. Create Nextome.plist file and insert it, into your main's app Target -> (You can see here: [Nextome.plist](https://github.com/Nextome/POD-Nextome-Sdk/blob/master/README/Nextome.plist))
-Insert bundle data and you can adjust settings* for sdk.
+1. Download Nextome.plist file and insert it, into your main's app Target -> (You can download it from here: [Nextome.plist](https://github.com/Nextome/POD-Nextome-Sdk/blob/master/README/Nextome.plist)).
+- Insert auth access keys
+- Insert bundle data and you can adjust settings* for sdk.
+
 **Settings Detail**
 
  | Setting | Detail |
