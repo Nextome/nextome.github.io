@@ -54,6 +54,11 @@ password <ENCRYPTED-PASSWORD>
 than close and save 
 
 3) pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-cocoapods-local"
+
+If you get an error of this type: "Permission bits, should be 0600, but are 644"
+Run this command: 
+
+chmod 0600 .netrc
 ```
 
 Open your Podfile and add these lines:
