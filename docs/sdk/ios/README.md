@@ -58,7 +58,7 @@ than close and save
 If you get an error of this type: "Permission bits, should be 0600, but are 644"
 Run this command: 
 
-chmod 0600 .netrc
+chmod 0600 ~/.netrc
 ```
 
 Open your Podfile and add these lines:
