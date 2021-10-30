@@ -43,7 +43,7 @@ To integrate PhoenixSdk into your Xcode project using CocoaPods, open your termi
 
 1) gem install cocoapods-art
 
-2) nano .netrc
+2) nano ~/.netrc
 
 3) paste this in you .netrc file
 
