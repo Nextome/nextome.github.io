@@ -475,6 +475,14 @@ Easily show flutter_map module with current venue (localized place) data
 ## Example
 You can clone this repository and explore our complete Example project, to see how to manage all Sdk's data.
 
+#Common issues
+## Redefinition of Module Minizip
+If swift compiler report an error about redefenition of Module Minizip, you can fix in this way:
+1) Click on "Previously defined here" gray text
+2) Xcode will open a tab called module with some code
+3) Delete all code and rebuild the project
+
+
 ## App Distribution
 If you have problem with app export from xcode or AppStore distribution, follow this steps:
 
