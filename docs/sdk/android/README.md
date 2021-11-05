@@ -94,18 +94,20 @@ nextomeSdk = NextomePhoenixSdk().Builder(applicationContext)
 Other **optional** parameters are also available. Here's a list of the customization available and a short description of them.
 
 ### Scanner parameters
-
-You can optionally customize scan period and scan duration.
-
 > The longer you wait between scans, the longer it will take to detect a beacon. And the more reduce the length of the scan, the more likely it is that you might miss an advertisement from an beacon.
-___
+
+
+You can optionally customize scan period and scan duration:
+
 ```kotlin
 .withForegroundScanPeriod(scanPeriod)`
 ```
 
 sets a time in millis for the bluetooth beacon scan duration when in foreground mode.
 > Default value is `1000 ms`
+
 ___
+
 ```kotlin
 .withForegroundBetweenScanPeriod(betweenScanPeriod)`
 ```
@@ -113,7 +115,9 @@ ___
 sets a time in millis to wait between bluetooth scans when in foreground mode.
 
 > Default value is `250 ms`.
+
 ___
+
 ```kotlin
 .withBackgroundScanPeriod(scanPeriod)`
 ```
@@ -121,7 +125,9 @@ ___
 sets a time in millis for the bluetooth beacon scan duration when in backgorund mode.
 
 > Default value is `1000 ms`
+
 ___
+
 ```kotlin
 .withBackgroundBetweenScanPeriod(betweenScanPeriod)`
 ```
@@ -129,7 +135,9 @@ ___
 sets a time in millis to wait between bluetooth scans when in background mode.
 
 > Default value is `250 ms`.
+
 ___
+
 ### Other optional parameters
 ```kotlin
 .withRssiThreshold(rssiThreshold)`
@@ -137,7 +145,9 @@ ___
 
 ignore beacons below a custom RSSI threshold.
 > Default value is `-75`.
+
 ___
+
 ```kotlin
 .withBeaconListMaxSize(n)`
 ```
@@ -145,7 +155,9 @@ ___
 keeps in memory a cache of `n` RSSI entries in time for each beacon to more accurately compute user position.
 
 > Default value is `12`
+
 ___
+
 ```kotlin
 .withLocalizationMethod(localizationMethod)`
 ```
@@ -155,6 +167,7 @@ Sets the algorithm for localization. Choises are `LINEAR_SVD, NON_LINEAR_DA, PAR
 > Default value is `LINEAR_SVD`
 
 ___
+
 ```kotlin
 .withForcedVenue(venueId)
 ```
@@ -162,7 +175,9 @@ ___
 This allows you to skip the search for venue phase and automatically download resurces of a specific venue when Nextome starts.
 
 > With this, you can force your app to open only your venue and download venue resurces even if you're not in range of your venue beacons.
+
 ___
+
 ```kotlin
 .withSendPositionToServer(enabled)
 ```
@@ -211,7 +226,7 @@ It's possibile to observe the current state the Nextome SDK, in the localization
 You can use this data to start initializing the map or showing messages to the users and update your UI accordingly.
 
 ```kotlin
-nextomeSdk.currentState.asLiveData().observe()
+nextomeSdk.stateLiveData.observe()
 ```
 
 The exposed information are:
@@ -219,8 +234,7 @@ The exposed information are:
 - `tiles`: local path on device of map tiles. You can use this info to initialize a map (for example, our Flutter map) to show the map to the user;
 - `mapHeight`: the height in pixel of the currentmap;
 - `mapWidth`: the width in pixel of the current map;
-- `poisOfMap`: Points of interest on the current floor;
-- `allPois`: Point of interests of all maps;
+- `venueResources`: resources associated with the venue (list of maps, pois, events...);
 - `state` Nextome SDK state.
 
 ### Nextome SDK State
@@ -233,14 +247,38 @@ Nextome State is a simple state machine that can have those states:
 - `RUNNING`: Nextome SDK is computing user positions. You can observe live user location using the observer nextomeSdk.locationLiveData;
 
 Notes:
-- Map `tiles`, `poisOfMap`, `pois`, `height` and `width` are only available in the `RUNNING` state (when Nextome has recognized or has been forced the venue and the map where the user is);
+- Map `tiles`, `venueResources`, `height` and `width` are only available in the `RUNNING` state (when Nextome has recognized or has been forced the venue and the map where the user is); Otherwhise, they return **null**.
 - If the user **changes floor**, the SDK will resume from `FIND_FLOOR` state.
 - If the user goes **outdoor**, the SDK will switch to `SEARCH_VENUE` state until a new indoor beacon is detected.
+
+### Get venue resources
+You can optionally ask the SDK for the local resources downloaded with your venue (those resources include maps, pois, beacons events...).
+There are two ways of doing this.
+
+In the state observer:
+```kotlin
+    nextomeSdk.stateLiveData.observe(this, {
+        when (it.state) {
+            NextomePhoenixState.RUNNING -> {
+                val poiList = it.venueResources.allPois
+                val poiOfTheCurrentFloor = it.venueResources.getPoisByMapId(it.mapId)
+                val mapsInTheVenue = it.venueResources.maps
+            }
+            else -> { }
+        }
+    })
+```
+
+as a single method call:
+```kotlin
+    val resources = nextomeSdk.state.venueResources
+```
+*Note that you can only retreive resources when Nextome SDK State is `RUNNING`. Otherwhise, `nextomeSdk.state.valueResources` will return a null object.*
 
 
 #### Example
 ```kotlin
-nextomeSdk.currentState.asLiveData().observe(this, {
+nextomeSdk.stateLiveData.observe(this, {
     if (it.isOutdoor) {
         showOpenStreetMap()
     } else {
@@ -264,7 +302,7 @@ nextomeSdk.currentState.asLiveData().observe(this, {
             updateState("Loading map...")
 
             with(it) {
-                setIndoorMap(mapTilesUrl, mapHeight, mapWidth, poisOfMap)
+                setIndoorMap(mapTilesUrl, mapHeight, mapWidth, venueResources.getPoisByMapId(mapId))
             }
         }
     }
@@ -300,20 +338,19 @@ nextomeSdk.setLiveMap()
 
 #### Example
 ```kotiln
-nextomeSdk.currentState.asLiveData().observe(this, {
+// Force map 42
+nextomeSdk.setForcedMap(42)
+
+nextomeSdk.stateLiveData.observe(this, {
     when (it.state) {
         NextomePhoenixState.RUNNING -> {
             with(it) {
                 // After forcing the map, here you can pick tiles, height and width of map 42.
-
-                setIndoorMap(mapTilesUrl, mapHeight, mapWidth)
+                setIndoorMap(mapTilesUrl, mapHeight, mapWidth, venueResources.getPoisByMapId(mapId))
             }
         }
     }
 })
-
-// Force map 42
-nextomeSdk.setForcedMap(42)
 ```
 
 ## Calcualte path
