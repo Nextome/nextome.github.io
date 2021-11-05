@@ -9,7 +9,7 @@ nav_order: 2
 
 ## 0.3.0
 ### Features
-* Add methods to get venue resources;
+* Add method to get venue resources;
 
 In observer:
 ```kotlin
