@@ -385,11 +385,13 @@ Stop Sdk
 ```
 ### Venue data (Flutter Utils)
 Get current venue package data to easily send it, to flutter engine
+Please note: this method returns data only if sdk state is Running
 ```swift
  sdk?.getVenueData() -> String?
 ```
 ### POI (Flutter Utils)
 Get current venue POI data to easily send it, to flutter engine
+Please note: this method returns data only if sdk state is Running
 ```swift
  sdk?.getPOIData() -> String?
 ```
@@ -407,6 +409,12 @@ Keep Attention: if you force mapId during localization, sdk locks forced map and
 To restore map's switch, according to user position
 ```swift
  sdk?.setLiveMap()
+```
+### Venue Resources (Sdk v. >= 1.3.1)
+Get resource bundle data, containing all Venue's Pois and Maps.
+Please note: this method returns data only if sdk state is Running
+```swift
+ sdk?.getVenueResources() -> VenueResources?
 ```
 
 ### Way Finding 
