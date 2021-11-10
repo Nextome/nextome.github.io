@@ -11,7 +11,7 @@ nav_order: 3
 * Minor Fix
 * New Method getVenueResource
 
-[Read Here](https://docs.nextome.dev/sdk/ios/CHANGELOG.html#131)
+[Read Here](https://docs.nextome.dev/sdk/ios/README.html#venue-resources-sdk-v--131)
 
 
 
