@@ -6,6 +6,43 @@ nav_order: 2
 ---
 
 # Phoenix Andorid SDK Changelog
+
+## 0.3.0
+### Features
+* Add method to get venue resources;
+
+In observer:
+```kotlin
+    nextomeSdk.stateLiveData.observe(this, {
+        when (it.state) {
+            NextomePhoenixState.RUNNING -> {
+                val poiList = it.venueResources.allPois
+                val poiOfTheCurrentFloor = it.venueResources.getPoisByMapId(it.mapId)
+                val mapsInTheVenue = it.venueResources.maps
+            }
+            else -> { }
+        }
+    })
+```
+
+As a single method call:
+```kotlin
+    val resources = nextomeSdk.state.venueResources
+```
+
+*Note that you can only retreive resources when Nextome SDK State is RUNNING. Otherwhise, `nextomeSdk.state.valueResources` will return a null object.*
+
+ * Add method to get current sdk state;
+```kotlin
+    val currentState = nextomeSdk.state 
+```
+
+### Deprecated methods
+* `nextomeSdk.currentState.asLiveData()` is now deprecated. Use `nextomeSdk.stateLiveData` instead;
+* `state.poisOfMap` is now deprecated. Use `state.venueResources.getPoisByMapId(mapId)` instead;
+* `state.allPois` is now deprecated. Use `state.venueResources.getAllPois()` instead;
+
+
 ## 0.2.8
 * Add method to send locations to server:
  ```kotlin
