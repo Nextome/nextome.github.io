@@ -83,12 +83,13 @@ Those are required to:
 ## SDK Builder
 To use Nextome SDK for Android, a builder is available with some options you can customize.
 
-The basic configuration only needs your application `context`, the given `developer key` and the `secret`.
+The basic configuration only needs your application `context`, the given `developer key`, the `secret` and `bundle`.
 
 ```kotlin
 nextomeSdk = NextomePhoenixSdk().Builder(applicationContext)
                 .withSecret(secret)
                 .withDeveloperKey(developerKey)
+                .withBundle(bundle)
                 .build()
 ```
 Other **optional** parameters are also available. Here's a list of the customization available and a short description of them.
