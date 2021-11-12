@@ -7,6 +7,11 @@ nav_order: 2
 
 # Phoenix Andorid SDK Changelog
 
+## 0.3.1
+### Bug fixing
+* Fix bug when the correct bundle was not injected in request headers correctly;
+* Throw descriptive exception when developer key, secret or bundle are not added to SDK;
+
 ## 0.3.0
 ### Features
 * Add method to get venue resources;
