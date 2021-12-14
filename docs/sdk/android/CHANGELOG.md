@@ -6,6 +6,28 @@ nav_order: 2
 ---
 
 # Phoenix Andorid SDK Changelog
+## 0.4.0
+### Features
+* Add support for events;
+
+You can observe onEnter and onExit from event radius on map using those two observers:
+```kotlin
+    nextomeSdk.enterEventObservable.observe(this) { event ->
+        Log.d("event_test", "Received on enter with data: ${event.data}")
+    }
+
+    nextomeSdk.exitEventObservable.observe(this) { event ->
+        Log.d("event_test", "Received on exit with data: ${event.data}")
+    }
+```
+
+
+Optionally, after exiting from event, it's possible to set a timeout value in seconds before signaling that event again.
+If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
+```kotlin
+    nextomeSdk = NextomePhoenixSdk().Builder(applicationContext)
+        .withEventTimeoutDurationInSeconds(10L)
+```
 
 ## 0.3.1
 ### Bug fixing
