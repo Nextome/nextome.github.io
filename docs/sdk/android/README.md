@@ -187,6 +187,18 @@ This allows you to automatically send positions to Nextome server and track moni
 
 > Default value is `false`
 
+___
+
+```kotlin
+.withEventTimeoutDurationInSeconds(0L)
+```
+
+This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.
+
+> Default value is `0 seconds` (realtime).
+
+___
+
 ## Start localization
 To start localization, call:
 
@@ -366,6 +378,30 @@ val path = nextomeSdk.findPath(
 ```
 
 The returned path is a list of ordered Vertex, that, for example, can be passed to the Flutter Map Module and displayed to the user (see the methods writtenbelow).
+
+## Observe events (> 0.4.0)
+If events are set up in your venue, you can observe when user enters or exits from event radius using those two observers:
+```kotlin
+    nextomeSdk.enterEventObservable.observe(this) { event ->
+        Log.d("event_test", "Received on enter with data: ${event.data}")
+    }
+
+    nextomeSdk.exitEventObservable.observe(this) { event ->
+        Log.d("event_test", "Received on exit with data: ${event.data}")
+    }
+```
+
+
+Optionally, after exiting from event, it's possible to set a timeout value in seconds before signaling that event again.
+
+This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.
+
+If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
+
+```kotlin
+    nextomeSdk = NextomePhoenixSdk().Builder(applicationContext)
+        .withEventTimeoutDurationInSeconds(10L)
+```
 
 ## Flutter Map Module
 If you want, there's an optional module build with Flutter that can show a live map of the indoor location of the user.
