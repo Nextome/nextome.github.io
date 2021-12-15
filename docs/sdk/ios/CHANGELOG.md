@@ -13,6 +13,23 @@ Please note: in order to update to a new version, write these command:
 
 # Phoenix iOS SDK Changelog
 
+## 1.4.0
+* Add support for events
+
+You can observe onEnter and onExit from event radius on map using those two observers:
+```swift
+
+NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveEventEnter(_:)), name: NSNotification.Name(rawValue: "EVENT_ENTER_STREAM"), object: nil)
+NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveEventExit(_:)), name: NSNotification.Name(rawValue: "EVENT_EXIT_STREAM"), object: nil)
+        
+```
+Optionally, after exiting from event, it's possible to set a timeout value in seconds before signaling that event again.
+If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
+
+```swift
+   self.sdk = NextomeSdk(eventTimeout: 10)
+```
+
 ## 1.3.2
 * getVersion()
 
