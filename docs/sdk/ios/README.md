@@ -2,7 +2,7 @@
 layout: default
 title: iOS Integration
 has_children: true
-nav_order: 2
+nav_order: 3
 ---
 
 # iOS Integration Guide
@@ -148,7 +148,7 @@ You can modify these settings, easily calling NextomeSdk, public interface:
 
  After didFinishLaunchingWithOptions
  ```swift
- self.sdk = NextomeSdk(device: String? = nil, logTimer: Int? = nil, venueId: Int? = nil, floorId: Int? = nil)
+ self.sdk = NextomeSdk(device: String? = nil, logTimer: Int? = nil, venueId: Int? = nil, floorId: Int? = nil, eventTimeout: Int? = nil)
  ```
  
  | Optional override parameter | Detail |
@@ -157,6 +157,7 @@ You can modify these settings, easily calling NextomeSdk, public interface:
  | logTimer | Customize send log to Nextome server timer |
  | venueId | Ovveride venue id and skipping localization |
  | floorId | Ovveride current map   |
+ | eventTimeout | Event Trigger delay |
 
 
  ## Notice
@@ -248,7 +249,11 @@ Open your ***Main View Controller*** and into viewDidLoad, attach to main's obse
 //position observer
 NotificationCenter.default.addObserver(self, selector: #selector(onDidReceivePosition(_:)), name: NSNotification.Name(rawValue: "POSITION_STREAM"), object: nil)
 
-//position observer
+//event observer
+NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveEventEnter(_:)), name: NSNotification.Name(rawValue: "EVENT_ENTER_STREAM"), object: nil)
+NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveEventExit(_:)), name: NSNotification.Name(rawValue: "EVENT_EXIT_STREAM"), object: nil)
+
+//floor observer
 NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveFloorChange(_:)), name: NSNotification.Name(rawValue: "FLOOR_CHANGE"), object: nil)
 
 //path observer
@@ -286,6 +291,30 @@ Prepares for use, onDidReceive functions, to manage Sdk data.
  //send to flutter engine, new position's data
  self.mapChannel.invokeMethod("position", arguments: x + "," + y)
 
+}
+```
+
+### onDidReceiveEventEnter
+
+```swift
+@objc func onDidReceiveEventEnter(_ notification: Notification){
+
+ //receive event
+ let eventData = notification.userInfo as? [String : NextomeEvent]
+ let enterEvent = eventData!["eventData"]!
+        
+}
+```
+
+### onDidReceiveEventExit
+
+```swift
+@objc func onDidReceiveEventExit(_ notification: Notification){
+
+ //receive event
+ let eventData = notification.userInfo as? [String : NextomeEvent]
+ let exitEvent = eventData!["eventData"]!
+        
 }
 ```
 
