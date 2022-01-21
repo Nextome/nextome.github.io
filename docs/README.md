@@ -8,3 +8,6 @@
 
 ## iOS Resources
 [iOS Docs](sdk/ios/README.md) | [Changelog](sdk/ios/CHANGELOG.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
+
+## Flutter Map View Resources
+[Changelog](flutter-map/CHANGELOG.md)
