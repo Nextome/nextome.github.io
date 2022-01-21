@@ -55,7 +55,7 @@ If you plan to display a live map to the user, add our Flutter MapView plugin:
 
 2. Add SDK dependency in app's build.gradle:
 ```gradle
-    implementation('net.nextome.nextome_map_module:flutter_release:1.1.0')
+    implementation('net.nextome.nextome_map_module:flutter_release:1.2.0')
 ```
 
 # Getting started
@@ -379,7 +379,9 @@ val path = nextomeSdk.findPath(
 
 The returned path is a list of ordered Vertex, that, for example, can be passed to the Flutter Map Module and displayed to the user (see the methods writtenbelow).
 
-## Observe events (> 0.4.0)
+## Observe events
+*Available from nexome-sdk > 0.4.0*
+
 If events are set up in your venue, you can observe when user enters or exits from event radius using those two observers:
 ```kotlin
     nextomeSdk.enterEventObservable.observe(this) { event ->
@@ -510,6 +512,53 @@ private fun observeMapEvents() {
         }
     }
 }
+```
+
+### Show Center Position Fab
+*Available from flutter-map > 1.2.0*
+
+It's possible to show an optional fab at the bottom right of the map. When clicked, the button will:
+ * center the map on the user position;
+ * follow the user position live on map;
+ * rotate the map based on user compass;
+
+To enable the button, use:
+```kotlin
+channel.invokeMethod("showCenterPositionFab", "true")
+```
+
+or, if you have imported our [Flutter Utils](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt):
+
+```kotlin
+  FlutterUtils.setMapViewSettings(channel, 
+    fabEnabled = true
+  )
+```
+
+*Please note*
+
+The compass feature will only work if the app has the following permissions:
+* android.permission.INTERNET
+* android.permission.ACCESS_COARSE_LOCATION
+* android.permission.ACCESS_FINE_LOCATION
+
+If those permissions are not denied, the navigation button will only follow user position without rotating.
+
+### Change user position icon
+*Available from flutter-map > 1.2.0*
+
+The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.
+
+```kotlin
+  channel.invokeMethod("customPositionResourceUrl", "http://nextome.net/position-icon.png")
+```
+
+or, if you're imported our [Flutter Utils](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt):
+
+```kotlin
+  FlutterUtils.setMapViewSettings(channel,
+      customPositionResourceUrl = "http://nextome.net/position-icon.png"
+  )
 ```
 
 ## Debug tools
