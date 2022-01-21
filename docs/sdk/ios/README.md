@@ -188,6 +188,7 @@ pod "path_provider_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nexto
 
 pod "sqflite_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz'
 
+	pod "compass_{TYPE}", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz', :type => 'tgz'
 ```
  
  
