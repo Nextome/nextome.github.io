@@ -508,6 +508,20 @@ Easily show flutter_map module with current venue (localized place) data
     }
  }
 ```
+# Customization
+## Show Center Position Fab
+Show FAB on Map to enable custom camera feature to live follow user position
+
+```swift
+mapChannel.invokeMethod("showCenterPositionFab", arguments: "true")
+```
+
+## Override user position icon
+Change user position custom icon
+```swift
+mapChannel.invokeMethod("customPositionResourceUrl", arguments: "URL Png")
+```
+
 
 ## Example
 You can clone this repository and explore our complete Example project, to see how to manage all Sdk's data.
