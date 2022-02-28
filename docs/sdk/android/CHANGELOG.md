@@ -6,6 +6,10 @@ nav_order: 2
 ---
 
 # Phoenix Andorid SDK Changelog
+## 0.4.1
+### Bugfix
+ * Fix issue with timestamps when sending live positions;
+
 ## 0.4.0
 ### Features
 * Add support for events;
