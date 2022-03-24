@@ -13,6 +13,9 @@ Please note: in order to update to a new version, write these command:
 
 # Phoenix iOS SDK Changelog
 
+## 1.4.3
+* Add support for XCode 13.3;
+
 ## 1.4.0
 * Add support for events
 
