@@ -1,0 +1,1770 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../material/library">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>iOS Integration - Nextome Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="youtube" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nextome-ios-sdk-integration-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Nextome Documentation" class="md-header__button md-logo" aria-label="Nextome Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nextome Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              iOS Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Nextome Documentation" class="md-nav__button md-logo" aria-label="Nextome Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo-white.svg" alt="logo">
+
+    </a>
+    Nextome Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Flutter Map
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Flutter Map" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Flutter Map
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Flutter%20Map/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Nextome SDK
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nextome SDK" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Nextome SDK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Android
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Android" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Android
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Android/Integration/" class="md-nav__link">
+        Android Integration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Android/changelog/" class="md-nav__link">
+        Android Changelog
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="iOS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          iOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          iOS Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        iOS Integration
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-install" class="md-nav__link">
+    How to install
+  </a>
+  
+    <nav class="md-nav" aria-label="How to install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cocoapods" class="md-nav__link">
+    Cocoapods
+  </a>
+  
+    <nav class="md-nav" aria-label="Cocoapods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-testing" class="md-nav__link">
+    Map testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    How it works
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-1-user-position" class="md-nav__link">
+    Bonus 1: User Position
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-2-customize-flutter-map" class="md-nav__link">
+    Bonus 2: Customize flutter map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observers" class="md-nav__link">
+    Observers
+  </a>
+  
+    <nav class="md-nav" aria-label="Observers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveposition" class="md-nav__link">
+    onDidReceivePosition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveevententer" class="md-nav__link">
+    onDidReceiveEventEnter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveeventexit" class="md-nav__link">
+    onDidReceiveEventExit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceivepath" class="md-nav__link">
+    onDidReceivePath
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveoutdoor" class="md-nav__link">
+    onDidReceiveOutdoor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceivefloorchange" class="md-nav__link">
+    onDidReceiveFloorChange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveerror" class="md-nav__link">
+    onDidReceiveError
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceivelogs" class="md-nav__link">
+    onDidReceiveLogs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onrefreshpoicomplete" class="md-nav__link">
+    onRefreshPoiComplete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk-public-methods" class="md-nav__link">
+    Sdk Public Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Sdk Public Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    Start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    Stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#venue-data-flutter-utils" class="md-nav__link">
+    Venue data (Flutter Utils)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poi-flutter-utils" class="md-nav__link">
+    POI (Flutter Utils)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-poi-flutter-utils" class="md-nav__link">
+    Refresh POI (Flutter Utils)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-map" class="md-nav__link">
+    Refresh Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#venue-resources-sdk-v-131" class="md-nav__link">
+    Venue Resources (Sdk v. &gt;= 1.3.1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#way-finding" class="md-nav__link">
+    Way Finding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    Position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    Report
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flutter-map" class="md-nav__link">
+    Flutter Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Flutter Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    Customization
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-center-position-fab" class="md-nav__link">
+    Show Center Position Fab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-user-position-icon" class="md-nav__link">
+    Override user position icon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    Common issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Common issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redefinition-of-module-minizip" class="md-nav__link">
+    Redefinition of Module Minizip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-distribution" class="md-nav__link">
+    App Distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-with-us" class="md-nav__link">
+    Connect with us
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2changelog/" class="md-nav__link">
+        iOS Changelog
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-install" class="md-nav__link">
+    How to install
+  </a>
+  
+    <nav class="md-nav" aria-label="How to install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cocoapods" class="md-nav__link">
+    Cocoapods
+  </a>
+  
+    <nav class="md-nav" aria-label="Cocoapods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-testing" class="md-nav__link">
+    Map testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    How it works
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-1-user-position" class="md-nav__link">
+    Bonus 1: User Position
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-2-customize-flutter-map" class="md-nav__link">
+    Bonus 2: Customize flutter map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observers" class="md-nav__link">
+    Observers
+  </a>
+  
+    <nav class="md-nav" aria-label="Observers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveposition" class="md-nav__link">
+    onDidReceivePosition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveevententer" class="md-nav__link">
+    onDidReceiveEventEnter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveeventexit" class="md-nav__link">
+    onDidReceiveEventExit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceivepath" class="md-nav__link">
+    onDidReceivePath
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveoutdoor" class="md-nav__link">
+    onDidReceiveOutdoor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceivefloorchange" class="md-nav__link">
+    onDidReceiveFloorChange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceiveerror" class="md-nav__link">
+    onDidReceiveError
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondidreceivelogs" class="md-nav__link">
+    onDidReceiveLogs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onrefreshpoicomplete" class="md-nav__link">
+    onRefreshPoiComplete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk-public-methods" class="md-nav__link">
+    Sdk Public Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Sdk Public Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    Start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    Stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#venue-data-flutter-utils" class="md-nav__link">
+    Venue data (Flutter Utils)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poi-flutter-utils" class="md-nav__link">
+    POI (Flutter Utils)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-poi-flutter-utils" class="md-nav__link">
+    Refresh POI (Flutter Utils)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-map" class="md-nav__link">
+    Refresh Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#venue-resources-sdk-v-131" class="md-nav__link">
+    Venue Resources (Sdk v. &gt;= 1.3.1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#way-finding" class="md-nav__link">
+    Way Finding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    Position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    Report
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flutter-map" class="md-nav__link">
+    Flutter Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Flutter Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    Customization
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-center-position-fab" class="md-nav__link">
+    Show Center Position Fab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-user-position-icon" class="md-nav__link">
+    Override user position icon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    Common issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Common issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redefinition-of-module-minizip" class="md-nav__link">
+    Redefinition of Module Minizip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-distribution" class="md-nav__link">
+    App Distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-with-us" class="md-nav__link">
+    Connect with us
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="nextome-ios-sdk-integration-guide">Nextome iOS SDK - Integration Guide</h1>
+<div class="admonition warning">
+<p class="admonition-title">Requirements</p>
+<ul>
+<li>Swift 5</li>
+<li>iOS 13.2</li>
+<li>xcode 13.3</li>
+</ul>
+</div>
+<h2 id="how-to-install">How to install</h2>
+<h3 id="cocoapods">Cocoapods</h3>
+<p><a href="https://guides.cocoapods.org/">CocoaPods</a> is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. 
+To integrate PhoenixSdk into your Xcode project using CocoaPods, open your terminal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">(</span><span class="k">in</span> your home directory<span class="o">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="m">1</span><span class="o">)</span> gem install cocoapods-art
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="m">2</span><span class="o">)</span> nano ~/.netrc
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="m">3</span><span class="o">)</span> paste this <span class="k">in</span> you .netrc file
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>machine nextome.jfrog.io
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>login &lt;USERNAME&gt;
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>password &lt;ENCRYPTED-PASSWORD&gt;
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>than close and save 
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="m">3</span><span class="o">)</span> pod repo-art add nextome-cocoapods-local <span class="s2">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-cocoapods-local&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>If you get an error of this type: <span class="s2">&quot;Permission bits, should be 0600, but are 644&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>Run this command: 
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>chmod <span class="m">0600</span> ~/.netrc
+</code></pre></div>
+<p>Open your Podfile and add these lines:</p>
+<p>After add this pod: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>platform :ios, &#39;13.0&#39;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>source &#39;https://github.com/CocoaPods/Specs.git&#39;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>plugin &#39;cocoapods-art&#39;, :sources =&gt; [
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  &#39;nextome-cocoapods-local&#39;
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>]
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  pod &quot;PhoenixSdk&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  pod &quot;NextomeLegacy&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+</code></pre></div></p>
+<p>Then, into general tab, add this capabilities:</p>
+<p><strong><em>Background Modes</em></strong></p>
+<ul>
+<li>Uses Bluetooth LE accessories</li>
+<li>Location Updates</li>
+</ul>
+<p>Finally, add this line to your <code>Info.plist</code></p>
+<ul>
+<li>Privacy - Location Always and When In Use Usage Description</li>
+<li>Privacy - Location Always Usage Description</li>
+<li>Privacy - Location When In Use Usage Description</li>
+</ul>
+<h4 id="map-testing">Map testing</h4>
+<p>If you want only to test map, you can use x86 framework version.
+Remove previous integration lines and replace with these, into your podfile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>  pod &quot;PhoenixSdk_x86&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  pod &quot;NextomeLegacy_x86&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ol>
+<li>
+<p>Into iOS simulator, init Nextome Sdk with override mode; specifying venue and map (you will read more details as you go along), because Simulator doesn't support Bluetooth.</p>
+</li>
+<li>
+<p>Replace x86 pod with arm64 before send to store, because Apple rejects all type of project which contains third party library that integrates simulator architecture.</p>
+</li>
+</ol>
+</div>
+<h2 id="how-it-works">How it works</h2>
+<p>PhoenixSdk is currently design with public async observer</p>
+<table>
+<thead>
+<tr>
+<th>Info</th>
+<th>Observer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User position</td>
+<td>POSITION_STREAM</td>
+</tr>
+<tr>
+<td>Floor change</td>
+<td>FLOOR_CHANGE</td>
+</tr>
+<tr>
+<td>Indoor/outdoor switch</td>
+<td>OUTDOOR_STREAM</td>
+</tr>
+<tr>
+<td>General Log</td>
+<td>LOG_WRITER</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>ERROR</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getting-started">Getting Started</h2>
+<ol>
+<li>Download Nextome.plist file and insert it, into your main's app Target -&gt; (You can download it from here: <a href="https://github.com/Nextome/POD-Nextome-Sdk/blob/master/README/Nextome.plist">Nextome.plist</a>).</li>
+<li>Insert auth access keys</li>
+<li>Insert bundle data and you can adjust settings* for sdk.</li>
+</ol>
+<p><strong>Settings Detail</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Particle Engine</td>
+<td>Correction of user position trajectory</td>
+</tr>
+<tr>
+<td>Position Log</td>
+<td>Send last calculate user position to Nextome server, to improve sdk</td>
+</tr>
+<tr>
+<td>Mode</td>
+<td>"BLE" localize user venue through beacon monitoring.</td>
+</tr>
+<tr>
+<td></td>
+<td>"GPS" localize user venue through gps</td>
+</tr>
+<tr>
+<td>Binaries</td>
+<td>-Not implemented yet-</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can modify these settings, easily calling NextomeSdk, public interface:</p>
+<ul>
+<li><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sdkMode = &quot;GPS&quot; or &quot;BLE&quot;
+</code></pre></div></li>
+<li><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>enableParticleEngine = true/false
+</code></pre></div></li>
+<li><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>enableSendLog = true/false
+</code></pre></div></li>
+<li><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>enableBinaries = true/false
+</code></pre></div></li>
+</ul>
+</div>
+<ol>
+<li>
+<p>Import the Sdk, into your <strong><em>AppDelegate</em></strong>
+ <div class="highlight"><span class="filename">AppDelegate</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">import</span> <span class="nc">PhoenixSdk</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">@</span><span class="n">main</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">class</span> <span class="nc">AppDelegate</span><span class="p">:</span> <span class="bp">UIResponder</span><span class="p">,</span> <span class="bp">UIApplicationDelegate</span> <span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   <span class="kd">var</span> <span class="nv">sdk</span><span class="p">:</span> <span class="n">NextomeSdk</span><span class="p">?</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>   <span class="p">...</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Initialize the sdk into your <strong><em>AppDelegate</em></strong> after <code>didFinishLaunchingWithOptions</code>
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kc">self</span><span class="p">.</span><span class="n">sdk</span> <span class="p">=</span> <span class="n">NextomeSdk</span><span class="p">(</span><span class="n">device</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">logTimer</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">venueId</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">floorId</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">eventTimeout</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Optional override parameter</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>device</td>
+<td>Set custom device data</td>
+</tr>
+<tr>
+<td>logTimer</td>
+<td>Customize send log to Nextome server timer</td>
+</tr>
+<tr>
+<td>venueId</td>
+<td>Ovveride venue id and skipping localization</td>
+</tr>
+<tr>
+<td>floorId</td>
+<td>Ovveride current map</td>
+</tr>
+<tr>
+<td>eventTimeout</td>
+<td>Event Trigger delay</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you specificy VenueId and FloorId, Sdk localization's feature will turn off.
+NextomeSdk will only download maps and display theme.</p>
+<p>Otherwise, if you want to init NextomeSdk with localization enabled; without customizations, you can easily do this:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kc">self</span><span class="p">.</span><span class="n">sdk</span> <span class="p">=</span> <span class="n">NextomeSdk</span><span class="p">()</span>
+</code></pre></div></p>
+</div>
+<h2 id="bonus-1-user-position">Bonus 1: User Position</h2>
+<p>If you need to show, user position on virtual map, follow this step to integrate compiled flutter framework into your project. Add these lines to your PodFile.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Chose configuration TYPE = debug/release</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pod &quot;App_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>pod &quot;Flutter_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>pod &quot;FlutterPluginRegistrant_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>pod &quot;FMDB_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39; 
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>pod &quot;path_provider_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39;
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>pod &quot;sqflite_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39;
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    pod &quot;compass_{TYPE}&quot;, :http =&gt; &#39;https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/flutter-map.tar.gz&#39;, :type =&gt; &#39;tgz&#39;
+</code></pre></div>
+<h2 id="bonus-2-customize-flutter-map">Bonus 2: Customize flutter map</h2>
+<p>By default, Sdk use <em>Compiled</em> Nextome Flutter Map cross-plattform module, developed to display user position and indoor map.
+If you want to customize it, with different features or design, follow this step to integrate, Nextome Flutter Map Source files.</p>
+<ol>
+<li>
+<p>Configure Flutter Sdk and prepare Android Studio with flutter plugins
+ <a href="https://flutter.dev/docs/get-started/install">Flutter Get Started</a></p>
+</li>
+<li>
+<p>Clone into your main project's folder, Nextome Flutter Map respository
+ <a href="https://github.com/Nextome/flutter_mapview">Repository</a></p>
+</li>
+<li>
+<p>Open flutter_mapview module with Android Studio and run it on iOS simulator.
+ After finish, you're now ready to integrate modules into iOS main App.</p>
+</li>
+<li>
+<p>Add to your PodFile
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>flutter_application_path = &#39;{path}/flutter_mapview&#39;
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>load File.join(flutter_application_path, &#39;.ios&#39;, &#39;Flutter&#39;, &#39;podhelper.rb&#39;)
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>install_all_flutter_pods(flutter_application_path)
+</code></pre></div>
+ Run pod install</p>
+</li>
+<li>
+<p>Into your <strong><em>AppDelegate</em></strong> import and init Flutter engine
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">import</span> <span class="nc">Flutter</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">import</span> <span class="nc">FlutterPluginRegistrant</span>
+</code></pre></div>
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">var</span> <span class="nv">flutterEngine</span> <span class="p">:</span> <span class="n">FlutterEngine</span><span class="p">?</span>
+</code></pre></div>
+ After didFinishLaunchingWithOptions
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kc">self</span><span class="p">.</span><span class="n">flutterEngine</span> <span class="p">=</span> <span class="n">FlutterEngine</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;io.flutter&quot;</span><span class="p">,</span> <span class="n">project</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kc">self</span><span class="p">.</span><span class="n">flutterEngine</span><span class="p">?.</span><span class="n">run</span><span class="p">(</span><span class="n">withEntrypoint</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">GeneratedPluginRegistrant</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="kc">self</span><span class="p">.</span><span class="n">flutterEngine</span><span class="p">!)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Into your <strong><em>Main View Controller</em></strong> prepare flutter channel, to connect iOS and Flutter Engine.
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">import</span> <span class="nc">Flutter</span>
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">var</span> <span class="nv">flutterViewController</span><span class="p">:</span> <span class="n">FlutterViewController</span><span class="p">?</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">var</span> <span class="nv">flutterEngine</span> <span class="p">=</span> <span class="p">(</span><span class="bp">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">delegate</span> <span class="k">as</span><span class="p">?</span> <span class="n">AppDelegate</span><span class="p">)?.</span><span class="n">flutterEngine</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kd">var</span> <span class="nv">mapChannel</span> <span class="p">=</span> <span class="n">FlutterMethodChannel</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">flutterViewController</span> <span class="p">=</span> <span class="n">FlutterViewController</span><span class="p">(</span><span class="n">engine</span><span class="p">:</span> <span class="n">flutterEngine</span><span class="p">!,</span> <span class="n">nibName</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kc">self</span><span class="p">.</span><span class="n">mapChannel</span> <span class="p">=</span> <span class="n">FlutterMethodChannel</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;net.nextome.phoenix&quot;</span><span class="p">,</span> <span class="n">binaryMessenger</span><span class="p">:</span> <span class="n">flutterViewController</span><span class="p">!.</span><span class="n">binaryMessenger</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="observers">Observers</h2>
+<p>Open your <strong><em>Main View Controller</em></strong> and into viewDidLoad, attach to main's observers</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">//position observer</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceivePosition</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;POSITION_STREAM&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1">//event observer</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceiveEventEnter</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;EVENT_ENTER_STREAM&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceiveEventExit</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;EVENT_EXIT_STREAM&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1">//floor observer</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceiveFloorChange</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;FLOOR_CHANGE&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1">//path observer</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceivePath</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;PATH_STREAM&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="c1">//outdoor observer</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceiveOutdoor</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;OUTDOOR_STREAM&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></div>
+<p>(optional)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">//log observer</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceiveLogs</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;LOG_WRITER&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1">//error observer</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onDidReceiveError</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;ERROR&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1">//Refresh Poi observer</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="k">#selector</span><span class="p">(</span><span class="n">onRefreshPoiComplete</span><span class="p">(</span><span class="kc">_</span><span class="p">:)),</span> <span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;REFRESHPOI_COMPLETE&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></div>
+Prepares for use, onDidReceive functions, to manage Sdk data.</p>
+<h3 id="ondidreceiveposition">onDidReceivePosition</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceivePosition</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a> <span class="c1">//receive position</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a> <span class="kd">let</span> <span class="nv">positionData</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]]</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a> <span class="c1">//get data</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a> <span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="n">positionData</span><span class="p">![</span><span class="s">&quot;positionData&quot;</span><span class="p">]</span><span class="o">!</span><span class="p">[</span><span class="s">&quot;x&quot;</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="nb">String</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a> <span class="kd">let</span> <span class="nv">y</span> <span class="p">=</span> <span class="n">positionData</span><span class="p">![</span><span class="s">&quot;positionData&quot;</span><span class="p">]</span><span class="o">!</span><span class="p">[</span><span class="s">&quot;y&quot;</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="nb">String</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a> <span class="kd">let</span> <span class="nv">floor</span> <span class="p">=</span> <span class="n">positionData</span><span class="p">![</span><span class="s">&quot;positionData&quot;</span><span class="p">]</span><span class="o">!</span><span class="p">[</span><span class="s">&quot;floor&quot;</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="nb">String</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a> <span class="c1">//send to flutter engine, new position&#39;s data</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a> <span class="kc">self</span><span class="p">.</span><span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="ondidreceiveevententer">onDidReceiveEventEnter</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceiveEventEnter</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a> <span class="c1">//receive event</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a> <span class="kd">let</span> <span class="nv">eventData</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="n">NextomeEvent</span><span class="p">]</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a> <span class="kd">let</span> <span class="nv">enterEvent</span> <span class="p">=</span> <span class="n">eventData</span><span class="p">![</span><span class="s">&quot;eventData&quot;</span><span class="p">]</span><span class="o">!</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="ondidreceiveeventexit">onDidReceiveEventExit</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceiveEventExit</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a> <span class="c1">//receive event</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a> <span class="kd">let</span> <span class="nv">eventData</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="n">NextomeEvent</span><span class="p">]</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a> <span class="kd">let</span> <span class="nv">exitEvent</span> <span class="p">=</span> <span class="n">eventData</span><span class="p">![</span><span class="s">&quot;eventData&quot;</span><span class="p">]</span><span class="o">!</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="ondidreceivepath">onDidReceivePath</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">//</span><span class="cs">MARK:</span><span class="c1"> MAP Path observer</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceivePath</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="c1">//receive path</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="kd">let</span> <span class="nv">pathData</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="nb">String</span><span class="p">]</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="k">if</span><span class="p">(</span><span class="n">pathData</span><span class="p">![</span><span class="s">&quot;pathData&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">){</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>        <span class="k">if</span><span class="p">(</span><span class="n">pathData</span><span class="p">![</span><span class="s">&quot;pathData&quot;</span><span class="p">]</span> <span class="p">==</span> <span class="s">&quot;[]&quot;</span><span class="p">){</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>            <span class="c1">//advise ui</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">contentView</span> <span class="p">=</span> <span class="n">PKHUDTextView</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="s">&quot;Shortest path not found. Please try again&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">dimsBackground</span> <span class="p">=</span> <span class="kc">false</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">hide</span><span class="p">(</span><span class="n">afterDelay</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="n">success</span> <span class="k">in</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>            <span class="p">}</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>            <span class="kc">self</span><span class="p">.</span><span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">pathData</span><span class="p">![</span><span class="s">&quot;pathData&quot;</span><span class="p">]</span><span class="o">!</span><span class="p">)</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>        <span class="p">}</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>    <span class="p">}</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="ondidreceiveoutdoor">onDidReceiveOutdoor</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceiveOutdoor</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a> <span class="c1">//receive position</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a> <span class="kd">let</span> <span class="nv">positionData</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="nb">Double</span><span class="p">]</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a> <span class="c1">//get data</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a> <span class="kd">let</span> <span class="nv">lat</span> <span class="p">=</span> <span class="n">positionData</span><span class="p">![</span><span class="s">&quot;lat&quot;</span><span class="p">]</span><span class="o">!</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a> <span class="kd">let</span> <span class="nv">lng</span> <span class="p">=</span> <span class="n">positionData</span><span class="p">![</span><span class="s">&quot;lng&quot;</span><span class="p">]</span><span class="o">!</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="ondidreceivefloorchange">onDidReceiveFloorChange</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceiveFloorChange</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a> <span class="c1">//receive position</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a> <span class="kd">let</span> <span class="nv">floorData</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]]</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a> <span class="c1">//update poi</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a> <span class="kd">let</span> <span class="nv">poiData</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">getPOIData</span><span class="p">()</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a> <span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;POI&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">poiData</span><span class="p">)</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a> <span class="c1">//update map&#39;s package</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">getVenueData</span><span class="p">()</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a> <span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;localPackageUrl&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>(optional)</p>
+<h3 id="ondidreceiveerror">onDidReceiveError</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceiveError</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a> <span class="c1">//advise user</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Errore. Riavvia l&#39;sdk &quot;</span><span class="p">)</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="ondidreceivelogs">onDidReceiveLogs</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onDidReceiveLogs</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a> <span class="c1">//get data</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a> <span class="kd">let</span> <span class="nv">logInfo</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">]</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a> <span class="kd">var</span> <span class="nv">log</span> <span class="p">=</span> <span class="n">logInfo</span><span class="p">![</span><span class="s">&quot;log&quot;</span><span class="p">]</span><span class="o">!</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="onrefreshpoicomplete">onRefreshPoiComplete</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">onRefreshPoiComplete</span><span class="p">(</span><span class="kc">_</span> <span class="n">notification</span><span class="p">:</span> <span class="n">Notification</span><span class="p">){</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a> <span class="c1">//get new data and send to flutter engine</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a> <span class="kd">let</span> <span class="nv">poiData</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">getPOIData</span><span class="p">()</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a> <span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;POI&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">poiData</span><span class="p">)</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="sdk-public-methods">Sdk Public Methods</h2>
+<h3 id="start">Start</h3>
+<p>Start Sdk
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="stop">Stop</h3>
+<p>Stop Sdk
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="venue-data-flutter-utils">Venue data (Flutter Utils)</h3>
+<p>Get current venue package data to easily send it, to flutter engine
+Please note: this method returns data only if sdk state is Running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">getVenueData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span>
+</code></pre></div></p>
+<h3 id="poi-flutter-utils">POI (Flutter Utils)</h3>
+<p>Get current venue POI data to easily send it, to flutter engine
+Please note: this method returns data only if sdk state is Running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">getPOIData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span>
+</code></pre></div></p>
+<h3 id="refresh-poi-flutter-utils">Refresh POI (Flutter Utils)</h3>
+<p>Force Refresh current venue POI data to easily send it, to flutter engine
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">refreshPOI</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="refresh-map">Refresh Map</h3>
+<p>Force Refresh current displayed map
+Keep Attention: if you force mapId during localization, sdk locks forced map and not switchs anymore
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">forceRefreshMap</span><span class="p">(</span><span class="n">mapId</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span>
+</code></pre></div>
+To restore map's switch, according to user position
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">setLiveMap</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="venue-resources-sdk-v-131">Venue Resources (Sdk v. &gt;= 1.3.1)</h3>
+<p>Get resource bundle data, containing all Venue's Pois and Maps.
+Please note: this method returns data only if sdk state is Running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">getVenueResources</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">VenueResources</span><span class="p">?</span>
+</code></pre></div></p>
+<h3 id="way-finding">Way Finding</h3>
+<p>Calculate shortest route:
+- from user position to selected map's POI
+- from custom position A to custom position B
+and send it to flutter engine
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">calculatePath_ToPOI</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">calculatePath_ToCustomPoint</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="position">Position</h3>
+<p>Get current user position data
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">getPositionData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]</span>
+</code></pre></div></p>
+<h3 id="report">Report</h3>
+<p>send SDK Report to Nextome admin
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a> <span class="n">sdk</span><span class="p">?.</span><span class="n">sendLogReport</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
+</code></pre></div></p>
+<h2 id="flutter-map">Flutter Map</h2>
+<p>Easily show flutter_map module with current venue (localized place) data
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a> <span class="c1">//push flutter controller</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a> <span class="kc">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">?.</span><span class="n">pushViewController</span><span class="p">(</span><span class="n">flutterViewController</span><span class="p">!,</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a> <span class="c1">//get map&#39;s poi</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a> <span class="kd">let</span> <span class="nv">poiData</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">getPOIData</span><span class="p">()</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a> <span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;POI&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">poiData</span><span class="p">)</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a> <span class="c1">//get map&#39;s resources</span>
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">getVenueData</span><span class="p">()</span>
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a> <span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;localPackageUrl&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a> <span class="c1">//flutter callbacks</span>
+<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a> <span class="n">mapChannel</span><span class="p">.</span><span class="n">setMethodCallHandler</span><span class="p">{(</span><span class="n">call</span><span class="p">:</span> <span class="n">FlutterMethodCall</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">FlutterResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
+<a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a>    <span class="c1">// Handle poi json</span>
+<a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a>    <span class="k">if</span> <span class="n">call</span><span class="p">.</span><span class="n">method</span> <span class="p">==</span> <span class="s">&quot;poiData&quot;</span><span class="p">{</span>
+<a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a>        <span class="c1">//calculate path</span>
+<a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a>        <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">calculatePath</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">call</span><span class="p">.</span><span class="n">arguments</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span><span class="p">)</span>
+<a id="__codelineno-41-18" name="__codelineno-41-18" href="#__codelineno-41-18"></a>    <span class="p">}</span>
+<a id="__codelineno-41-19" name="__codelineno-41-19" href="#__codelineno-41-19"></a>
+<a id="__codelineno-41-20" name="__codelineno-41-20" href="#__codelineno-41-20"></a>    <span class="c1">// Handle long press</span>
+<a id="__codelineno-41-21" name="__codelineno-41-21" href="#__codelineno-41-21"></a>    <span class="k">if</span><span class="p">(</span><span class="n">call</span><span class="p">.</span><span class="n">method</span> <span class="p">==</span> <span class="s">&quot;customPosition&quot;</span><span class="p">){</span>
+<a id="__codelineno-41-22" name="__codelineno-41-22" href="#__codelineno-41-22"></a>        <span class="kd">let</span> <span class="nv">customPosition</span> <span class="p">=</span> <span class="n">call</span><span class="p">.</span><span class="n">arguments</span> <span class="k">as</span><span class="p">!</span> <span class="nb">String</span>
+<a id="__codelineno-41-23" name="__codelineno-41-23" href="#__codelineno-41-23"></a>
+<a id="__codelineno-41-24" name="__codelineno-41-24" href="#__codelineno-41-24"></a>        <span class="c1">//advise user</span>
+<a id="__codelineno-41-25" name="__codelineno-41-25" href="#__codelineno-41-25"></a>        <span class="k">if</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">customPositionCheck</span> <span class="p">==</span> <span class="mi">0</span><span class="p">){</span>
+<a id="__codelineno-41-26" name="__codelineno-41-26" href="#__codelineno-41-26"></a>            <span class="c1">//advise ui</span>
+<a id="__codelineno-41-27" name="__codelineno-41-27" href="#__codelineno-41-27"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">contentView</span> <span class="p">=</span> <span class="n">PKHUDTextView</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="s">&quot;Start point is set&quot;</span><span class="p">)</span>
+<a id="__codelineno-41-28" name="__codelineno-41-28" href="#__codelineno-41-28"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-41-29" name="__codelineno-41-29" href="#__codelineno-41-29"></a>            <span class="n">PKHUD</span><span class="p">.</span><span class="n">sharedHUD</span><span class="p">.</span><span class="n">hide</span><span class="p">(</span><span class="n">afterDelay</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span> <span class="p">{</span> <span class="n">success</span> <span class="k">in</span>
+<a id="__codelineno-41-30" name="__codelineno-41-30" href="#__codelineno-41-30"></a>            <span class="p">}</span>
+<a id="__codelineno-41-31" name="__codelineno-41-31" href="#__codelineno-41-31"></a>        <span class="p">}</span>
+<a id="__codelineno-41-32" name="__codelineno-41-32" href="#__codelineno-41-32"></a>
+<a id="__codelineno-41-33" name="__codelineno-41-33" href="#__codelineno-41-33"></a>        <span class="kc">self</span><span class="p">.</span><span class="n">sdk</span><span class="p">?.</span><span class="n">calculateCustomPath</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="n">customPosition</span><span class="p">)</span>
+<a id="__codelineno-41-34" name="__codelineno-41-34" href="#__codelineno-41-34"></a>
+<a id="__codelineno-41-35" name="__codelineno-41-35" href="#__codelineno-41-35"></a>    <span class="p">}</span>
+<a id="__codelineno-41-36" name="__codelineno-41-36" href="#__codelineno-41-36"></a> <span class="p">}</span>
+</code></pre></div></p>
+<h3 id="customization">Customization</h3>
+<h4 id="show-center-position-fab">Show Center Position Fab</h4>
+<p>Show FAB on Map to enable custom camera feature to live follow user position</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;showCenterPositionFab&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="s">&quot;true&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="override-user-position-icon">Override user position icon</h3>
+<p>Change user position custom icon
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">mapChannel</span><span class="p">.</span><span class="n">invokeMethod</span><span class="p">(</span><span class="s">&quot;customPositionResourceUrl&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="s">&quot;URL Png&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="example">Example</h2>
+<p>You can clone this repository and explore our complete Example project, to see how to manage all Sdk's data.</p>
+<h2 id="common-issues">Common issues</h2>
+<h3 id="redefinition-of-module-minizip">Redefinition of Module Minizip</h3>
+<p>If swift compiler report an error about redefenition of Module Minizip, you can fix in this way:</p>
+<ol>
+<li>Click on "Previously defined here" gray text</li>
+<li>Xcode will open a tab called module with some code</li>
+<li>Delete all code and rebuild the project</li>
+</ol>
+<h3 id="app-distribution">App Distribution</h3>
+<p>If you have problem with app export from xcode or AppStore distribution, follow this steps:</p>
+<ol>
+<li>Open your Xcode project's setting</li>
+<li>Click on Build Phase tab</li>
+<li>Add new Run Script and paste this code, which remove all x86 files and architecture from project
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># Type a script or drag a script file from your workspace to insert its path.</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a> <span class="nv">APP_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_BUILD_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">WRAPPER_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>find <span class="s2">&quot;</span><span class="nv">$APP_PATH</span><span class="s2">&quot;</span> -name <span class="s1">&#39;*.framework&#39;</span> -type d <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> -r FRAMEWORK
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="k">do</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="nv">FRAMEWORK_EXECUTABLE_NAME</span><span class="o">=</span><span class="k">$(</span>defaults <span class="nb">read</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK</span><span class="s2">/Info.plist&quot;</span> CFBundleExecutable<span class="k">)</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="nv">FRAMEWORK_EXECUTABLE_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$FRAMEWORK</span><span class="s2">/</span><span class="nv">$FRAMEWORK_EXECUTABLE_NAME</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="nb">echo</span> <span class="s2">&quot;Executable is </span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="nb">echo</span> <span class="k">$(</span>lipo -info <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span><span class="k">)</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="nv">FRAMEWORK_TMP_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-tmp&quot;</span>
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a>
+<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="k">case</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_BUILD_DIR</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">in</span>
+<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a>*<span class="s2">&quot;iphonesimulator&quot;</span><span class="o">)</span>
+<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a>    <span class="nb">echo</span> <span class="s2">&quot;No need to remove archs&quot;</span>
+<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a>    <span class="p">;;</span>
+<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>*<span class="o">)</span>
+<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a>    <span class="k">if</span> <span class="k">$(</span>lipo <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span> -verify_arch <span class="s2">&quot;i386&quot;</span><span class="k">)</span> <span class="p">;</span> <span class="k">then</span>
+<a id="__codelineno-44-19" name="__codelineno-44-19" href="#__codelineno-44-19"></a>    lipo -output <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_TMP_PATH</span><span class="s2">&quot;</span> -remove <span class="s2">&quot;i386&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-20" name="__codelineno-44-20" href="#__codelineno-44-20"></a>    <span class="nb">echo</span> <span class="s2">&quot;i386 architecture removed&quot;</span>
+<a id="__codelineno-44-21" name="__codelineno-44-21" href="#__codelineno-44-21"></a>    rm <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-22" name="__codelineno-44-22" href="#__codelineno-44-22"></a>    mv <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_TMP_PATH</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-23" name="__codelineno-44-23" href="#__codelineno-44-23"></a>    <span class="k">fi</span>
+<a id="__codelineno-44-24" name="__codelineno-44-24" href="#__codelineno-44-24"></a>    <span class="k">if</span> <span class="k">$(</span>lipo <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span> -verify_arch <span class="s2">&quot;x86_64&quot;</span><span class="k">)</span> <span class="p">;</span> <span class="k">then</span>
+<a id="__codelineno-44-25" name="__codelineno-44-25" href="#__codelineno-44-25"></a>    lipo -output <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_TMP_PATH</span><span class="s2">&quot;</span> -remove <span class="s2">&quot;x86_64&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-26" name="__codelineno-44-26" href="#__codelineno-44-26"></a>    <span class="nb">echo</span> <span class="s2">&quot;x86_64 architecture removed&quot;</span>
+<a id="__codelineno-44-27" name="__codelineno-44-27" href="#__codelineno-44-27"></a>    rm <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-28" name="__codelineno-44-28" href="#__codelineno-44-28"></a>    mv <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_TMP_PATH</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-29" name="__codelineno-44-29" href="#__codelineno-44-29"></a>    <span class="k">fi</span>
+<a id="__codelineno-44-30" name="__codelineno-44-30" href="#__codelineno-44-30"></a>    <span class="p">;;</span>
+<a id="__codelineno-44-31" name="__codelineno-44-31" href="#__codelineno-44-31"></a><span class="k">esac</span>
+<a id="__codelineno-44-32" name="__codelineno-44-32" href="#__codelineno-44-32"></a>
+<a id="__codelineno-44-33" name="__codelineno-44-33" href="#__codelineno-44-33"></a><span class="nb">echo</span> <span class="s2">&quot;Completed for executable </span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-44-34" name="__codelineno-44-34" href="#__codelineno-44-34"></a><span class="nb">echo</span> <span class="k">$(</span>lipo -info <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span><span class="k">)</span>
+<a id="__codelineno-44-35" name="__codelineno-44-35" href="#__codelineno-44-35"></a>
+<a id="__codelineno-44-36" name="__codelineno-44-36" href="#__codelineno-44-36"></a><span class="k">done</span>
+</code></pre></div></li>
+</ol>
+<h3 id="connect-with-us">Connect with us</h3>
+<p>https://www.nextome.net/</p>
+<h2 id="license">License</h2>
+<p>MIT</p>
+<p><strong>© 2020 Nextome srl | All Rights Reserved.</strong></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../Android/changelog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Android Changelog" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Android Changelog
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: iOS Changelog" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              iOS Changelog
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
