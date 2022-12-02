@@ -21,10 +21,10 @@ Integrate this module into an existing app to customize UX
 Manipulate indoor/outdoor user's position coordinate freely
 
 ## Nextome SDK - Android Resources
-[Android Docs](/docs/Nextome SDK/Android/Integration.md) | [Changelog](/docs/Nextome SDK/Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
+[Android Docs](/Nextome SDK/Android/Integration.md) | [Changelog](/Nextome SDK/Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
 
 ## NEXTOME SDK - iOS Resources
-[iOS Docs](/docs/Nextome SDK/iOS/1integration.md) | [Changelog](Nextome SDK/iOS/2changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
+[iOS Docs](/Nextome SDK/iOS/1integration.md) | [Changelog](Nextome SDK/iOS/2changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
 
 ## FLUTTER MAP - Resources
-[Android](/docs/Nextome SDK/Android/Integration/#flutter-map-module) | [iOS](/docs/Nextome SDK/iOS/1integration/#flutter-map) | [Changelog](/Flutter Map)
+[Android](/Nextome SDK/Android/Integration/#flutter-map-module) | [iOS](/Nextome SDK/iOS/1integration/#flutter-map) | [Changelog](/Flutter Map)
