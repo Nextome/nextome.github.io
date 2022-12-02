@@ -6,6 +6,8 @@ theme:
   features:
     - navigation.sections
     - content.code.annotate 
+    - navigation.expand
+
 
   palette:
     scheme: youtube

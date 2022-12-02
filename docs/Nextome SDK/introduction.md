@@ -1,17 +1,27 @@
-# Introduction
+---
+title: Introduction
+---
+# Nextome SDK Documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+![Nextome Android SDK Cover](../assets/cover.png)
 
-## Commands
+PhoenixSdk is an indoor positioning, mobile-ready, offline, Sdk, designed to be integrated into an existing mobile application effortlessly
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
- 
-## Project layout
+Ready to use
+Modular Features
+iOS Optimized
+Features
+Localize user into indoor/outdoor area thanks to low-signal Bluetooth beacons and GPS
+Calculate user realtime position
+Monitoring indoor/outdoor switching and change floor
+Elaborate custom road to point of interest
+You can also:
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Integrate this module into an existing app to customize UX
+Manipulate indoor/outdoor user's position coordinate freely
+
+## Android Resources
+[Android Docs](Android/Integration.md) | [Changelog](Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
+
+## iOS Resources
+[iOS Docs](iOS/integration.md) | [Changelog](iOS/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)

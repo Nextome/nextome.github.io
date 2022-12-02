@@ -1,6 +1,12 @@
-# Android Integration
+---
+layout: default
+title: Android Integration
+nav_order: 3
+has_children: true
+---
 
-Qualche parola introduttiva @Paolo
+# Nextome Android SDK - Android Integration Guide
+
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
 
 
