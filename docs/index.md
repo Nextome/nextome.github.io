@@ -3,7 +3,7 @@ title: Introduction
 ---
 # Nextome SDK Documentation
 
-![Nextome Android SDK Cover](/assets/cover.png)
+![Nextome Android SDK Cover](assets/cover.png)
 
 PhoenixSdk is an indoor positioning, mobile-ready, offline, Sdk, designed to be integrated into an existing mobile application effortlessly
 
@@ -21,10 +21,10 @@ Integrate this module into an existing app to customize UX
 Manipulate indoor/outdoor user's position coordinate freely
 
 ## Nextome SDK - Android Resources
-[Android Docs](Android/Integration.md) | [Changelog](Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
+[Android Docs](Nextome SDK/Android/Integration.md) | [Changelog](Nextome SDK/Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
 
 ## NEXTOME SDK - iOS Resources
-[iOS Docs](iOS/integration.md) | [Changelog](iOS/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
+[iOS Docs](Nextome SDK/iOS/integration.md) | [Changelog](Nextome SDK/iOS/2changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
 
 ## FLUTTER MAP - Resources
-[Android](Android/Integration/#flutter-map-module) | [iOS](iOS/integration/#flutter-map) | [Changelog](/Flutter Map)
+[Android](Nextome SDK/Android/Integration/#flutter-map-module) | [iOS](Nextome SDK/iOS/1integration/#flutter-map) | [Changelog](/Flutter Map)
