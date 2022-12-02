@@ -1,0 +1,28 @@
+site_name: Nextome Documentation
+theme: 
+  name: material
+  logo: assets/logo-white.svg
+  favicon: material/library
+  features:
+    - navigation.sections
+    - content.code.annotate 
+
+  palette:
+    scheme: youtube
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+        alternate_style: true
+
+extra:
+  version:
+    provider: mike
