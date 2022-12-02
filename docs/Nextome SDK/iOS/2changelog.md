@@ -42,7 +42,7 @@ If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
 * Minor Fix
 * New Method getVenueResource
 
-[Read Here](integration.md#venue-resources-sdk-v-131)
+[Read Here](1integration.md#venue-resources-sdk-v-131)
 
 
 
