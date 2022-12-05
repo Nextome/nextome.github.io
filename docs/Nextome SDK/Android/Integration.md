@@ -3,6 +3,8 @@ layout: default
 title: Android Integration
 nav_order: 3
 has_children: true
+hide:
+  - footer
 ---
 
 # Nextome Android SDK - Android Integration Guide

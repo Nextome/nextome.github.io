@@ -2,7 +2,9 @@
 layout: default
 title: iOS Changelog
 parent: iOS Integration
-nav_order: 3
+nav_order: 1
+hide:
+  - footer
 ---
 
 # Phoenix iOS SDK Changelog
@@ -42,7 +44,7 @@ If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
 * Minor Fix
 * New Method getVenueResource
 
-[Read Here](1integration.md#venue-resources-sdk-v-131)
+[Read Here](integration.md#venue-resources-sdk-v-131)
 
 
 

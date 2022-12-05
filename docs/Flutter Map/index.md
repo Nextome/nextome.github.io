@@ -2,6 +2,8 @@
 layout: default
 title: Changelog
 nav_order: 2
+hide:
+  - footer
 ---
 
 # Flutter Map - Changelog

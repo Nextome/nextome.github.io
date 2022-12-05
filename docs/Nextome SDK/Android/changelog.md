@@ -3,6 +3,8 @@ layout: default
 title: Android Changelog
 parent: Android Integration
 nav_order: 2
+hide:
+  - footer
 ---
 
 # Nextome Android SDK - Changelog

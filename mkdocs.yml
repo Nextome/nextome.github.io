@@ -6,7 +6,7 @@ theme:
   features:
     - navigation.sections
     - content.code.annotate 
-    - navigation.expand
+#    - navigation.expand
 
 
   palette:
@@ -28,3 +28,16 @@ markdown_extensions:
 extra:
   version:
     provider: mike
+
+nav:
+    - 'Introduction': 'index.md'
+    - 'Flutter Map':
+        - 'Changelog': 'Flutter Map/index.md'
+    - 'Nextome SDK':
+        - 'Introduction': 'Nextome SDK/introduction.md'
+        - 'Android': 
+          - 'Android Integration': 'Nextome SDK/Android/integration.md'
+          - 'Android Changelog': 'Nextome SDK/Android/changelog.md'
+        - 'iOS': 
+          - 'iOS Integration': 'Nextome SDK/iOS/integration.md'
+          - 'iOS Changelog': 'Nextome SDK/iOS/changelog.md'

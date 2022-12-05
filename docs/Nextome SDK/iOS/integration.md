@@ -1,8 +1,10 @@
 ---
 layout: default
 title: iOS Integration
-nav_order: 3
+nav_order: 0
 has_children: true
+hide:
+  - footer
 ---
 
 # Nextome iOS SDK - Integration Guide
