@@ -757,7 +757,7 @@
 <a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="flutter-utils">Flutter Utils</h2>
-<p>An utility class is available to help you with Flutter operations. If you want to comunicate with Flutter, it's suggested to include <a href="https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt">this</a> class in your project.</p>
+<p>An utility class is available to help you with Flutter operations. If you want to communicate with Flutter, it's suggested to include <a href="https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt">this</a> class in your project.</p>
 <h2 id="show-a-new-indoor-map">Show a new indoor map</h2>
 <p>Once a map is available, pass the <code>tiles</code> local directory, height<code>and</code>width` of the map to Flutter:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">setIndoorMap</span><span class="p">(</span><span class="n">mapTilesUrl</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">mapHeight</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">mapWidth</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -801,7 +801,7 @@
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h2 id="show-center-position-fab">Show Center Position Fab</h2>
-<p><a href=""><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/><path fill-rule="evenodd" d="M2.5 1A1.5 1.5 0 0 0 1 2.5v8.44c0 .397.158.779.44 1.06l10.25 10.25a1.5 1.5 0 0 0 2.12 0l8.44-8.44a1.5 1.5 0 0 0 0-2.12L12 1.44A1.5 1.5 0 0 0 10.94 1H2.5zm0 1.5h8.44l10.25 10.25-8.44 8.44L2.5 10.94V2.5z"/></svg></span> 1.2.0</a></p>
+<p><a href="../../../Flutter%20Map/#120"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/><path fill-rule="evenodd" d="M2.5 1A1.5 1.5 0 0 0 1 2.5v8.44c0 .397.158.779.44 1.06l10.25 10.25a1.5 1.5 0 0 0 2.12 0l8.44-8.44a1.5 1.5 0 0 0 0-2.12L12 1.44A1.5 1.5 0 0 0 10.94 1H2.5zm0 1.5h8.44l10.25 10.25-8.44 8.44L2.5 10.94V2.5z"/></svg></span> 1.2.0</a></p>
 <p>It's possible to show an optional fab at the bottom right of the map. When clicked, the button will:</p>
 <ul>
 <li>center the map on the user position;</li>
@@ -827,10 +827,7 @@
 <p>If those permissions are not denied, the navigation button will only follow user position without rotating.</p>
 </div>
 <h2 id="change-user-position-icon">Change user position icon</h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Available from flutter-map &gt; 1.2.0</p>
-</div>
+<p><a href="../../../Flutter%20Map/#120"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/><path fill-rule="evenodd" d="M2.5 1A1.5 1.5 0 0 0 1 2.5v8.44c0 .397.158.779.44 1.06l10.25 10.25a1.5 1.5 0 0 0 2.12 0l8.44-8.44a1.5 1.5 0 0 0 0-2.12L12 1.44A1.5 1.5 0 0 0 10.94 1H2.5zm0 1.5h8.44l10.25 10.25-8.44 8.44L2.5 10.94V2.5z"/></svg></span> 1.2.0</a></p>
 <p>The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">  </span><span class="n">channel</span><span class="p">.</span><span class="na">invokeMethod</span><span class="p">(</span><span class="s">&quot;customPositionResourceUrl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;http://nextome.net/position-icon.png&quot;</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
