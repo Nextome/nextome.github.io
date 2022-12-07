@@ -96,7 +96,7 @@ private fun initFlutter() {
 ```
 
 ## Flutter Utils
-An utility class is available to help you with Flutter operations. If you want to comunicate with Flutter, it's suggested to include [this](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt) class in your project.
+An utility class is available to help you with Flutter operations. If you want to communicate with Flutter, it's suggested to include [this](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt) class in your project.
 
 ## Show a new indoor map
 Once a map is available, pass the `tiles` local directory, height` and `width` of the map to Flutter:
@@ -151,7 +151,7 @@ private fun observeMapEvents() {
 ```
 
 ## Show Center Position Fab
-[:octicons-tag-24: 1.2.0]()
+[:octicons-tag-24: 1.2.0](../../../Flutter%20Map/#120)
 
 It's possible to show an optional fab at the bottom right of the map. When clicked, the button will:
 
@@ -183,8 +183,7 @@ or, if you have imported our [Flutter Utils](https://github.com/Nextome/nextome-
     If those permissions are not denied, the navigation button will only follow user position without rotating.
 
 ## Change user position icon
-!!!info
-    Available from flutter-map > 1.2.0
+[:octicons-tag-24: 1.2.0](../../../Flutter%20Map/#120)
 
 The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.
 

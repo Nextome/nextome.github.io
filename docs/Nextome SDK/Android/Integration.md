@@ -3,6 +3,8 @@
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
 
 ## Prerequisites
+!!!bug
+    PLACEHOLDER
 
 - Install or update Android Studio to its latest version
 - Make sure that your project meets these requirements: 
@@ -183,7 +185,7 @@ All the venue resources have been downloaded. Nextome is now computing in which 
 | :--------------------| :----------------------------------- |
 | `isOutdoor: Bool`   | Will always be true in this state    |
 | `venueId: Int`  | The venueId of the venue found    |
-| `venuePackage: NextomePackage` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue.|
+| `venuePackage: NextomePackage` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](additional-features.md)|
 
 #### LocalizationRunningState
 
@@ -193,7 +195,7 @@ Nextome SDK is computing user positions. You can observe live user location usin
 | :--------------------| :----------------------------------- |
 | `isOutdoor: Bool`   | Will always be true in this state    |
 | `venueId: Int`  | The venueId of the venue found    |
-| `venuePackage: NextomePackage`| Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue.|
+| `venuePackage: NextomePackage`| Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](additional-features.md)|
 | `isOutdoor: Bool`   | Will always be true in this state    |
 | `mapId: Int`   | Will always be true in this state    |
 | `isOutdoor: Bool`   | Will always be true in this state    |
@@ -208,6 +210,53 @@ The SDK was stopped due to a fatal error. It exposes a NextomeException which ca
     - If the user **changes floor**, the SDK will resume from `FIND_FLOOR` state.
     - If the user goes **outdoor**, the SDK will switch to `SEARCH_VENUE` state until a new indoor beacon is detected.
 
+### Complete example
+??? example "Example: getStateObservable()"
+    ```kotlin
+    nextomeSdk.getStateObservable().asLiveData().observe(this) { state ->
+            when (state) {
+                is IdleState -> {
+                    showOpenStreetMap()
+                    updateState("Sdk is Idle")
+                }
+                is StartedState -> {
+                    showOpenStreetMap()
+                    updateState("Sdk Started")
+                }
+
+                is SearchVenueState -> {
+                    showOpenStreetMap()
+                    updateState("Searching Venue...")
+                }
+
+                is GetPacketState -> {
+                    showOpenStreetMap()
+                    updateState("Downloading venue ${state.venueId}...")
+                }
+
+                is FindFloorState -> {
+                    showOpenStreetMap()
+                    updateState("Finding current Floor on venue ${state.venueId}...")
+                }
+
+                is LocalizationRunningState -> {
+                    updateState("Showing map of floor ${state.mapId}...")
+                    showIndoorMap()
+                    setIndoorMap(state.tilesZipPath,
+                        state.mapHeight,
+                        state.mapWidth,
+                        state.venuePackage.getPoisByMapId(state.mapId)
+                    )
+                    poiList = state.venuePackage.allPois
+                }
+
+                is ErrorState -> {
+                    viewModel.handleError(state.exception)
+                }
+            }
+
+        }
+    ```
 ## Observe the user position
 Nextome SDK offers a flow to observe the user position:
 
@@ -227,6 +276,9 @@ state.asLiveData().observe(this){position ->
 | `label: String?`   | A label associated with the position.   |
 
 ## Observe errors
+!!!bug
+    PLACEHOLDER
+
 TO BE IMPLEMENTED
 
 <!-- 
@@ -234,6 +286,10 @@ TO BE IMPLEMENTED
 In case of necessity, Nextome SDK can write logs with useful info to a file.
 You can start writing logs with `nextomeSdk.startLoggingOnFile()`. Those logs can then be shared using `nextomeSdk.stopAndShareLog(context)`. A new Intent will be fired with a share dialog that allows to export and save the logs with other apps.
 -->
+
+## Offline capability
+With the migration from 0.X.X to 1.X.X the SDK can also work offline by default if the resources of the venue were downloaded at least the first time. 
+It is also possible to provide the SDK initial resources to let the app work offline from the start. More info are available [here](additional-features.md).
 
 ## Next steps
 
@@ -244,7 +300,7 @@ You can start writing logs with `nextomeSdk.startLoggingOnFile()`. Those logs ca
 - Visit [Flutter map integration](flutter-map-integration.md)if you want to use our library to display the indoor map.
 
 ## Examples
-A full working example app is available on this repository.
+A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
 
 

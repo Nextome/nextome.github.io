@@ -1,3 +1,3 @@
-# Changlog
+# Changelog
 
 TODO

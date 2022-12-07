@@ -1,17 +1,25 @@
-# Welcome to MkDocs
+---
+layout: default
+title: Changelog
+nav_order: 2
+hide:
+  - footer
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Flutter Map - Changelog
+## 1.2.0
+### Features
 
-## Commands
+#### 1. Add ability to change user position icon
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+#### 2. Add navigation FAB
+It's possible to show an optional fab at the bottom right of the map.
 
-## Project layout
+When clicked, the button will:
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* center the map on the user position;
+* follow the user position live on map;
+* rotate the map based on user compass;
+___
+
+To integrate those feature, check the relative Android and iOS documentation.
