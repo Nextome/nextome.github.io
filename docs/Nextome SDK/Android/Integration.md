@@ -1,64 +1,88 @@
-# Android Integration
+# Android Integration - Getting started
 
-Qualche parola introduttiva @Paolo
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
 
+## Prerequisites
+
+- Install or update Android Studio to its latest version
+- Make sure that your project meets these requirements: 
+    - Target API: 32 or higher
+    - Uses Android x or higher
+    - Uses Jetpack(Android X)
+        - `com.android.tools.build:gradle` v3.2.1 or later
+        - `compileSdkVersion` 32 or later
+- Have credentials for jFrog
+- Have credentials for our portal
 
 ## How to include
 
-1. Add our repositories in root `build.gradle`:
+1. Add our repositories in the Gradle Project Settings `settings.gradle.kts`:
 
-    ``` groovy title="root/build.gradle"
-    allprojects {
-        repositories {
-            ...
-            maven {
-                url "https://nextome.jfrog.io/artifactory/nextome-libs-release-local"
-            
-                credentials {
-                    username = $USERNAME
-                    password = $PASSWORD
+    === "Groovy"
+        ``` groovy title="settings.gradle"
+        
+        dependencyResolutionManagement {
+            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+            repositories {
+                ...
+                maven { url "https://jitpack.io" }
+                maven {
+                    url "https://nextome.jfrog.io/artifactory/nextome-libs-release-local"
+
+                    credentials {
+                        username "USERNAME"
+                        password "PASSWORD"
+                    }
                 }
             }
-                
-            maven { url 'https://jitpack.io' }
         }
-    }
-    ```
+        ```
+    === "KTS"
+        ``` kotlin title="settings.gradle.kts"
+    
+        dependencyResolutionManagement {
+            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+            repositories {
+                ...
+                maven { url = uri("https://jitpack.io)" }
+                maven {
+                    url = uri("https://nextome.jfrog.io/artifactory/nextome-libs-release-local")
+
+                    credentials {
+                        username = "USERNAME"
+                        password = "PASSWORD"
+                    }
+                }
+            }
+        }
+        ```
     !!! note
         Contact Nextome to receive a valid username/password to access our repository.
 
-2. Add the SDK dependency in app’s `build.gradle`:
+2. In your module (app-level) Gradle file, add the dependency for the SDK:
 
-    ```groovy title="project/build.gradle"
-    implementation('net.nextome.phoenix_sdk:phoenix-sdk:{last_version}')
-    ```
+    === "Groovy"
+
+        ``` groovy title="project/build.gradle"
+        implementation 'net.nextome.phoenix_sdk:phoenix-sdk:{last_version}'
+        ```
+
+    === "KTS"
+
+        ``` kotlin title="project/build.gradle.kts"
+        implementation ("net.nextome.phoenix_sdk:phoenix-sdk:{last_version}")
+        ```
     Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
 
-### Optional Dependencies
+## Retrive SDK Credentials
+Log-in the web dashboard and retrieve the `Client` and `Secret Key` for the SDK.
+Those credentials are available from your profile, in the Apps section. 
 
- If you plan to display a live map to the user, add our Flutter MapView plugin:
+![Retrieve SDK Credentials](../../assets/sdk_key.png)
 
- 1. Add Flutter repository in root `build.gradle`:
-    ```groovy title="root/build.gradle"
-        allprojects {
-            repositories {
-            ...
-            maven {url 'https://storage.googleapis.com/download.flutter.io' }
-            }
-    }
-    ```
-2. Add Flutter Map SDK dependency in app's `build.gradle`
-    ```groovy title="app/build.gradle"
-    implementation('net.nextome.nextome_map_module:flutter_release:{last_version}')
-    ```
-    Check latest released version [here change me](/docs/Flutter%20Map/index.md)
-
-## Getting started
-
-### Required permissions
+## Required permissions
 To run, Nextome SDK requires the following permissions:
-```xml
+```xml title="AndroidManifest.xml"
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -75,499 +99,154 @@ To run, Nextome SDK requires the following permissions:
     - Run as a foreground service for background mode;
     - Access Bluetooth API (location)
 
-### SDK Builder
-To use Nextome SDK for Android, a builder is available with some options you can customize.
+## SDK Initialization
 
-The basic configuration only needs your application `context`, the given `developer key`, the `secret` and `bundle`.
+To use Nextome SDK for Android initialize the NextomePhoenixSdk.
 
-```kotlin
-nextomeSdk = NextomePhoenixSdk().Builder(applicationContext)
-                .withSecret(secret)
-                .withDeveloperKey(developerKey)
-                .withBundle(bundle)
-                .build()
-```
-Other **optional** parameters are also available. Here's a list of the customization available and a short description of them.
-
-#### Scanner parameters
-> The longer you wait between scans, the longer it will take to detect a beacon. And the more reduce the length of the scan, the more likely it is that you might miss an advertisement from an beacon.
-
-
-You can optionally customize scan period and scan duration:
+It requires the `application context`, the given `Client` and `Secret Key`.
 
 ```kotlin
-.withForegroundScanPeriod(scanPeriod)`
+    nextomeSdk = NextomePhoenixSdk(
+        clientId = CLIENT_ID,
+        clientSecret = CLIENT_SECRET,
+        context = context as ApplicationContext,
+    )
 ```
+!!!note
+    By default the SDK works with settings defined in the web portal.
+    The NextomePhoenixSdk constructor it is possible to override some of those as described in this section.
+    But please notice that this operation is extremely dangerous and should only be made in accordance with the Nextome Team because has an huge impact on the localization's performance.  
 
-sets a time in millis for the bluetooth beacon scan duration when in foreground mode.
-> Default value is `1000 ms`
-
-___
-
-```kotlin
-.withForegroundBetweenScanPeriod(betweenScanPeriod)`
-```
-
-sets a time in millis to wait between bluetooth scans when in foreground mode.
-
-> Default value is `250 ms`.
-
-___
-
-```kotlin
-.withBackgroundScanPeriod(scanPeriod)`
-```
-
-sets a time in millis for the bluetooth beacon scan duration when in backgorund mode.
-
-> Default value is `1000 ms`
-
-___
-
-```kotlin
-.withBackgroundBetweenScanPeriod(betweenScanPeriod)`
-```
-
-sets a time in millis to wait between bluetooth scans when in background mode.
-
-> Default value is `250 ms`.
-
-___
-
-#### Other optional parameters
-```kotlin
-.withRssiThreshold(rssiThreshold)`
-```
-
-ignore beacons below a custom RSSI threshold.
-> Default value is `-75`.
-
-___
-
-```kotlin
-.withBeaconListMaxSize(n)`
-```
-
-keeps in memory a cache of `n` RSSI entries in time for each beacon to more accurately compute user position.
-
-> Default value is `12`
-
-___
-
-```kotlin
-.withLocalizationMethod(localizationMethod)`
-```
-
-Sets the algorithm for localization. Choises are `LINEAR_SVD, NON_LINEAR_DA, PARTICLE`.
-
-> Default value is `LINEAR_SVD`
-
-___
-
-```kotlin
-.withForcedVenue(venueId)
-```
-
-This allows you to skip the search for venue phase and automatically download resurces of a specific venue when Nextome starts.
-
-> With this, you can force your app to open only your venue and download venue resurces even if you're not in range of your venue beacons.
-
-___
-
-```kotlin
-.withSendPositionToServer(enabled)
-```
-
-This allows you to automatically send positions to Nextome server and track monitor devices realtime on the web manager.
-
-> Default value is `false`
-
-___
-
-```kotlin
-.withEventTimeoutDurationInSeconds(0L)
-```
-
-This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.
-
-> Default value is `0 seconds` (realtime).
-
-___
-
-### Start localization
+## Start localization
 To start localization, call:
 
 ```kotlin
 nextomeSdk.start()
 ```
 
-If you want Nextome to keep track of user indoor position also while the phone screen is off or your app is in background, call this method instead:
+If you want Nextome to keep track of user indoor position also while the phone screen is off or your app is in background explore the corresponding section [LINK HERE]
+
+## Stop localization
+When you've done, stop the localization by calling:
 
 ```kotlin
-nextomeSdk.startForegroundService(serviceCode, notification)
+nextomeSdk.stop()
 ```
 
-In this case, a `service code` and a `notification` is also required. The ongoing notification will be displayed while Nextome SDK runs in background mode.
-
-### Observe user position
-Nextome SDK offers two different observers to notify user position.
-
-- `nextomeSdk.localizationLiveData` will notify indoor user position,with info about:
-    - `x`, `y` coordinates of the user relative to the indoor map;
-    - `mapId` and `floorId` of the current user position;
-- `nextomeSdk.outdoorLocalizationLiveData` will notify outdoor user position, with its `latitude` and `longitde`.
-
-Usage example:
-```kotlin
-nextomeSdk.localizationLiveData.observe(this, {
-    log("Got indoor position (${it.x}, ${it.y}), on map ${it.mapId} in floor ${it.floorId})")
-})
-
-nextomeSdk.outdoorLocalizationLiveData.observe(this, {
-    log("Got outdoor position (${it.lat}, ${it.lng})")
-})
-```
-
-### Observe SDK status
-It's possibile to observe the current state the Nextome SDK, in the localization process.
+## Observe SDK status
+It's possible to observe the current state the Nextome SDK.
 
 You can use this data to start initializing the map or showing messages to the users and update your UI accordingly.
 
 ```kotlin
-nextomeSdk.stateLiveData.observe()
+val state: Flow<NextomeSdkState> = nextomeSdk.getStateObservable()
+state.asLiveData().observe(this){state -> 
+    
+}
 ```
+### Nextome SDK State
+`NextomeSdkState` is a simple state machine that can have different states:
+<figure markdown>
+  ![State Flows](../../assets/flussoSDK.jpeg)
+  <figcaption>Nextome SDK State</figcaption>
+</figure>
 
-The exposed information are:
+#### IdleState
+Nextome SDK has been initialized but there is no active localization service running.
 
-- `isOutdoor`: indicates if the SDK is running in outdoor or indoor mode;
-- `tiles`: local path on device of map tiles. You can use this info to initialize a map (for example, our Flutter map) to show the map to the user;
-- `mapHeight`: the height in pixel of the currentmap;
-- `mapWidth`: the width in pixel of the current map;
-- `venueResources`: resources associated with the venue (list of maps, pois, events...);
-- `state` Nextome SDK state.
+#### StartedState
+Nextome has been correctly initialized and started, it's ready to scan beacons;
 
-#### Nextome SDK State
-Nextome State is a simple state machine that can have those states:
-- `STARTED`: Nextome has been correctly initialized and it's ready to scan beacons;
-- `SEARCH_VENUE`: Nextome is currently scanning nearby beacons to determine in which venue the user is; If the SDK is stuck here, you're probably outdoor.
-- `GET_PACKET`: Nextome knows the venue of the user and it's downloading from the server
-  the associated resources (Maps, POIs, Patches...);
-- `FIND_FLOOR`: All the venue resoruces have been downloaded. Nextome is now computing in which floor the user is;
-- `RUNNING`: Nextome SDK is computing user positions. You can observe live user location using the observer nextomeSdk.locationLiveData;
+| Property           | Description                          |
+| :------------------| :----------------------------------- |
+| `isOutdoor: Bool`  | Will always be true in this state    |
 
-!!!note
-    - Map `tiles`, `venueResources`, `height` and `width` are only available in the `RUNNING` state (when Nextome has recognized or has been forced the venue and the map where the user is); Otherwhise, they return **null**.
+#### SearchVenueState
+Nextome is currently scanning nearby beacons to determine in which venue the user is; If the SDK is stuck here, you're probably outdoor.
+
+| Property           | Description                          |
+| :------------------| :----------------------------------- |
+| `isOutdoor: Bool`  | Will always be true in this state    |
+
+#### GetPacketState
+Nextome knows the venue of the user and it's downloading from the server the associated resources (Maps, POIs, Patches...);
+
+| Property           | Description                          |
+| :------------------| :----------------------------------- |
+| `isOutdoor: Bool`  | Will always be true in this state    |
+| `venueId: Int`  | The venueId of the venue found    |
+
+#### FindFloorState
+All the venue resources have been downloaded. Nextome is now computing in which floor the user is;
+
+| Property             | Description                          |
+| :--------------------| :----------------------------------- |
+| `isOutdoor: Bool`   | Will always be true in this state    |
+| `venueId: Int`  | The venueId of the venue found    |
+| `venuePackage: NextomePackage` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue.|
+
+#### LocalizationRunningState
+
+Nextome SDK is computing user positions. You can observe live user location using the observer nextomeSdk.locationLiveData;
+
+| Property             | Description                          |
+| :--------------------| :----------------------------------- |
+| `isOutdoor: Bool`   | Will always be true in this state    |
+| `venueId: Int`  | The venueId of the venue found    |
+| `venuePackage: NextomePackage`| Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue.|
+| `isOutdoor: Bool`   | Will always be true in this state    |
+| `mapId: Int`   | Will always be true in this state    |
+| `isOutdoor: Bool`   | Will always be true in this state    |
+| `tileZipPath: String`| The path for the zip file which contains the tiles for the current map   |
+| `mapHeight: Int`   | The height in pixel of the map   |
+| `mapWith: Int`   | The width in pixel of the map    |
+
+#### ErrorState
+The SDK was stopped due to a fatal error. It exposes a NextomeException which can be either a GenericException or InvalidCredentialException.
+
+!!!note 
     - If the user **changes floor**, the SDK will resume from `FIND_FLOOR` state.
     - If the user goes **outdoor**, the SDK will switch to `SEARCH_VENUE` state until a new indoor beacon is detected.
 
-### Get venue resources
-You can optionally ask the SDK for the local resources downloaded with your venue (those resources include maps, pois, beacons events...).
-There are two ways of doing this.
+## Observe the user position
+Nextome SDK offers a flow to observe the user position:
 
-In the state observer:
 ```kotlin
-    nextomeSdk.stateLiveData.observe(this, {
-        when (it.state) {
-            NextomePhoenixState.RUNNING -> {
-                val poiList = it.venueResources.allPois
-                val poiOfTheCurrentFloor = it.venueResources.getPoisByMapId(it.mapId)
-                val mapsInTheVenue = it.venueResources.maps
-            }
-            else -> { }
-        }
-    })
-```
-
-as a single method call:
-```kotlin
-    val resources = nextomeSdk.state.venueResources
-```
-!!! note
-    You can only retreive resources when Nextome SDK State is `RUNNING`. Otherwhise, `nextomeSdk.state.valueResources` will return a null object.
-
-
-#### Example
-```kotlin
-nextomeSdk.stateLiveData.observe(this, {
-    if (it.isOutdoor) {
-        showOpenStreetMap()
-    } else {
-        showIndoorMap()
-    }
-
-    when (it.state) {
-        NextomePhoenixState.STARTED -> {
-            updateState("Sdk Started")
-        }
-        NextomePhoenixState.SEARCH_VENUE -> {
-            updateState("Searching Venue...")
-        }
-        NextomePhoenixState.GET_PACKET -> {
-            updateState("Downloading packet...")
-        }
-        NextomePhoenixState.FIND_FLOOR -> {
-            updateState("Finding current Floor...")
-        }
-        NextomePhoenixState.RUNNING -> {
-            updateState("Loading map...")
-
-            with(it) {
-                setIndoorMap(mapTilesUrl, mapHeight, mapWidth, venueResources.getPoisByMapId(mapId))
-            }
-        }
-    }
-})
-```
-
-### Observe SDK errors
-You can be notified of SDK errors using the appropriate observer:
-```kotlin
-nextomeSdk.errorObservable.observe(this) {
-    notifyException(it.exception)
+val state: Flow<NextomePosition> = nextomeSdk.getLocalizationObservable()
+state.asLiveData().observe(this){position -> 
+   log("Got indoor position (${it.x}, ${it.y}), on map ${it.mapId} in floor ${it.floorId})") 
 }
 ```
+#### NextomePosition
 
-### Force a specific map
-This is expecially useful when using the Flutter Map Module.
+| Property             | Description                          |
+| :--------------------| :----------------------------------- |
+| `x: Double`   | The x coordinates of the localized point.|
+| `y: Double`  | The y coordinates of the localized point. |
+| `venueId: Int`| The venueId of the venue found. |
+| `label: String?`   | A label associated with the position.   |
 
-With this method you can force Nextome to show a specific map, indipendently from the user real indoor location.
+## Observe errors
+TO BE IMPLEMENTED
 
-> When this method is called, Nextome will stop sending indoor location updates.
-
-You can force a map using:
-```kotlin
-nextomeSdk.setForcedMap(mapId)
-```
-
-Nextome will immediatly fire a status change, localizing the user at the specified map and offering map information like `tiles`, `height` and `width` that you can pass to the map module.
-
-When you're done and you want to observe user real location again, call:
-```kotlin
-nextomeSdk.setLiveMap()
-```
-
-#### Example
-```kotiln
-// Force map 42
-nextomeSdk.setForcedMap(42)
-
-nextomeSdk.stateLiveData.observe(this, {
-    when (it.state) {
-        NextomePhoenixState.RUNNING -> {
-            with(it) {
-                // After forcing the map, here you can pick tiles, height and width of map 42.
-                setIndoorMap(mapTilesUrl, mapHeight, mapWidth, venueResources.getPoisByMapId(mapId))
-            }
-        }
-    }
-})
-```
-
-### Calcualte path
-Nextome Sdk is able to calculate the shortest path between two points of the same venue.
-
-The function takes (x, y) coordinates and map of the starting point and (x, y) coordinates and map of the destination point.
-
-```kotlin
-val path = nextomeSdk.findPath(
-                startX.toInt(), startY.toInt(), startMapId,
-                targetX.toInt(), targetY.toInt(), targetMapId)
-```
-
-The returned path is a list of ordered Vertex, that, for example, can be passed to the Flutter Map Module and displayed to the user (see the methods written below).
-
-### Observe events
-!!!info 
-    Available from nexome-sdk > 0.4.0
-
-If events are set up in your venue, you can observe when user enters or exits from event radius using those two observers:
-```kotlin
-    nextomeSdk.enterEventObservable.observe(this) { event ->
-        Log.d("event_test", "Received on enter with data: ${event.data}")
-    }
-
-    nextomeSdk.exitEventObservable.observe(this) { event ->
-        Log.d("event_test", "Received on exit with data: ${event.data}")
-    }
-```
-
-
-Optionally, after exiting from event, it's possible to set a timeout value in seconds before signaling that event again.
-
-This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.
-
-If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
-
-```kotlin
-    nextomeSdk = NextomePhoenixSdk().Builder(applicationContext)
-        .withEventTimeoutDurationInSeconds(10L)
-```
-
-## Flutter Map Module
-If you want, there's an optional module build with Flutter that can show a live map of the indoor location of the user.
-
-To use it, include the gradle dependency as written before in the *How to include* section.
-
-### Flutter Init
-
-A little of boilerplate code is required to initialize and set up a channel between Flutter and the native app.
-
-You can just paste this code and run it before showing the map to the user.
-
-```kotlin
-private fun initFlutter() {
-    val appId = "com.nextome.test"
-    
-    val engine = FlutterEngine(this)
-
-    // Start executing Dart code in the FlutterEngine.
-    engine.dartExecutor.executeDartEntrypoint(
-        DartExecutor.DartEntrypoint.createDefault()
-    )
-
-    // Cache the pre-warmed FlutterEngine to be used later by FlutterFragment.
-    FlutterEngineCache
-        .getInstance()
-        .put(appId, engine)
-
-    val fragmentManager: FragmentManager = supportFragmentManager
-
-    // Attempt to find an existing FlutterFragment, in case this is not the
-    // first time that onCreate() was run.
-    flutterFragment = fragmentManager
-        .findFragmentByTag(TAG_FLUTTER_FRAGMENT) as FlutterFragment?
-
-
-    // Create and attach a FlutterFragment if one does not exist.
-    if (flutterFragment == null) {
-        var newFlutterFragment = FlutterFragment
-            .withCachedEngine(appId).build<FlutterFragment>()
-
-        flutterFragment = newFlutterFragment
-
-        fragmentManager
-            .beginTransaction()
-            .add(
-                R.id.indoor_map,
-                newFlutterFragment,
-                TAG_FLUTTER_FRAGMENT
-            ).commit()
-    }
-
-    channel = MethodChannel(engine.dartExecutor, appId)
-}
-```
-
-### Flutter Utils
-An utility class is available to help you with Flutter operations. If you want to comunicate with Flutter, it's suggested to include [this](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt) class in your project.
-### Show a new indoor map
-Once a map is available, pass the `tiles` local directory, height` and `width` of the map to Flutter:
-
-```kotlin
-private fun setIndoorMap(mapTilesUrl: String, mapHeight: Int, mapWidth: Int) {
-    channel.invokeMethod("localPackageUrl",
-        "$mapTilesUrl,$mapHeight,$mapWidth, 3")
-}
-```
-### Update user live position
-When a new indoor user position is available, notify Flutter with:
-```kotlin
-private fun updatePositionOnFlutterMap(it: NextomePosition) {
-    channel.invokeMethod("localPackageUrl", FlutterUtils.getLocalPackagePayload(mapTilesUrl, mapHeight, mapWidth))
-}
-``` 
-
-### Add a POI
-You can add custom Point of Interest on the Flutter map using this method:
-```kotlin
-private fun showPoiOnMap(poiList: List<NextomePoi>) {
-    channel.invokeMethod("POI", FlutterUtils.getPoiPayload(poiList))
-}
-```
-
-### Show a custom patch
-You can show a path on the map using this method and passing a list of Vertex. You can automatically get the Vertext between a start and end point of the map using the appropriate method on the `nextomeSdk`:
-```kotlin
-private fun showPathOnMap(path: List<Vertex>) { 
-    channel.invokeMethod("path", FlutterUtils.getPathPayload(path))
-}
-```
-
-### Observe events on Flutter Map
-With this observer you can be notified of events on the Flutter map, for example, when the user decides to navigate to a POI.
-```kotlin
-private fun observeMapEvents() {
-    channel.setMethodCallHandler { methodCall, _ ->
-        // On POI "Navigate to" tapped
-        if (methodCall.method == "poiData") {
-            val poiSerialized = methodCall.arguments as String
-            val poi = Gson().fromJson(poiSerialized, FlutterPoi::class.java)
-
-            // Ex. calculate path to POI and show it to user
-            showPathOnMap(
-                lastPosition.x, lastPosition.y lastPosition.mapId,
-                poi.x!!, poi.y!!, poi.map!!)
-        }
-    }
-}
-```
-
-### Show Center Position Fab
-*Available from flutter-map > 1.2.0*
-
-It's possible to show an optional fab at the bottom right of the map. When clicked, the button will:
- * center the map on the user position;
- * follow the user position live on map;
- * rotate the map based on user compass;
-
-To enable the button, use:
-```kotlin
-channel.invokeMethod("showCenterPositionFab", "true")
-```
-
-or, if you have imported our [Flutter Utils](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt):
-
-```kotlin
-  FlutterUtils.setMapViewSettings(channel, 
-    fabEnabled = true
-  )
-```
-
-!!!warning "please note"
-
-    The compass feature will only work if the app has the following permissions:
-
-    * android.permission.INTERNET
-    * android.permission.ACCESS_COARSE_LOCATION
-    * android.permission.ACCESS_FINE_LOCATION
-
-    If those permissions are not denied, the navigation button will only follow user position without rotating.
-
-### Change user position icon
-!!!info
-    Available from flutter-map > 1.2.0
-
-The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.
-
-```kotlin
-  channel.invokeMethod("customPositionResourceUrl", "http://nextome.net/position-icon.png")
-```
-
-or, if you're imported our [Flutter Utils](https://github.com/Nextome/nextome-phoenix-android-whitelabel/blob/main/app/src/main/java/com/nextome/test/helper/flutter/FlutterUtils.kt):
-
-```kotlin
-  FlutterUtils.setMapViewSettings(channel,
-      customPositionResourceUrl = "http://nextome.net/position-icon.png"
-  )
-```
-
+<!-- 
 ## Debug tools
 In case of necessity, Nextome SDK can write logs with useful info to a file.
 You can start writing logs with `nextomeSdk.startLoggingOnFile()`. Those logs can then be shared using `nextomeSdk.stopAndShareLog(context)`. A new Intent will be fired with a share dialog that allows to export and save the logs with other apps.
+-->
+
+## Next steps
+
+- Visit [Background-service](background-service.md) to learn how to use the SDK even when the app is not opened in the foreground.
+
+- See the [Additional features](additional-features.md) available, like events observers.
+
+- Visit [Flutter map integration](flutter-map-integration.md)if you want to use our library to display the indoor map.
 
 ## Examples
 A full working example app is available on this repository.
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
+
 
 <br>
 

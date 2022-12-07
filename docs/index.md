@@ -1,28 +1,33 @@
-# Overview
+---
+title: Introduction
+hide:
+  - footer
+---
+# Nextome SDK Documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+![Nextome Android SDK Cover](assets/cover.png)
 
-## Commands
+PhoenixSdk is an indoor positioning, mobile-ready, offline, Sdk, designed to be integrated into an existing mobile application effortlessly
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Ready to use
+Modular Features
+iOS Optimized
+Features
+Localize user into indoor/outdoor area thanks to low-signal Bluetooth beacons and GPS
+Calculate user realtime position
+Monitoring indoor/outdoor switching and change floor
+Elaborate custom road to point of interest
+You can also:
 
-## Project layout
+Integrate this module into an existing app to customize UX
+Manipulate indoor/outdoor user's position coordinate freely
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-## TABS
-=== "Tab 1"
-    Markdown **content**.
+## Nextome SDK - Android Resources
+[Android Docs](Nextome SDK/Android/integration.md) | [Changelog](Nextome SDK/Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
 
-    Multiple paragraphs.
+## NEXTOME SDK - iOS Resources
+[iOS Docs](Nextome SDK/iOS/integration.md) | [Changelog](Nextome SDK/iOS/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
 
-=== "Tab 2"
-    More Markdown **content**.
+## FLUTTER MAP - Resources
+[Android](Nextome SDK/Android/Integration/#flutter-map-module) | [iOS](Nextome SDK/iOS/integration/#flutter-map) | [Changelog](/Flutter Map)
 
-    - list item a
-    - list item b

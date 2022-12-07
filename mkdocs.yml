@@ -6,6 +6,10 @@ theme:
   features:
     - navigation.sections
     - content.code.annotate 
+    - content.tabs.link
+
+#    - navigation.expand
+
 
   palette:
     scheme: youtube
@@ -20,9 +24,40 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - attr_list
+  - md_in_html
   - pymdownx.tabbed:
         alternate_style: true
+  - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - tags
 
 extra:
   version:
     provider: mike
+
+
+nav:
+    - 'Introduction': 'index.md'
+    - 'Flutter Map':
+        - 'Changelog': 'Flutter Map/index.md'
+    - 'Nextome SDK':
+        - 'Introduction': 'Nextome SDK/introduction.md'
+        - 'Android': 
+          - 'Getting started': 'Nextome SDK/Android/integration.md'
+          - 'Additional features': 'Nextome SDK/Android/additional-features.md'
+          - 'Background-service': 'Nextome SDK/Android/background-service.md'
+          - 'Flutter map integration': 'Nextome SDK/Android/flutter-map-integration.md'
+          - 'Override default settings': 'Nextome SDK/Android/settings.md'
+          - 'Android Changelog': 'Nextome SDK/Android/changelog.md'
+        - 'iOS': 
+          - 'iOS Integration': 'Nextome SDK/iOS/integration.md'
+          - 'iOS Changelog': 'Nextome SDK/iOS/changelog.md'
