@@ -13,6 +13,24 @@ Please note: in order to update to a new version, write these command:
 
 # Phoenix iOS SDK Changelog
 
+## 1.4.4
+* Add support for XCode 14.2;
+
+To use this version define the pod with PhoenixSdk_{VERSION}: 
+
+for device: 
+
+```swift
+pod "PhoenixSdk_1.4.4", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
+```
+
+for simulator:
+
+```swift
+pod "PhoenixSdk_1.4.4_x86", :http => 'https://nextome.jfrog.io/artifactory/nextome-cocoapods-local/nextome-sdk.tar.gz', :type => 'tgz' 
+```
+
+
 ## 1.4.3
 * Add support for XCode 13.3;
 
