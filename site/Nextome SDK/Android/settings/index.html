@@ -354,47 +354,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Override default settings
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Override default settings
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#scanner-parameters" class="md-nav__link">
-    Scanner parameters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-optional-parameters" class="md-nav__link">
-    Other optional parameters
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -509,28 +471,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#scanner-parameters" class="md-nav__link">
-    Scanner parameters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-optional-parameters" class="md-nav__link">
-    Other optional parameters
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -548,84 +488,68 @@
 
 
 <h1 id="override-default-settings">Override default settings</h1>
-<p>TODO
-Durning the NextomePhoenixSdk initialization it is possible to override some of the settings defined in the web portal.
-These changes will be overridden for all the venues.
-It is not recommended to change these parameters directly from the app, use the Venue Settings available from the web portal instead. </p>
+<p>The NextomePhoenixSdk uses some parameter to customize the algorithm and additional features. These parameter are defined in the web portal and should only be changed from there.</p>
+<p>However, durning the NextomePhoenixSdk initialization, it is possible to override some of these settings, the override will be forced on all the venues.</p>
+<p>The parameters are summarized in the table below, with an indication of the default values used by the web dashboard.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>Overriding these parameters is an extremely dangerous operation that should only be made in accordance with the Nextome Team because has an huge impact on the localization's performance.  </p>
+<p>Overriding these parameters is a dangerous operation that should only be made in accordance with the Nextome Team because has an huge impact on the localization's performance.  </p>
 </div>
-<h4 id="scanner-parameters">Scanner parameters</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The longer you wait between scans, the longer it will take to detect a beacon. And the more reduce the length of the scan, the more likely it is that you might miss an advertisement from an beacon.</p>
 </div>
-<p>You can optionally customize scan period and scan duration:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">scanPeriod</span><span class="p">:</span><span class="w"> </span><span class="kt">Long</span><span class="w"></span>
-</code></pre></div>
-<p>sets a time in millis for the bluetooth beacon scan duration.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>1000 ms</code></p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">betweenScanPeriod</span><span class="p">:</span><span class="w"> </span><span class="kt">Long</span><span class="err">`</span><span class="w"></span>
-</code></pre></div>
-<p>sets a time in millis to wait between bluetooth scans.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>250 ms</code>.</p>
-</blockquote>
-<hr />
-<h4 id="other-optional-parameters">Other optional parameters</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">rssiThreshold</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"></span>
-</code></pre></div>
-<p>ignore beacons below a custom RSSI threshold.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>-75</code>.</p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">beaconListMaxSize</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="err">`</span><span class="w"></span>
-</code></pre></div>
-<p>keeps in memory a cache of <code>n</code> RSSI entries in time for each beacon to more accurately compute user position.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>12</code></p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">localizationMethod</span><span class="p">:</span><span class="w"> </span><span class="n">NextomeLocalizationMethod</span><span class="err">`</span><span class="w"></span>
-</code></pre></div>
-<p>Enum that sets the algorithm for localization. Choices are <code>LINEAR_SVD, NON_LINEAR_DA, PARTICLE</code>.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>LINEAR_SVD</code></p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">particleActive</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="err">`</span><span class="w"></span>
-</code></pre></div>
-<p>Boolean that indicates if the particle filter is enabled or not.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>true</code></p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">forceVenueId</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"></span>
-</code></pre></div>
-<p>This allows you to skip the search for venue phase and automatically download resurces of a specific venue when Nextome starts.</p>
-<blockquote>
-<p>With this, you can force your app to open only your venue and download venue resurces even if you're not in range of your venue beacons.</p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">sendPositionToServer</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"></span>
-</code></pre></div>
-<p>This allows you to automatically send positions real time to Nextome server and track monitor devices realtime on the web manager.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>false</code></p>
-</blockquote>
-<hr />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">.</span><span class="na">eventTimeoutDurationInSeconds</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"></span>
-</code></pre></div>
-<p>This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.</p>
-<blockquote>
-<p>Default value if not customized in the web portal is <code>0 seconds</code> (realtime).</p>
-</blockquote>
-<hr />
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+<th align="left">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>scanPeriod: Long</code></td>
+<td align="left">Time in millis for the bluetooth beacon scan duration</td>
+<td align="left">100 ms</td>
+</tr>
+<tr>
+<td align="left"><code>betweenScanPeriod: Long</code></td>
+<td align="left">Time in millis to wait between bluetooth scans</td>
+<td align="left">100 ms</td>
+</tr>
+<tr>
+<td align="left"><code>rssiThreshold: Int</code></td>
+<td align="left">Ignore beacons below a custom RSSI threshold.</td>
+<td align="left">-75 db</td>
+</tr>
+<tr>
+<td align="left"><code>beaconListMaxSize: Int</code></td>
+<td align="left">The SDk keeps in memory a cache of <code>n</code> RSSI entries in time for each beacon to more accurately compute user position.</td>
+<td align="left">12</td>
+</tr>
+<tr>
+<td align="left"><code>localizationMethod: NextomeLocalizationMethod</code></td>
+<td align="left">Enum that sets the algorithm for localization. Choices are <code>LINEAR_SVD, NON_LINEAR_DA, PARTICLE</code></td>
+<td align="left"><code>LINEAR_SVD</code></td>
+</tr>
+<tr>
+<td align="left"><code>particleActive: Boolean</code></td>
+<td align="left">Boolean that indicates if the particle filter is enabled or not</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left"><code>eventTimeoutDurationInSeconds: Int</code></td>
+<td align="left">This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute</td>
+<td align="left">0 (Real time)</td>
+</tr>
+<tr>
+<td align="left"><code>sendPositionToServer: Boolean</code></td>
+<td align="left">This allows you to automatically send positions real time to Nextome server and track monitor devices realtime on the web manager</td>
+<td align="left">false</td>
+</tr>
+</tbody>
+</table>
 
 
 
