@@ -23,7 +23,7 @@ Integrate this module into an existing app to customize UX
 Manipulate indoor/outdoor user's position coordinate freely
 
 ## Android Resources
-[Android Docs](Android/integration.md) | [Changelog](Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
+[Android Docs](Android/Integration.md) | [Changelog](Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
 
 ## iOS Resources
 [iOS Docs](iOS/integration.md) | [Changelog](iOS/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)
