@@ -52,7 +52,7 @@ nav:
     - 'Nextome SDK':
         - 'Introduction': 'Nextome SDK/introduction.md'
         - 'Android': 
-          - 'Getting started': 'Nextome SDK/Android/Integration.md'
+          - 'Getting started': 'Nextome SDK/Android/integration.md'
           - 'Additional features': 'Nextome SDK/Android/additional-features.md'
           - 'Background-service': 'Nextome SDK/Android/background-service.md'
           - 'Flutter map integration': 'Nextome SDK/Android/flutter-map-integration.md'
