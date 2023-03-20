@@ -15,6 +15,26 @@ hide:
     * iOS 13.2
     * xcode 13.3
 
+PhoenixSdk is an indoor positioning, mobile-ready, offline, Sdk, designed to be integrated into an existing mobile application effortlessly
+
+- Ready to use
+- Modular Features
+- iOS Optimized
+
+Features
+
+- Localize user into indoor/outdoor area thanks to low-signal Bluetooth beacons and GPS
+- Calculate user realtime position
+- Monitoring indoor/outdoor switching and change floor
+- Elaborate custom road to point of interest
+
+You can also:
+
+- Integrate this module into an existing app to customize UX
+- Manipulate indoor/outdoor user’s position coordinate freely
+
+
+
 ## How to install
 
 ### Cocoapods

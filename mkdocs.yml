@@ -6,6 +6,8 @@ theme:
   features:
     - navigation.sections
     - content.code.annotate 
+    - content.tabs.link
+
 #    - navigation.expand
 
 
@@ -22,8 +24,21 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - attr_list
+  - md_in_html
   - pymdownx.tabbed:
         alternate_style: true
+  - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - tags
 
 extra:
   version:

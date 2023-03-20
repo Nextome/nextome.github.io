@@ -41,7 +41,7 @@ A full working example app is available on [this repository](https://github.com/
     ```groovy title="project/build.gradle"
     implementation('net.nextome.phoenix_sdk:phoenix-sdk:{last_version}')
     ```
-    Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
+    Check latest released version [here](changelog.md)
 
 ### Optional Dependencies
 
@@ -60,7 +60,7 @@ A full working example app is available on [this repository](https://github.com/
     ```groovy title="app/build.gradle"
     implementation('net.nextome.nextome_map_module:flutter_release:{last_version}')
     ```
-    Check latest released version [here change me](/docs/Flutter%20Map/index.md)
+    Check latest released version [here](/Flutter%20Map)
 
 ## Getting started
 
@@ -104,7 +104,7 @@ Other **optional** parameters are also available. Here's a list of the customiza
 You can optionally customize scan period and scan duration:
 
 ```kotlin
-.withForegroundScanPeriod(scanPeriod)`
+.withForegroundScanPeriod(scanPeriod)
 ```
 
 sets a time in millis for the bluetooth beacon scan duration when in foreground mode.
@@ -113,7 +113,7 @@ sets a time in millis for the bluetooth beacon scan duration when in foreground 
 ___
 
 ```kotlin
-.withForegroundBetweenScanPeriod(betweenScanPeriod)`
+.withForegroundBetweenScanPeriod(betweenScanPeriod)
 ```
 
 sets a time in millis to wait between bluetooth scans when in foreground mode.
@@ -123,7 +123,7 @@ sets a time in millis to wait between bluetooth scans when in foreground mode.
 ___
 
 ```kotlin
-.withBackgroundScanPeriod(scanPeriod)`
+.withBackgroundScanPeriod(scanPeriod)
 ```
 
 sets a time in millis for the bluetooth beacon scan duration when in backgorund mode.
@@ -133,7 +133,7 @@ sets a time in millis for the bluetooth beacon scan duration when in backgorund 
 ___
 
 ```kotlin
-.withBackgroundBetweenScanPeriod(betweenScanPeriod)`
+.withBackgroundBetweenScanPeriod(betweenScanPeriod)
 ```
 
 sets a time in millis to wait between bluetooth scans when in background mode.
@@ -144,7 +144,7 @@ ___
 
 #### Other optional parameters
 ```kotlin
-.withRssiThreshold(rssiThreshold)`
+.withRssiThreshold(rssiThreshold)
 ```
 
 ignore beacons below a custom RSSI threshold.
@@ -153,7 +153,7 @@ ignore beacons below a custom RSSI threshold.
 ___
 
 ```kotlin
-.withBeaconListMaxSize(n)`
+.withBeaconListMaxSize(n)
 ```
 
 keeps in memory a cache of `n` RSSI entries in time for each beacon to more accurately compute user position.
@@ -163,7 +163,7 @@ keeps in memory a cache of `n` RSSI entries in time for each beacon to more accu
 ___
 
 ```kotlin
-.withLocalizationMethod(localizationMethod)`
+.withLocalizationMethod(localizationMethod)
 ```
 
 Sets the algorithm for localization. Choises are `LINEAR_SVD, NON_LINEAR_DA, PARTICLE`.
@@ -256,6 +256,7 @@ The exposed information are:
 
 #### Nextome SDK State
 Nextome State is a simple state machine that can have those states:
+
 - `STARTED`: Nextome has been correctly initialized and it's ready to scan beacons;
 - `SEARCH_VENUE`: Nextome is currently scanning nearby beacons to determine in which venue the user is; If the SDK is stuck here, you're probably outdoor.
 - `GET_PACKET`: Nextome knows the venue of the user and it's downloading from the server
@@ -385,8 +386,7 @@ val path = nextomeSdk.findPath(
 The returned path is a list of ordered Vertex, that, for example, can be passed to the Flutter Map Module and displayed to the user (see the methods written below).
 
 ### Observe events
-!!!info 
-    Available from nexome-sdk > 0.4.0
+[:octicons-tag-24: PhoenixSDK 0.4.0](../changelog/#040)
 
 If events are set up in your venue, you can observe when user enters or exits from event radius using those two observers:
 ```kotlin
@@ -521,7 +521,7 @@ private fun observeMapEvents() {
 ```
 
 ### Show Center Position Fab
-*Available from flutter-map > 1.2.0*
+[:octicons-tag-24: Flutter Map 1.2.0](../../../Flutter%20Map/#120)
 
 It's possible to show an optional fab at the bottom right of the map. When clicked, the button will:
  * center the map on the user position;
@@ -541,7 +541,7 @@ or, if you have imported our [Flutter Utils](https://github.com/Nextome/nextome-
   )
 ```
 
-!!!warning "please note"
+!!!warning "Please note"
 
     The compass feature will only work if the app has the following permissions:
 
@@ -552,8 +552,7 @@ or, if you have imported our [Flutter Utils](https://github.com/Nextome/nextome-
     If those permissions are not denied, the navigation button will only follow user position without rotating.
 
 ### Change user position icon
-!!!info
-    Available from flutter-map > 1.2.0
+[:octicons-tag-24: Flutter Map 1.2.0](../../../Flutter%20Map/#120)
 
 The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.
 
@@ -574,7 +573,7 @@ In case of necessity, Nextome SDK can write logs with useful info to a file.
 You can start writing logs with `nextomeSdk.startLoggingOnFile()`. Those logs can then be shared using `nextomeSdk.stopAndShareLog(context)`. A new Intent will be fired with a share dialog that allows to export and save the logs with other apps.
 
 ## Examples
-A full working example app is available on this repository.
+A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
 
 <br>
