@@ -282,6 +282,15 @@ nextomeSdk.getLocalizationObservable().collect {
 | `label: String?` | A label associated with the position (see [label in additional features]()). |
 
 ## Observe errors
+Sdk errors are delivered through getErrorObservable.
+The possible types of exceptions are:
+
+| Exception Type               | Description                                                                                                                  |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `GenericException`           | A generic error happened. The SDK will continue to work normally.                                                            |
+| `InvalidCredentialException` | Nextome SDK was started with invalid credentials. Create a new instance of Nextome SDK with valid credentials and try again. |
+| `Critical Exception`         | Nextome encountered a critical exception. It is necessary to start a new session to start localization again.                |
+
 ```kotlin
             nextomeSdk.getErrorsObservable().collect { error ->
                 Log.e(TAG, "New error received: ${error.message}")
