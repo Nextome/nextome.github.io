@@ -3,18 +3,18 @@
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
 
 ## Prerequisites
-!!!bug
-    PLACEHOLDER
+- Your project has min SDK version >= 23;
+- Have working credentials for our artifactory repository;
+- Have working credentials for our [frontend portal](https://admin.nextome.net/);
 
-- Install or update Android Studio to its latest version
-- Make sure that your project meets these requirements: 
-    - Target API: 32 or higher
-    - Uses Android x or higher
-    - Uses Jetpack(Android X)
-        - `com.android.tools.build:gradle` v3.2.1 or later
-        - `compileSdkVersion` 32 or later
-- Have credentials for jFrog
-- Have credentials for our portal
+!!! warning "Credentials"
+    If you need access to artifactory or web frontend, contact us at [info@nextome.com](mailto:info@nextome.com).
+
+### Retreive Client and Secret Key
+Log-in the web dashboard and retrieve the `Client` and `Secret Key` for the SDK.
+Those credentials are available from your profile, in the Apps section.
+
+![Retrieve SDK Credentials](../../assets/sdk_key.png)
 
 ## How to include
 
@@ -58,8 +58,6 @@ A full working example app is available on [this repository](https://github.com/
             }
         }
         ```
-    !!! note
-        Contact Nextome to receive a valid username/password to access our repository.
 
 2. In your module (app-level) Gradle file, add the dependency for the SDK:
 
@@ -76,36 +74,41 @@ A full working example app is available on [this repository](https://github.com/
         ```
     Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
 
-## Retrive SDK Credentials
-Log-in the web dashboard and retrieve the `Client` and `Secret Key` for the SDK.
-Those credentials are available from your profile, in the Apps section. 
-
-![Retrieve SDK Credentials](../../assets/sdk_key.png)
-
 ## Required permissions
 To run, Nextome SDK requires the following permissions:
 ```xml title="AndroidManifest.xml"
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- needed to retrieve GPS position when outdoor -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- needed to scan and connect to beacons -->
+    <uses-permission android:name="android.permission.BLUETOOTH"
+                     android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+                     android:maxSdkVersion="30" />
+    
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    
+    <!-- needed for background localization -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 ```
 
 !!!note 
-    Those are required to:
-
-    - Contact the backend server;
-    - Activate and manage Bluetooth beacon scan;
-    - Run as a foreground service for background mode;
-    - Access Bluetooth API (location)
+    The app integrating Nextome needs to ask the appropriate permissions and make sure they are accepted by the user.
 
 ## SDK Initialization
-
-To use Nextome SDK for Android initialize the NextomePhoenixSdk.
-
+It is possible to access all the methods of Nextome using the class `NextomePhoenixSdk`.
 It requires the `application context`, the given `Client` and `Secret Key`.
+
+!!!note
+    It is possible to generate or invalidate a given Client and Secret Key using our [web frontend](#retreive-client-and-secret-key). 
 
 ```kotlin
     nextomeSdk = NextomePhoenixSdk(
@@ -114,10 +117,11 @@ It requires the `application context`, the given `Client` and `Secret Key`.
         context = context as ApplicationContext,
     )
 ```
-!!!note
-    By default the SDK works with settings defined in the web portal.
-    The NextomePhoenixSdk constructor it is possible to override some of those as described in this section.
-    But please notice that this operation is extremely dangerous and should only be made in accordance with the Nextome Team because has an huge impact on the localization's performance.  
+!!!warning
+    By default the SDK works with settings defined on the web frontend.<br><br>
+    If you know what you are doing, you can override those settings as described [here](settings.md).
+    However, we strongly suggest to consult Nextome team before, since they can 
+    degrade sdk performances and cause phone battery drain.
 
 ## Start localization
 To start localization, call:
@@ -126,7 +130,7 @@ To start localization, call:
 nextomeSdk.start()
 ```
 
-If you want Nextome to keep track of user indoor position also while the phone screen is off or your app is in background explore the corresponding section [LINK HERE]
+If you want Nextome to keep track of user indoor position also while the phone screen is off or your app is in background explore the corresponding section [here](background-service.md).
 
 ## Stop localization
 When you've done, stop the localization by calling:
@@ -159,52 +163,54 @@ Nextome SDK has been initialized but there is no active localization service run
 #### StartedState
 Nextome has been correctly initialized and started, it's ready to scan beacons;
 
-| Property           | Description                          |
-| :------------------| :----------------------------------- |
-| `isOutdoor: Bool`  | Will always be true in this state    |
+| Property          | Description                         |
+|:------------------|:------------------------------------|
+| `isOutdoor: Bool` | Will always be `true` in this state |
 
 #### SearchVenueState
 Nextome is currently scanning nearby beacons to determine in which venue the user is; If the SDK is stuck here, you're probably outdoor.
 
-| Property           | Description                          |
-| :------------------| :----------------------------------- |
-| `isOutdoor: Bool`  | Will always be true in this state    |
+| Property          | Description                         |
+|:------------------|:------------------------------------|
+| `isOutdoor: Bool` | Will always be `true` in this state |
 
 #### GetPacketState
 Nextome knows the venue of the user and it's downloading from the server the associated resources (Maps, POIs, Patches...);
 
-| Property           | Description                          |
-| :------------------| :----------------------------------- |
-| `isOutdoor: Bool`  | Will always be true in this state    |
-| `venueId: Int`  | The venueId of the venue found    |
+| Property          | Description                          |
+|:------------------|:-------------------------------------|
+| `isOutdoor: Bool` | Will always be `false` in this state |
+| `venueId: Int`    | The venueId of the venue found       |
 
 #### FindFloorState
 All the venue resources have been downloaded. Nextome is now computing in which floor the user is;
 
-| Property             | Description                          |
-| :--------------------| :----------------------------------- |
-| `isOutdoor: Bool`   | Will always be true in this state    |
-| `venueId: Int`  | The venueId of the venue found    |
-| `venuePackage: NextomePackage` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](additional-features.md)|
+| Property                       | Description                                                                                                                               |
+|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|
+| `isOutdoor: Bool`              | Will always be `false` in this state                                                                                                      |
+| `venueId: Int`                 | The venueId of the venue found                                                                                                            |
+| `venuePackage: NextomePackage` | Contains all the resources (beacons, pois, maps, events, path and settings) for a specific venue. See more [here](additional-features.md) |
 
 #### LocalizationRunningState
 
-Nextome SDK is computing user positions. You can observe live user location using the observer nextomeSdk.locationLiveData;
+Nextome SDK is computing user positions. You can observe live user location using the observer `nextomeSdk.locationLiveData`;
 
-| Property             | Description                          |
-| :--------------------| :----------------------------------- |
-| `isOutdoor: Bool`   | Will always be true in this state    |
-| `venueId: Int`  | The venueId of the venue found    |
-| `venuePackage: NextomePackage`| Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](additional-features.md)|
-| `isOutdoor: Bool`   | Will always be true in this state    |
-| `mapId: Int`   | Will always be true in this state    |
-| `isOutdoor: Bool`   | Will always be true in this state    |
-| `tileZipPath: String`| The path for the zip file which contains the tiles for the current map   |
-| `mapHeight: Int`   | The height in pixel of the map   |
-| `mapWith: Int`   | The width in pixel of the map    |
+| Property                       | Description                                                                                                                              |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| `isOutdoor: Bool`              | Will always be `false` in this state                                                                                                     |
+| `venueId: Int`                 | The venueId of the venue found                                                                                                           |
+| `venuePackage: NextomePackage` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](additional-features.md) |
+| `mapId: Int`                   | Id of the map (floor) in which the user was localized                                                                                    |
+| `tileZipPath: String`          | The local path of the zip file which contains the tiles for the current map                                                              |
+| `mapHeight: Int`               | The height in pixel of the map                                                                                                           |
+| `mapWidth: Int`                | The width in pixel of the map                                                                                                            |
+
+It is possible to use `tileZipPath`, `mapHeight` and `mapWidth` to show the user a live map of the current floor.
+See more on [Nextome Map integration docs]().
 
 #### ErrorState
 The SDK was stopped due to a fatal error. It exposes a NextomeException which can be either a GenericException or InvalidCredentialException.
+If the error is fatal, localization will not resume automatically. It is possible to correct the error and start Nextome SDK again.
 
 !!!note 
     - If the user **changes floor**, the SDK will resume from `FIND_FLOOR` state.
@@ -213,7 +219,7 @@ The SDK was stopped due to a fatal error. It exposes a NextomeException which ca
 ### Complete example
 ??? example "Example: getStateObservable()"
     ```kotlin
-    nextomeSdk.getStateObservable().asLiveData().observe(this) { state ->
+    nextomeSdk.getStateObservable().collect { state ->
             when (state) {
                 is IdleState -> {
                     showOpenStreetMap()
@@ -251,41 +257,51 @@ The SDK was stopped due to a fatal error. It exposes a NextomeException which ca
                 }
 
                 is ErrorState -> {
-                    viewModel.handleError(state.exception)
+                    handleError(state.exception)
                 }
             }
 
         }
     ```
 ## Observe the user position
-Nextome SDK offers a flow to observe the user position:
+Nextome SDK offers an observable to listen to user position updates:
 
 ```kotlin
-val state: Flow<NextomePosition> = nextomeSdk.getLocalizationObservable()
-state.asLiveData().observe(this){position -> 
-   log("Got indoor position (${it.x}, ${it.y}), on map ${it.mapId} in floor ${it.floorId})") 
+nextomeSdk.getLocalizationObservable().collect { 
+   log("Localized at (${it.x}, ${it.y}), on venue ${it.venueId} on map ${it.mapId})") 
 }
 ```
 #### NextomePosition
 
-| Property             | Description                          |
-| :--------------------| :----------------------------------- |
-| `x: Double`   | The x coordinates of the localized point.|
-| `y: Double`  | The y coordinates of the localized point. |
-| `venueId: Int`| The venueId of the venue found. |
-| `label: String?`   | A label associated with the position.   |
+| Property         | Description                                                                  |
+|:-----------------|:-----------------------------------------------------------------------------|
+| `x: Double`      | The x coordinates of the computed position.                                  |
+| `y: Double`      | The y coordinates of the computed position.                                  |
+| `venueId: Int`   | The venueId of the venue found.                                              |
+| `mapId: Int`     | The mapId (floor) of the computed position.                                  |
+| `label: String?` | A label associated with the position (see [label in additional features]()). |
 
 ## Observe errors
-!!!bug
-    PLACEHOLDER
+```kotlin
+            nextomeSdk.getErrorsObservable().collect { error ->
+                Log.e(TAG, "New error received: ${error.message}")
+    
+                when (error) {
+                    is NextomeException.GenericException -> {
+                        showMessageEvent(message = error.message)
+                    }
 
-TO BE IMPLEMENTED
+                    is NextomeException.InvalidCredentialException -> {
+                        logOutAndShowLoginScreen()
+                    }
 
-<!-- 
-## Debug tools
-In case of necessity, Nextome SDK can write logs with useful info to a file.
-You can start writing logs with `nextomeSdk.startLoggingOnFile()`. Those logs can then be shared using `nextomeSdk.stopAndShareLog(context)`. A new Intent will be fired with a share dialog that allows to export and save the logs with other apps.
--->
+                    is NextomeException.CriticalException -> {
+                        showMessageEvent(message = error.message)
+                        // Need to restart sdk
+                    }
+                }
+            }    
+```
 
 ## Offline capability
 With the migration from 0.X.X to 1.X.X the SDK can also work offline by default if the resources of the venue were downloaded at least the first time. 
