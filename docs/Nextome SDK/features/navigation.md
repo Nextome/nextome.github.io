@@ -1,4 +1,9 @@
 # Navigation
+
+!!!note
+    A path with the map graph should be defined using Nextome Web Frontend before using this feature.
+
+
 Nextome Sdk is able to calculate the shortest path between two points of the same venue.
 
 The function takes (x, y) coordinates and map of the starting point and (x, y) coordinates and map of the destination point.
@@ -22,3 +27,4 @@ The function takes (x, y) coordinates and map of the starting point and (x, y) c
 
 The returned path is a list of ordered Vertex, that, for example, can be passed to the Flutter Map Module and displayed to the user (see the methods written below).
 
+<p style="text-align: center;"><img src="/assets/navigation_android.png" width="50%"></p>

@@ -43,7 +43,7 @@ Please, update the version number incrementally when updating the zip file other
       ```
 
 
-If you don't want to bundle the initial data inside the assets folder (for example to download it from an API) you can pass the local path by using the `LocalResource` instead of `AssetResource`.
+If you don't want to bundle the initial data inside the `assets` folder (for example to download it from an API) you can pass the local path by using the `LocalResource` instead of `AssetResource`.
 
 === "Android"
     ``` kotlin

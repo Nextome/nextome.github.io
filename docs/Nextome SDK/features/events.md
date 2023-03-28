@@ -1,6 +1,9 @@
 # Observe events
 
-If events are set up in your venue, you can observe when user enters or exits from event radius using those two observers:
+!!!notes
+    Event positions and radius can be customized on Nextome Web Frontend.
+
+If there is at least one event created in your venue, you can observe when user enters or exits from event radius using those two observers:
 === "Android"
     ```kotlin
         nextomeSdk.getEnterEventObservable().asLiveData().observe(this) { event ->
@@ -29,9 +32,12 @@ If events are set up in your venue, you can observe when user enters or exits fr
     }
     ```
 
-Optionally, after exiting from event, it's possible to set a timeout value in seconds before signaling that event again.
-This allows you to ignore when user exits and enters again in a event radius in a short time span. For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.
+Optionally, after exiting from event, it's possible to set a timeout value in seconds before receiving the same event again.
+This allows you to ignore when user exits and enters again in an event radius in a short time span.
+
+For example, if timeout is set to 60 seconds, the same event onEnter after onExit is received will be not triggered again for at least for 1 minute.
 If set to 0, Nextome SDK will signal onEnter and onExit event realtime.
+
 This parameter is only configurable during the SDK initialization.
 
 === "Android"
@@ -49,3 +55,33 @@ This parameter is only configurable during the SDK initialization.
         .setEventTimeoutDuration(millis: 60)
         .build()
     ```
+
+## Example
+Events can enable some custom logic in the client application. For example, it's possible to use events to
+count all the people that are entering an area.
+
+!!!note
+    Each event can deliver a custom payload (for example a JSON). To customize Event data, use Nextome Web Frontend.
+
+=== "Android"
+    ```kotlin
+        data class EventData(
+            val roomId: Int,
+            val roomName: String
+        )
+    
+        nextomeSdk.getEnterEventObservable().asLiveData().observe(this) {
+            val eventData: EventData = it.event.data.parseFromJson()
+            val timestamp: Long = it.ts
+            
+            api.sendEnterEvent(roomId = eventData.roomId, ts = timestamp)
+            showMessage("Welcome in room ${eventData.roomName}")
+        }
+    
+        nextomeSdk.getExitEventObservable().asLiveData().observe(this) { event ->
+            api.sendExitEvent(roomId = event.roomId, ts = timestamp)
+            showMessage("You're now leaving room ${eventData.roomName}")
+        }
+    ```
+=== "iOS"
+TODO @Anna parte iOS 
