@@ -54,12 +54,16 @@ nav:
         - 'Getting started':
           - 'Android': 'Nextome SDK/Getting Started/android-getting-started.md'
           - 'iOS': 'Nextome SDK/Getting Started/ios-getting-started.md'
-        - 'Start Localization': 'Nextome SDK/start-localization.md'
-        - 'Additional features': 'Nextome SDK/Android/additional-features.md'
-        - 'Background-service': 'Nextome SDK/Android/background-service.md'
+        - 'Basic Features': 'Nextome SDK/start-localization.md'
+        - 'Additional Features':
+          - 'Events': 'Nextome SDK/features/events.md'
+          - 'Navigation': 'Nextome SDK/features/navigation.md'
+          - 'Get Venue Data': 'Nextome SDK/features/venue-data.md'
+          - 'Force Venue': 'Nextome SDK/features/force-venue.md'
+          - 'Initial Resources': 'Nextome SDK/features/initial-resources.md'
+          - 'Override default settings': 'Nextome SDK/Android/settings.md'
+          - '[Android] Foreground service': 'Nextome SDK/Android/background-service.md'
         - 'Flutter map integration': 'Nextome SDK/Android/flutter-map-android-getting-started.md'
-        - 'Override default settings': 'Nextome SDK/Android/settings.md'
-        - 'Android Changelog': 'Nextome SDK/Android/changelog.md'
-        - 'iOS':
-          - 'iOS Integration': 'Nextome SDK/iOS/android-getting-started.md'
+        - 'Changelog':
+          - 'Android': 'Nextome SDK/Android/changelog.md'
           - 'iOS Changelog': 'Nextome SDK/iOS/changelog.md'
