@@ -12,7 +12,7 @@ Our software development kit opens the door to maximum customization and data in
 Besides of the SDK module we offer a FlutterMap module to handle the UI.
 
 ## Nextome SDK - Android Resources
-[Android Docs](Nextome SDK/Android/integration.md) | [Changelog](Nextome SDK/Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
+[Android Docs](Nextome%20SDK/Getting%20Started/android-getting-started.md) | [Changelog](Nextome SDK/Android/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)
 
 ## NEXTOME SDK - iOS Resources
 [iOS Docs](Nextome SDK/iOS/integration.md) | [Changelog](Nextome SDK/iOS/changelog.md) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)

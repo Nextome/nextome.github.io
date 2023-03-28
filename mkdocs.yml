@@ -51,13 +51,15 @@ nav:
         - 'Changelog': 'Flutter Map/index.md'
     - 'Nextome SDK':
         - 'Introduction': 'Nextome SDK/introduction.md'
-        - 'Android': 
-          - 'Getting started': 'Nextome SDK/Android/integration.md'
-          - 'Additional features': 'Nextome SDK/Android/additional-features.md'
-          - 'Background-service': 'Nextome SDK/Android/background-service.md'
-          - 'Flutter map integration': 'Nextome SDK/Android/flutter-map-integration.md'
-          - 'Override default settings': 'Nextome SDK/Android/settings.md'
-          - 'Android Changelog': 'Nextome SDK/Android/changelog.md'
-        - 'iOS': 
-          - 'iOS Integration': 'Nextome SDK/iOS/integration.md'
+        - 'Getting started':
+          - 'Android': 'Nextome SDK/Getting Started/android-getting-started.md'
+          - 'iOS': 'Nextome SDK/Getting Started/ios-getting-started.md'
+        - 'Start Localization': 'Nextome SDK/start-localization.md'
+        - 'Additional features': 'Nextome SDK/Android/additional-features.md'
+        - 'Background-service': 'Nextome SDK/Android/background-service.md'
+        - 'Flutter map integration': 'Nextome SDK/Android/flutter-map-android-getting-started.md'
+        - 'Override default settings': 'Nextome SDK/Android/settings.md'
+        - 'Android Changelog': 'Nextome SDK/Android/changelog.md'
+        - 'iOS':
+          - 'iOS Integration': 'Nextome SDK/iOS/android-getting-started.md'
           - 'iOS Changelog': 'Nextome SDK/iOS/changelog.md'
