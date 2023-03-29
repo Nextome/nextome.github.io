@@ -56,6 +56,17 @@ This parameter is only configurable during the SDK initialization.
         .build()
     ```
 
+## Query past events
+It is possible to query recent events using
+=== "Android"
+    ```kotlin
+    val todayEvents: List<NextomeEventEnterExit> = nextomeSdk.getEnterExitEventsAfter(ts = todayAtMidnightInMillis)
+    ```
+=== "iOS"
+    ```swift
+    let todayEvents = nextomeSdk.getEnterExitEventsAfter(ts: todayAtMidnightInMillis)
+    ```
+
 ## Example
 Events can enable some custom logic in the client application. For example, it's possible to use events to
 count all the people that are entering an area.
