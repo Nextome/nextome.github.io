@@ -113,13 +113,13 @@ All the venue resources have been downloaded. Nextome is now computing in which 
     |:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
     | `isOutdoor: Bool`              | Will always be `false` in this state                                                                                                              |
     | `venueId: Int`                 | The venueId of the venue found                                                                                                                    |
-    | `venueData: NextomeVenueData`  | Contains all the resources (beacons, pois, maps, events, path and settings) for a specific venue. See more [here](Android/additional-features.md) |
+    | `venueData: NextomeVenueData`  | Contains all the resources (beacons, pois, maps, events, path and settings) for a specific venue. |
 === "iOS"
     | Property                       | Description                                                                                                                                       |
     |:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
     | `isOutdoor: Bool`              | Will always be `false` in this state                                                                                                              |
     | `venueId: Int`                 | The venueId of the venue found                                                                                                                    |
-    | `venueData: NextomeVenueData`  | Contains all the resources (beacons, pois, maps, events, path and settings) for a specific venue. See more [here](Android/additional-features.md) |
+    | `venueData: NextomeVenueData`  | Contains all the resources (beacons, pois, maps, events, path and settings) for a specific venue. |
 
 #### LocalizationRunningState
 
@@ -131,7 +131,7 @@ Nextome SDK is computing user positions. You can observe live user location usin
     |:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
     | `isOutdoor: Bool`             | Will always be `false` in this state                                                                                                     |
     | `venueId: Int`                | The venueId of the venue found                                                                                                           |
-    | `venueData: NextomeVenueData` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](Android/additional-features.md) |
+    | `venueData: NextomeVenueData` | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. |
     | `mapId: Int`                  | Id of the map (floor) in which the user was localized                                                                                    |
     | `tileZipPath: String`         | The local path of the zip file which contains the tiles for the current map                                                              |
     | `mapHeight: Int`              | The height in pixel of the map                                                                                                           |
@@ -141,7 +141,7 @@ Nextome SDK is computing user positions. You can observe live user location usin
     |:--------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
     | `isOutdoor: Bool`               | Will always be `false` in this state                                                                                                     |
     | `venueId: Int32`                | The venueId of the venue found                                                                                                           |
-    | `venueData: NextomeVenueData`   | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. See more [here](Android/additional-features.md) |
+    | `venueData: NextomeVenueData`   | Contains all the resources(beacons, pois, maps, events, path and settings) for a specific venue. |
     | `mapId: Int32`                  | Id of the map (floor) in which the user was localized                                                                                    |
     | `tileZipPath: String`           | The local path of the zip file which contains the tiles for the current map                                                              |
     | `mapHeight: Int32`              | The height in pixel of the map                                                                                                           |
@@ -305,27 +305,42 @@ It is possible to observe errors using `getErrorsObservable()`:
 
 === "Android"
     ```kotlin
-                nextomeSdk.getErrorsObservable().collect { error ->
-                    Log.e(TAG, "New error received: ${error.message}")
-        
-                    when (error) {
-                        is NextomeException.GenericException -> {
-                            showMessageEvent(message = error.message)
-                        }
-    
-                        is NextomeException.InvalidCredentialException -> {
-                            logOutAndShowLoginScreen()
-                        }
-    
-                        is NextomeException.CriticalException -> {
-                            showMessageEvent(message = error.message)
-                            // Need to restart sdk
-                        }
-                    }
-                }    
+    nextomeSdk.getErrorsObservable().collect { error ->
+        Log.e(TAG, "New error received: ${error.message}")
+
+        when (error) {
+            is NextomeException.GenericException -> {
+                showMessageEvent(message = error.message)
+            }
+
+            is NextomeException.InvalidCredentialException -> {
+                logOutAndShowLoginScreen()
+            }
+
+            is NextomeException.CriticalException -> {
+                showMessageEvent(message = error.message)
+                // Need to restart sdk
+            }
+        }
+    }    
     ```
 === "iOS"
-    TODO: @Anna iOS qui
+    ```swift
+    let errorWatcher = nextomeSdk.getErrorsObservable().watch(block: {error in
+        guard let error = error else{
+            return
+        }
+        if error is NextomeException.InvalidCredentialException{
+            self.logoutAndShowLoginScreen()
+        }else if error is NextomeException.CriticalException{
+            self.showMessageEvent(message: error.message)
+            //Need to restart sdk
+        }else if error is NextomeException.GenericException {
+            self.showMessageEvent(message: error.message)
+        }
+    })
+    watchers.append(errorWatcher)
+    ```
 
 ## Next steps
 

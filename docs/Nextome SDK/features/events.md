@@ -76,23 +76,47 @@ count all the people that are entering an area.
 
 === "Android"
     ```kotlin
-        data class EventData(
-            val roomId: Int,
-            val roomName: String
-        )
-    
-        nextomeSdk.getEnterEventObservable().asLiveData().observe(this) {
-            val eventData: EventData = it.event.data.parseFromJson()
-            val timestamp: Long = it.ts
-            
-            api.sendEnterEvent(roomId = eventData.roomId, ts = timestamp)
-            showMessage("Welcome in room ${eventData.roomName}")
-        }
-    
-        nextomeSdk.getExitEventObservable().asLiveData().observe(this) { event ->
-            api.sendExitEvent(roomId = event.roomId, ts = timestamp)
-            showMessage("You're now leaving room ${eventData.roomName}")
-        }
+    data class EventData(
+        val roomId: Int,
+        val roomName: String
+    )
+
+    nextomeSdk.getEnterEventObservable().asLiveData().observe(this) {
+        val eventData: EventData = it.event.data.parseFromJson()
+        val timestamp: Long = it.ts
+        
+        api.sendEnterEvent(roomId = eventData.roomId, ts = timestamp)
+        showMessage("Welcome in room ${eventData.roomName}")
+    }
+
+    nextomeSdk.getExitEventObservable().asLiveData().observe(this) { event ->
+        val eventData: EventData = it.event.data.parseFromJson()
+        val timestamp: Long = it.ts
+
+        api.sendExitEvent(roomId = event.roomId, ts = timestamp)
+        showMessage("You're now leaving room ${eventData.roomName}")
+    }
     ```
 === "iOS"
-TODO @Anna parte iOS 
+    ```swift
+    enterObserver = nextomeSdk.getEnterEventObservable().watch{event in
+            guard let event = event, let eventPayload = event.event.data else { return }
+            
+            let eventData: EventData = eventPayload.parseFromJson()
+            let timestamp = event.ts
+            
+            api.sendEnterEvent(forRoom: eventData.roomId, at: timestamp)
+            showMessage("Welcome in room \(eventData.roomName)")
+            
+        }
+        
+    exitObserver = nextomeSdk.getExitEventObservable().watch{ event in
+        guard let event = event, let eventPayload = event.event.data else { return }
+        
+        let eventData: EventData = eventPayload.parseFromJson()
+        let timestamp = event.ts
+        
+        api.sendExitEvent(forRoom: eventData.roomId, at: timestamp)
+        showMessage("You're now leaving room \(eventData.roomName)")
+    }
+    ```

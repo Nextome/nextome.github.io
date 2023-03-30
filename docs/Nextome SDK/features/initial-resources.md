@@ -29,11 +29,11 @@ Please, update the version number incrementally when updating the zip file other
 
 === "Android"
       ```kotlin
-            nextomeSdk = NextomePhoenixSdk(
-                clientId = CLIENT_ID,
-                clientSecret = CLIENT_SECRET,
-                context = context as ApplicationContext,
-                initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))
+        nextomeSdk = NextomePhoenixSdk(
+            clientId = CLIENT_ID,
+            clientSecret = CLIENT_SECRET,
+            context = context as ApplicationContext,
+            initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))
       ```
 === "iOS"
       ```swift 

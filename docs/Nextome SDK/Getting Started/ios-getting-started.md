@@ -62,13 +62,13 @@ Then it is necessary to configure our private Spec Repo.
     pod repo-art update
     ```
 
-5. Create a Podfile if you don't already have one. From the root of your    project directory, run the following command
+5. Create a Podfile if you don't already have one. From the root of your project directory, run the following command
 
     ```bash
-    pod repo-art update
+    pod init
     ```
 
-6. To your Podfile, be sure that the platform is at least 13.2 then ad the CocoaPods specs source and the cocoapods-art plugin. Then add the PhoenixSdk pod
+6. To your Podfile, be sure that the platform is at least 13.2 then add the CocoaPods specs source and the cocoapods-art plugin. Then add the PhoenixSdk pod
 
     ```
     platform :ios, '13.2'
@@ -79,7 +79,11 @@ Then it is necessary to configure our private Spec Repo.
         'nextome-cocoapods-local'
     ]
 
-    pod 'PhoenixSdk'
+    use_frameworks!
+
+    target 'MyApp' do
+        pod 'PhoenixSdk'
+    end
     ```
 
 7. Install the pods, then open your .xcworkspace file to see the project in Xcode
@@ -87,6 +91,9 @@ Then it is necessary to configure our private Spec Repo.
     ```bash
     pod install
     ```
+
+8. Open your `xcworkspace` file
+
 
 ## Setup
 
@@ -121,13 +128,17 @@ Those credentials are available from your profile, in the Apps section.
 ![Retrieve SDK Credentials](../../assets/sdk_key.png)
 
 ## SDK Initialization
+Firsty import the Phoenix SDK Module
+```swift
+import PhoenixSdk
+```
 
-To use Nextome SDK for iOS initialize the NextomePhoenixSdk.
+Then initialize the NextomePhoenixSdk.
 
 It requires the given `Client` and `Secret Key`.
 
 ```swift
-    let nextomeSdk = NextomePhoenixSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET).build()
+let nextomeSdk = NextomePhoenixSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET).build()
 ```
 
 !!!note
