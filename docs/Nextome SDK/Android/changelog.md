@@ -1,4 +1,4 @@
-# Changelog
+# Nextome SDK - Android Changelog
  
 ### 2.0.0.
 

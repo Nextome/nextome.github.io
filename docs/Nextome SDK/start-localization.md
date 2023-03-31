@@ -1,6 +1,6 @@
 # Start Localization
 
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
+A full working example app is available for [iOS](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel) and [android](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
 
 ## Start localization
 To start localization, call:
@@ -148,7 +148,7 @@ Nextome SDK is computing user positions. You can observe live user location usin
     | `mapWidth: Int32`               | The width in pixel of the map                                                                                                            |
 
 It is possible to use `tileZipPath`, `mapHeight` and `mapWidth` to show the user a live map of the current floor.
-See more on [Nextome Map integration docs]().
+See more on [Nextome Map integration docs](nextome-map-integration.md).
 
 !!!note
 - If the user **changes floor**, the SDK will resume from `FIND_FLOOR` state.
@@ -346,12 +346,10 @@ It is possible to observe errors using `getErrorsObservable()`:
 
 - Visit [Background-service](Android/background-service.md) to learn how to use the SDK even when the app is not opened in the foreground.
 
-- See the [Additional features](Android/additional-features.md) available, like events observers.
-
-- Visit [Flutter map integration](Android/flutter-map-integration.md)if you want to use our library to display the indoor map.
+- Visit [Nextome map integration](nextome-map-integration.md) if you want to use our library to display the indoor map.
 
 ## Examples
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
+A full working example app is available on [iOS](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel) and [android](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
 
 

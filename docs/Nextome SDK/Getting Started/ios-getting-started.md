@@ -148,7 +148,6 @@ let nextomeSdk = NextomePhoenixSdk.Builder(clientId: CLIENT_ID, clientSecret: CL
 
 ## Next steps
 - See [Start Localization](../start-localization.md) to use Nextome SDK.
-- Visit [Flutter map integration](flutter-map-integration.md)if you want to use our library to display the indoor map.
 
 ## Examples
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).

@@ -1,4 +1,6 @@
 site_name: Nextome Documentation
+site_url: ''
+
 theme: 
   name: material
   logo: assets/logo-white.svg
@@ -63,7 +65,7 @@ nav:
           - 'Initial Resources': 'Nextome SDK/features/initial-resources.md'
           - 'Override default settings': 'Nextome SDK/Android/settings.md'
           - '[Android] Foreground service': 'Nextome SDK/Android/background-service.md'
-        - 'Nextome map integration': 'Nextome SDK/flutter-map-integration.md'
+        - 'Nextome map integration': 'Nextome SDK/nextome-map-integration.md'
         - 'Changelog':
           - 'Android': 'Nextome SDK/Android/changelog.md'
           - 'iOS Changelog': 'Nextome SDK/iOS/changelog.md'
