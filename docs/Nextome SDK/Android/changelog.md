@@ -1,3 +1,5 @@
 # Changelog
+ 
+### 2.0.0.
 
-TODO
+New version is here! 🎉
