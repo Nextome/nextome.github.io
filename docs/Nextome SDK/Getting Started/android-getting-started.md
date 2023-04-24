@@ -27,9 +27,11 @@ Those credentials are available from your profile, in the Apps section.
             repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
             repositories {
                 ...
-                maven { url "https://jitpack.io" }
+
+                google()
+                mavenCentral()
                 maven {
-                    url "https://nextome.jfrog.io/artifactory/nextome-libs-release-local"
+                    url "https://nextome.jfrog.io/artifactory/nextome-libs-prod/"
 
                     credentials {
                         username "USERNAME"
@@ -46,9 +48,11 @@ Those credentials are available from your profile, in the Apps section.
             repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
             repositories {
                 ...
-                maven { url = uri("https://jitpack.io)" }
+
+                google()
+                mavenCentral()
                 maven {
-                    url = uri("https://nextome.jfrog.io/artifactory/nextome-libs-release-local")
+                    url = uri("https://nextome.jfrog.io/artifactory/nextome-libs-prod/")
 
                     credentials {
                         username = "USERNAME"
@@ -64,13 +68,13 @@ Those credentials are available from your profile, in the Apps section.
     === "Groovy"
 
         ``` groovy title="project/build.gradle"
-        implementation 'net.nextome.phoenix_sdk:phoenix-sdk:{last_version}'
+        implementation 'net.nextome.phoenix:sdk:{last_version}'
         ```
 
     === "KTS"
 
         ``` kotlin title="project/build.gradle.kts"
-        implementation ("net.nextome.phoenix_sdk:phoenix-sdk:{last_version}")
+        implementation ("net.nextome.phoenix:sdk:{last_version}")
         ```
     Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
 
