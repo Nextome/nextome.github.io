@@ -9,7 +9,7 @@ theme:
     - navigation.sections
     - content.code.annotate 
     - content.tabs.link
-
+  custom_dir: material/.overrides
 #    - navigation.expand
 
 
