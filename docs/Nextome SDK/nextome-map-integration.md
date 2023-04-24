@@ -70,7 +70,7 @@ The `PhoenixMapHandler` provide a UIViewController/Fragment and some methods to 
     === "iOS"
         
         ```swift
-        import PhoenixMapHandler
+        import PhoenixMapUtils
         ```
 
 2. Initialize the Fragment/UIViewController
@@ -159,7 +159,14 @@ With this observer you can be notified of events on the map, for example, when t
         }
         ```
     
-    2. Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.
+    2. Implement the onPoiClicked method to be notified when the user clicked on a POI.
+
+        ```swift
+        func onPoiClicked(poi: NextomePoi){
+
+        }
+        ```
+    3. Implement the onNavigationSelected method to be notified when the user wants to navigate to a POI.
 
         ```swift
         func onPoiClicked(poi: NextomePoi){
