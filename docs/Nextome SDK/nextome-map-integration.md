@@ -5,15 +5,15 @@ hide:
 ---
 # Nextome map integration
 If you want, there’s an optional module that can show a live map of the indoor location of the user. 
-You havo two options to integrate the UI component:
+You have two options to integrate the UI component:
 
-1. Integrate the `NextomeMapUtils` (Recommended method), which is a wrapper that allows you to integrate easly the SDK with the Map module
-2. Integrate directly the `NextomeFlutterMap`. This method requires more bolerplate code but allows more customization
+1. Integrate the `PhoenixMapUtils` (Recommended method), which is a wrapper that allows you to integrate easily the SDK with the Map module
+2. Integrate directly the `NextomeMap`. This method requires more boilerplate code but allows more customization
 
 <p style="text-align: center;"><img src="/assets/mapIos.jpeg" width="50%"></p>
 
-## Integrate NextomeMapUtils
-In this sections we will go through the integration of the NextomeMapUtils. If you're interested in th NextomeFlutterMap approach you can refer to this documentation. <INSERISCI LINK A FLUTER MAP>
+## Integrate PhoenixMapHandler
+In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation. <INSERISCI LINK A FLUTER MAP>
 
 ### Install the dependency
 
@@ -21,13 +21,13 @@ In this sections we will go through the integration of the NextomeMapUtils. If y
     //TODO @Paolo
 
 === "iOS"
-    1. Add the pod dependency inside the `Podfile`
+    1. Add the pod dependency inside the `Podfile`. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
         ```swift
-        pod NextomeMapUtils_Release
+        pod PhoenixMapUtils_Release
         ```
 
         !!! note
-            The NextomeMapUtils is distributed in two different pod version, `Release` and `Debug`. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the `Debug` version instead. 
+            The PhoenixMapUtils is distributed in two different pod version, `Release` and `Debug`. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the `Debug` version instead. 
             It is important to use the `Release` version for the app store. 
 
     2. Install the dependency
@@ -47,20 +47,20 @@ The first step is to initialize the module.
     1. Open th `AppDelegate`
     2. Import the module
         ```swift
-        import NextomeMapUtils
+        import PhoenixMapUtils
         ```
-    3. Initialize the `NextomeMapHandler` in the `didFinishLaunchingWithOptions` method:
+    3. Initialize the `PhoenixMapHandler` in the `didFinishLaunchingWithOptions` method:
         ```swift
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             // Override point for customization after application launch.
-            NextomeMapHandler.instance.initialize()
+            PhoenixMapHandler.instance.initialize()
             return true
         } 
         ```
     
 ### Integration
 
-The `NextomeMapUtils` provide a UIViewController/Fragment and some methods to handle it.
+The `PhoenixMapHandler` provide a UIViewController/Fragment and some methods to handle it.
 
 1. Import the module
 
@@ -70,7 +70,7 @@ The `NextomeMapUtils` provide a UIViewController/Fragment and some methods to ha
     === "iOS"
         
         ```swift
-        import NextomeMapUtils
+        import PhoenixMapHandler
         ```
 
 2. Initialize the Fragment/UIViewController
@@ -79,28 +79,28 @@ The `NextomeMapUtils` provide a UIViewController/Fragment and some methods to ha
         //TODO @Paolo
 
     === "iOS"
-        The `NextomeMapHandler` provides a UIViewController that you can use to show the flutter map.
+        The `PhoenixMapHandler` provides a UIViewController that you can use to show the flutter map.
         ```swift
-        lazy var indoorMapViewController: UIViewController = NextomeMapHandler.instance.initializeFlutterViewController()
+        lazy var indoorMapViewController: UIViewController = PhoenixMapHandler.instance.initializeFlutterViewController()
         ```
 
 ### Show a new indoor map
 
-Once a map is available, pass the `tiles local directory`, `height` and `width` of the map to the `NextomeMapHandler`.
+Once a map is available, pass the `tiles local directory`, `height` and `width` of the map to the `PhoenixMapHandler`.
 Those parameters can be obtained from the `LocalizationRunningState` during localization or from the specific map returned in the `NextomeVenueData`. More info on the venue data can be retrieve [here](features/venue-data.md).
 === "Android"
     //TODO @Paolo
 
 === "iOS"
     ```swift
-    NextomeMapHandler.instance.setMap(tilesZipPath: runningState.tilesZipPath,
+    PhoenixMapHandler.instance.setMap(tilesZipPath: runningState.tilesZipPath,
                                         mapHeight: runningState.mapHeight,
                                         mapWidth: runningState.mapWidth)
     ```
 
 ### Update user live position
 
-When a new indoor user position is available, notify `NextomeMapHandler` to update the blue point with:
+When a new indoor user position is available, notify `PhoenixMapHandler` to update the blue point with:
 
 === "Android"
         //TODO @Paolo
@@ -111,7 +111,7 @@ When a new indoor user position is available, notify `NextomeMapHandler` to upda
     let watcher = nextomeSdk.getLocalizationObservable().watch(block: {position in
         if let position = position{
             self.lastPosition = position
-            NextomeMapHandler.instance.updatePositionOnMap(position)
+            PhoenixMapHandler.instance.updatePositionOnMap(position)
         }
     })
 
@@ -128,7 +128,7 @@ You can set the list of Point of Interest to show on the map using this method:
 === "iOS"
     ```swift
     let pois: [NextomePoi] = runningState.venueData.getPoisByMapId(mapId: runningState.mapId)
-    NextomeMapHandler.instance.updatePoiList(pois)
+    PhoenixMapHandler.instance.updatePoiList(pois)
     ```
 
 ### Show a path between two points on map
@@ -140,7 +140,7 @@ You can show a path on the map using this method and passing a list of Vertex. Y
 === "iOS"
     ```swift
     func showPath(path: [Vertex]){
-        NextomeMapHandler.instance.updatePath(path: path)
+        PhoenixMapHandler.instance.updatePath(path: path)
     }
     ```
 
@@ -191,7 +191,7 @@ To enable the button, use:
     2. Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.
 
         ```swift
-        NextomeMapHandler.instance.setMapSettings(fabEnabled: true)
+        PhoenixMapHandler.instance.setMapSettings(fabEnabled: true)
         ```
 
 ### Change user position icon
@@ -221,5 +221,5 @@ The default position icon is a blue dot. If you want to change the icon, you can
 
         ```swift
         let remotePath = ""http://nextome.com/position-icon.png""
-        NextomeMapHandler.instance.setMapSettings(customPositionResourceUrl: remotePath)
+        PhoenixMapHandler.instance.setMapSettings(customPositionResourceUrl: remotePath)
         ```

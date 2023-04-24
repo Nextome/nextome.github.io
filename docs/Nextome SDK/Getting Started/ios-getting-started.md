@@ -51,7 +51,7 @@ Then it is necessary to configure our private Spec Repo.
 
 3. Add an Artifactort repository
     ``` bash 
-    pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-cocoapods-local"
+    pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-sdk-cocoapods-local"
     ```
 
 4. Synchronize the cocoapods-art plugin with artifactory.
@@ -76,7 +76,7 @@ Then it is necessary to configure our private Spec Repo.
     source 'https://github.com/CocoaPods/Specs.git'
 
     plugin 'cocoapods-art', :sources => [
-        'nextome-cocoapods-local'
+        'nextome-sdk-cocoapods-local'
     ]
 
     use_frameworks!
@@ -100,6 +100,7 @@ Then it is necessary to configure our private Spec Repo.
 In order to work properly the SDK requires to setup some permissions and capabilities:
 
 ### Add Background capabilities
+If your app needs to compute the position even if it is in background, it is required to add the background capability.
 
 1. Select your project in Xcode’s Project navigator.
 2. Select the app’s target in the Targets list.
