@@ -781,39 +781,44 @@ You have two options to integrate the UI component:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Android</label><label for="__tabbed_1_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<ol>
+<li>In your <code>build.gradle</code> file, add dependencies for Nextome MapView and PhoenixMapUtils:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;com.nextome.phoenix_map_utils:phoenix_map_utils:1.4.3&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;net.nextome.nextome_map_module:flutter:1.4.3&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+</ol>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>Add the Artifactory repository
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pod</span> <span class="n">repo</span><span class="o">-</span><span class="n">art</span> <span class="n">add</span> <span class="n">nextome</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span> <span class="s">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pod</span> <span class="n">repo</span><span class="o">-</span><span class="n">art</span> <span class="n">add</span> <span class="n">nextome</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span> <span class="s">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local&quot;</span>
 </code></pre></div></li>
 <li>
 <p>Update the <code>Podfile</code> adding the source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="err">&#39;</span><span class="mf">13.2</span><span class="err">&#39;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">source</span> <span class="err">&#39;</span><span class="n">https</span><span class="p">:</span><span class="c1">//github.com/CocoaPods/Specs.git&#39;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">plugin</span> <span class="err">&#39;</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">art</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">:</span><span class="n">sources</span> <span class="p">=</span><span class="o">&gt;</span> <span class="p">[</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="err">&#39;</span><span class="n">nextome</span><span class="o">-</span><span class="bp">map</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span><span class="err">&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="err">&#39;</span><span class="n">nextome</span><span class="o">-</span><span class="n">sdk</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span><span class="err">&#39;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">]</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">use_frameworks</span><span class="p">!</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">target</span> <span class="err">&#39;</span><span class="n">MyApp</span><span class="err">&#39;</span> <span class="k">do</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">pod</span> <span class="err">&#39;</span><span class="n">PhoenixMapUtils_Release</span><span class="err">&#39;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">end</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">installer</span><span class="p">.</span><span class="n">generated_projects</span><span class="p">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">project</span><span class="o">|</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="n">project</span><span class="p">.</span><span class="n">targets</span><span class="p">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            <span class="n">target</span><span class="p">.</span><span class="n">build_configurations</span><span class="p">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>                <span class="n">config</span><span class="p">.</span><span class="n">build_settings</span><span class="p">[</span><span class="err">&#39;</span><span class="n">IPHONEOS_DEPLOYMENT_TARGET</span><span class="err">&#39;</span><span class="p">]</span> <span class="p">=</span> <span class="err">&#39;</span><span class="mf">13.2</span><span class="err">&#39;</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            <span class="n">end</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>        <span class="n">end</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="n">end</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="n">end</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">platform</span> <span class="p">:</span><span class="n">ios</span><span class="p">,</span> <span class="err">&#39;</span><span class="mf">13.2</span><span class="err">&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">source</span> <span class="err">&#39;</span><span class="n">https</span><span class="p">:</span><span class="c1">//github.com/CocoaPods/Specs.git&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">plugin</span> <span class="err">&#39;</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">art</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">:</span><span class="n">sources</span> <span class="p">=</span><span class="o">&gt;</span> <span class="p">[</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="err">&#39;</span><span class="n">nextome</span><span class="o">-</span><span class="bp">map</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span><span class="err">&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="err">&#39;</span><span class="n">nextome</span><span class="o">-</span><span class="n">sdk</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span><span class="err">&#39;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">]</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">use_frameworks</span><span class="p">!</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">target</span> <span class="err">&#39;</span><span class="n">MyApp</span><span class="err">&#39;</span> <span class="k">do</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">pod</span> <span class="err">&#39;</span><span class="n">PhoenixMapUtils_Release</span><span class="err">&#39;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">end</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">post_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="n">installer</span><span class="p">.</span><span class="n">generated_projects</span><span class="p">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">project</span><span class="o">|</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="n">project</span><span class="p">.</span><span class="n">targets</span><span class="p">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">target</span><span class="o">|</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="n">target</span><span class="p">.</span><span class="n">build_configurations</span><span class="p">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>                <span class="n">config</span><span class="p">.</span><span class="n">build_settings</span><span class="p">[</span><span class="err">&#39;</span><span class="n">IPHONEOS_DEPLOYMENT_TARGET</span><span class="err">&#39;</span><span class="p">]</span> <span class="p">=</span> <span class="err">&#39;</span><span class="mf">13.2</span><span class="err">&#39;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>            <span class="n">end</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="n">end</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="n">end</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="n">end</span>
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -823,7 +828,7 @@ It is important to use the <code>Release</code> version for the app store. </p>
 </li>
 <li>
 <p>Install the dependency
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">pod</span> <span class="n">install</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">pod</span> <span class="n">install</span>
 </code></pre></div></p>
 </li>
 </ol>
@@ -835,154 +840,165 @@ It is important to use the <code>Release</code> version for the app store. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Android</label><label for="__tabbed_2_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<ol>
+<li>In your .xml layout, add a <code>PhoenixMapView</code> where you want to display the indoor map.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="nt">&lt;com.nextome.phoenix_map_utils.PhoenixMapView</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="na">android:id=</span><span class="s">&quot;@+id/indoor_map&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></li>
+<li>In your Activity/ViewModel, initialize <code>PhoenixMapHandler</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PhoenixMapHandler</span><span class="p">()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">fragmentManager</span><span class="p">:</span><span class="w"> </span><span class="n">FragmentManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">supportFragmentManager</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">handler</span><span class="p">.</span><span class="na">initialize</span><span class="p">(</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">fragmentManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fragmentManager</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">viewId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">indoor_map</span><span class="p">,</span><span class="w"> </span><span class="c1">// View created before</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">)</span>
+</code></pre></div></li>
+</ol>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>Open th <code>AppDelegate</code></li>
 <li>Import the module
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">import</span> <span class="nc">PhoenixMapUtils</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>    <span class="kd">import</span> <span class="nc">PhoenixMapUtils</span>
 </code></pre></div></li>
 <li>Initialize the <code>PhoenixMapHandler</code> in the <code>didFinishLaunchingWithOptions</code> method:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="bp">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="c1">// Override point for customization after application launch.</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initialize</span><span class="p">()</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">return</span> <span class="kc">true</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span> 
-</code></pre></div></li>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="bp">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        <span class="c1">// Override point for customization after application launch.</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initialize</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="k">return</span> <span class="kc">true</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="p">}</span> 
+</code></pre></div>
+The <code>PhoenixMapHandler</code> provide a UIViewController/Fragment and some methods to handle it.</li>
 </ol>
-</div>
-</div>
-</div>
 <h3 id="integration">Integration</h3>
-<p>The <code>PhoenixMapHandler</code> provide a UIViewController/Fragment and some methods to handle it.</p>
 <ol>
-<li>
-<p>Import the module</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Android</label><label for="__tabbed_3_2">iOS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>//WIP</p>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">import</span> <span class="nc">PhoenixMapUtils</span>
+<li>Import the module
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>    <span class="kd">import</span> <span class="nc">PhoenixMapUtils</span>
+</code></pre></div></li>
+<li>Initialize the Fragment/UIViewController
+The <code>PhoenixMapHandler</code> provides a UIViewController that you can use to show the flutter map.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>    <span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">indoorMapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">=</span> <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initializeFlutterViewController</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Initialize the Fragment/UIViewController</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Android</label><label for="__tabbed_4_2">iOS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>//WIP</p>
-</div>
-<div class="tabbed-block">
-<p>The <code>PhoenixMapHandler</code> provides a UIViewController that you can use to show the flutter map.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">indoorMapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">=</span> <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initializeFlutterViewController</span><span class="p">()</span>
-</code></pre></div></p>
-</div>
-</div>
-</div>
-</li>
-</ol>
 <h3 id="show-a-new-indoor-map">Show a new indoor map</h3>
 <p>Once a map is available, pass the <code>tiles local directory</code>, <code>height</code> and <code>width</code> of the map to the <code>PhoenixMapHandler</code>.
 Those parameters can be obtained from the <code>LocalizationRunningState</code> during localization or from the specific map returned in the <code>NextomeVenueData</code>. More info on the venue data can be retrieve <a href="../features/venue-data/">here</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Android</label><label for="__tabbed_5_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Android</label><label for="__tabbed_3_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<p><code>handler.setMap(mapTilesUrl = mapTilesUrl, mapHeight = mapHeight, mapWidth = mapWidth)</code></p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMap</span><span class="p">(</span><span class="n">tilesZipPath</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">tilesZipPath</span><span class="p">,</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                                    <span class="n">mapHeight</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapHeight</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                                    <span class="n">mapWidth</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapWidth</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMap</span><span class="p">(</span><span class="n">tilesZipPath</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">tilesZipPath</span><span class="p">,</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>                                    <span class="n">mapHeight</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapHeight</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>                                    <span class="n">mapWidth</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapWidth</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h3 id="update-user-live-position">Update user live position</h3>
 <p>When a new indoor user position is available, notify <code>PhoenixMapHandler</code> to update the blue point with:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Android</label><label for="__tabbed_6_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Android</label><label for="__tabbed_4_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>//WIP
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="n">viewModel</span><span class="p">.</span><span class="na">nextomeSdk</span><span class="p">.</span><span class="na">getLocalizationObservable</span><span class="p">().</span><span class="na">asLiveData</span><span class="p">().</span><span class="na">observe</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="n">handler</span><span class="p">.</span><span class="na">updatePositionOnMap</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="p">}</span><span class="w">    </span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">func</span> <span class="nf">observeSdkLocations</span><span class="p">(){</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">let</span> <span class="nv">watcher</span> <span class="p">=</span> <span class="n">nextomeSdk</span><span class="p">.</span><span class="n">getLocalizationObservable</span><span class="p">().</span><span class="n">watch</span><span class="p">(</span><span class="n">block</span><span class="p">:</span> <span class="p">{</span><span class="n">position</span> <span class="k">in</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">if</span> <span class="kd">let</span> <span class="nv">position</span> <span class="p">=</span> <span class="n">position</span><span class="p">{</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="kc">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="p">=</span> <span class="n">position</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePositionOnMap</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="p">}</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">})</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">watchers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">watcher</span><span class="p">)</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">}</span>   
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>    <span class="kd">func</span> <span class="nf">observeSdkLocations</span><span class="p">(){</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="kd">let</span> <span class="nv">watcher</span> <span class="p">=</span> <span class="n">nextomeSdk</span><span class="p">.</span><span class="n">getLocalizationObservable</span><span class="p">().</span><span class="n">watch</span><span class="p">(</span><span class="n">block</span><span class="p">:</span> <span class="p">{</span><span class="n">position</span> <span class="k">in</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>        <span class="k">if</span> <span class="kd">let</span> <span class="nv">position</span> <span class="p">=</span> <span class="n">position</span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>            <span class="kc">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="p">=</span> <span class="n">position</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>            <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePositionOnMap</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        <span class="p">}</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="p">})</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="n">watchers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">watcher</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="p">}</span>   
 </code></pre></div>
 </div>
 </div>
 </div>
 <h3 id="show-a-list-of-point-of-interest">Show a list of Point of Interest</h3>
 <p>You can set the list of Point of Interest to show on the map using this method:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Android</label><label for="__tabbed_7_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Android</label><label for="__tabbed_5_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">handler</span><span class="p">.</span><span class="na">updatePoiList</span><span class="p">(</span><span class="n">pois</span><span class="p">)</span>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">let</span> <span class="nv">pois</span><span class="p">:</span> <span class="p">[</span><span class="n">NextomePoi</span><span class="p">]</span> <span class="p">=</span> <span class="n">runningState</span><span class="p">.</span><span class="n">venueData</span><span class="p">.</span><span class="n">getPoisByMapId</span><span class="p">(</span><span class="n">mapId</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapId</span><span class="p">)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePoiList</span><span class="p">(</span><span class="n">pois</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">let</span> <span class="nv">pois</span><span class="p">:</span> <span class="p">[</span><span class="n">NextomePoi</span><span class="p">]</span> <span class="p">=</span> <span class="n">runningState</span><span class="p">.</span><span class="n">venueData</span><span class="p">.</span><span class="n">getPoisByMapId</span><span class="p">(</span><span class="n">mapId</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapId</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePoiList</span><span class="p">(</span><span class="n">pois</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h3 id="show-a-path-between-two-points-on-map">Show a path between two points on map</h3>
 <p>You can show a path on the map using this method and passing a list of Vertex. You can automatically get the Vertext between a start and end point of the map using the appropriate method on the <a href="../features/navigation/">nextomeSdk</a>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Android</label><label for="__tabbed_8_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Android</label><label for="__tabbed_6_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">hanlder</span><span class="p">.</span><span class="na">updatePath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">func</span> <span class="nf">showPath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="p">[</span><span class="n">Vertex</span><span class="p">]){</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">func</span> <span class="nf">showPath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="p">[</span><span class="n">Vertex</span><span class="p">]){</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h3 id="observe-events-on-flutter-map">Observe events on Flutter Map</h3>
 <p>With this observer you can be notified of events on the map, for example, when the user decides to navigate to a POI.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Android</label><label for="__tabbed_9_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Android</label><label for="__tabbed_7_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">handler</span><span class="p">.</span><span class="na">observeEvents</span><span class="p">().</span><span class="na">collect</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="na">OnNavigationSelected</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">            </span><span class="c1">// user clicked on &quot;Navigate to POI&quot;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">poi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">poi</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="na">OnPoiClicked</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">            </span><span class="c1">// user clicked on poi </span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">poi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">poi</span><span class="w"> </span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="p">}</span>
+</code></pre></div>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>
 <p>Extend the <code>NextomeMapDelegate</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement the onPoiClicked method to be notified when the user clicked on a POI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">func</span> <span class="nf">onPoiClicked</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">NextomePoi</span><span class="p">){</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">func</span> <span class="nf">onPoiClicked</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">NextomePoi</span><span class="p">){</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement the onNavigationSelected method to be notified when the user wants to navigate to a POI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">func</span> <span class="nf">onPoiClicked</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">NextomePoi</span><span class="p">){</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">func</span> <span class="nf">onPoiClicked</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">NextomePoi</span><span class="p">){</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 </ol>
@@ -997,23 +1013,23 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 <li>rotate the map based on user compass;</li>
 </ul>
 <p>To enable the button, use:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Android</label><label for="__tabbed_10_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Android</label><label for="__tabbed_8_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<p><code>handler.setMapViewSettings(fabEnabled = true)</code></p>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>
 <p>Extend the <code>NextomeMapDelegate</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">fabEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">fabEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1022,16 +1038,16 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 </div>
 <h3 id="change-user-position-icon">Change user position icon</h3>
 <p>The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Android</label><label for="__tabbed_11_2">iOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Android</label><label for="__tabbed_9_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>//WIP</p>
+<p><code>handler.setMapViewSettings(customPositionResourceUrl = "url")</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The compass feature will only work if the app has the following permissions:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>android.permission.INTERNET
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>android.permission.ACCESS_COARSE_LOCATION
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>android.permission.ACCESS_FINE_LOCATION
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>android.permission.INTERNET
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>android.permission.ACCESS_COARSE_LOCATION
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>android.permission.ACCESS_FINE_LOCATION
 </code></pre></div>
 If those permissions are not denied, the navigation button will only follow user position without rotating.</p>
 </div>
@@ -1040,15 +1056,15 @@ If those permissions are not denied, the navigation button will only follow user
 <ol>
 <li>
 <p>Extend the <code>NextomeMapDelegate</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">let</span> <span class="nv">remotePath</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="n">http</span><span class="p">:</span><span class="c1">//nextome.com/position-icon.png&quot;&quot;</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">customPositionResourceUrl</span><span class="p">:</span> <span class="n">remotePath</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">let</span> <span class="nv">remotePath</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="n">http</span><span class="p">:</span><span class="c1">//nextome.com/position-icon.png&quot;&quot;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">customPositionResourceUrl</span><span class="p">:</span> <span class="n">remotePath</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
