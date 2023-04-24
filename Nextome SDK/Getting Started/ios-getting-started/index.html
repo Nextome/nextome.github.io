@@ -597,7 +597,7 @@
   
     <li class="md-nav__item">
       <a href="../../nextome-map-integration/" class="md-nav__link">
-        Nextome map integration
+        Nextome Map integration
       </a>
     </li>
   
@@ -652,7 +652,7 @@
   
     <li class="md-nav__item">
       <a href="../../iOS/changelog/" class="md-nav__link">
-        iOS Changelog
+        iOS
       </a>
     </li>
   
@@ -843,7 +843,7 @@ Copy this then close and save</p>
 </li>
 <li>
 <p>Add an Artifactort repository
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pod<span class="w"> </span>repo-art<span class="w"> </span>add<span class="w"> </span>nextome-cocoapods-local<span class="w"> </span><span class="s2">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-cocoapods-local&quot;</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pod<span class="w"> </span>repo-art<span class="w"> </span>add<span class="w"> </span>nextome-cocoapods-local<span class="w"> </span><span class="s2">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-sdk-cocoapods-local&quot;</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -864,7 +864,7 @@ Copy this then close and save</p>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>source &#39;https://github.com/CocoaPods/Specs.git&#39;
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>plugin &#39;cocoapods-art&#39;, :sources =&gt; [
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    &#39;nextome-cocoapods-local&#39;
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    &#39;nextome-sdk-cocoapods-local&#39;
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>]
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>use_frameworks!
@@ -886,6 +886,7 @@ Copy this then close and save</p>
 <h2 id="setup">Setup</h2>
 <p>In order to work properly the SDK requires to setup some permissions and capabilities:</p>
 <h3 id="add-background-capabilities">Add Background capabilities</h3>
+<p>If your app needs to compute the position even if it is in background, it is required to add the background capability.</p>
 <ol>
 <li>Select your project in Xcode’s Project navigator.</li>
 <li>Select the app’s target in the Targets list.</li>

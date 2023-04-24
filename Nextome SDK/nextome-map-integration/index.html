@@ -490,12 +490,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Nextome map integration
+          Nextome Map integration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Nextome map integration
+        Nextome Map integration
       </a>
       
         
@@ -514,11 +514,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#integrate-nextomemaputils" class="md-nav__link">
-    Integrate NextomeMapUtils
+  <a href="#integrate-phoenixmaputils" class="md-nav__link">
+    Integrate PhoenixMapUtils
   </a>
   
-    <nav class="md-nav" aria-label="Integrate NextomeMapUtils">
+    <nav class="md-nav" aria-label="Integrate PhoenixMapUtils">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -653,7 +653,7 @@
   
     <li class="md-nav__item">
       <a href="../iOS/changelog/" class="md-nav__link">
-        iOS Changelog
+        iOS
       </a>
     </li>
   
@@ -702,11 +702,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#integrate-nextomemaputils" class="md-nav__link">
-    Integrate NextomeMapUtils
+  <a href="#integrate-phoenixmaputils" class="md-nav__link">
+    Integrate PhoenixMapUtils
   </a>
   
-    <nav class="md-nav" aria-label="Integrate NextomeMapUtils">
+    <nav class="md-nav" aria-label="Integrate PhoenixMapUtils">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -806,15 +806,16 @@
 
 <h1 id="nextome-map-integration">Nextome map integration</h1>
 <p>If you want, there’s an optional module that can show a live map of the indoor location of the user. 
-You havo two options to integrate the UI component:</p>
+You have two options to integrate the UI component:</p>
 <ol>
-<li>Integrate the <code>NextomeMapUtils</code> (Recommended method), which is a wrapper that allows you to integrate easly the SDK with the Map module</li>
-<li>Integrate directly the <code>NextomeFlutterMap</code>. This method requires more bolerplate code but allows more customization</li>
+<li>Integrate the <code>PhoenixMapUtils</code> (Recommended method), which is a wrapper that allows you to integrate easily the SDK with the Map module</li>
+<li>Integrate directly the <code>NextomeMap</code>. This method requires more boilerplate code but allows more customization</li>
 </ol>
 <p style="text-align: center;"><img src="/assets/mapIos.jpeg" width="50%"></p>
 
-<h2 id="integrate-nextomemaputils">Integrate NextomeMapUtils</h2>
-<p>In this sections we will go through the integration of the NextomeMapUtils. If you're interested in th NextomeFlutterMap approach you can refer to this documentation. <INSERISCI LINK A FLUTER MAP></p>
+<h2 id="integrate-phoenixmaputils">Integrate PhoenixMapUtils</h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg></span> PhoenixMapUtils 1.4.3</p>
+<p>In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation. <INSERISCI LINK A FLUTER MAP></p>
 <h3 id="install-the-dependency">Install the dependency</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Android</label><label for="__tabbed_1_2">iOS</label></div>
 <div class="tabbed-content">
@@ -824,12 +825,12 @@ You havo two options to integrate the UI component:</p>
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Add the pod dependency inside the <code>Podfile</code>
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pod</span> <span class="n">NextomeMapUtils_Release</span>
+<p>Add the pod dependency inside the <code>Podfile</code>. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pod</span> <span class="n">PhoenixMapUtils_Release</span>
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The NextomeMapUtils is distributed in two different pod version, <code>Release</code> and <code>Debug</code>. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the <code>Debug</code> version instead. 
+<p>The PhoenixMapUtils is distributed in two different pod version, <code>Release</code> and <code>Debug</code>. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the <code>Debug</code> version instead. 
 It is important to use the <code>Release</code> version for the app store. </p>
 </div>
 </li>
@@ -853,12 +854,12 @@ It is important to use the <code>Release</code> version for the app store. </p>
 <ol>
 <li>Open th <code>AppDelegate</code></li>
 <li>Import the module
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">import</span> <span class="nc">NextomeMapUtils</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">import</span> <span class="nc">PhoenixMapUtils</span>
 </code></pre></div></li>
-<li>Initialize the <code>NextomeMapHandler</code> in the <code>didFinishLaunchingWithOptions</code> method:
+<li>Initialize the <code>PhoenixMapHandler</code> in the <code>didFinishLaunchingWithOptions</code> method:
     <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="bp">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1">// Override point for customization after application launch.</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initialize</span><span class="p">()</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initialize</span><span class="p">()</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">return</span> <span class="kc">true</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span> 
 </code></pre></div></li>
@@ -867,7 +868,7 @@ It is important to use the <code>Release</code> version for the app store. </p>
 </div>
 </div>
 <h3 id="integration">Integration</h3>
-<p>The <code>NextomeMapUtils</code> provide a UIViewController/Fragment and some methods to handle it.</p>
+<p>The <code>PhoenixMapHandler</code> provide a UIViewController/Fragment and some methods to handle it.</p>
 <ol>
 <li>
 <p>Import the module</p>
@@ -877,7 +878,7 @@ It is important to use the <code>Release</code> version for the app store. </p>
 <p>//TODO @Paolo</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">import</span> <span class="nc">NextomeMapUtils</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">import</span> <span class="nc">PhoenixMapUtils</span>
 </code></pre></div>
 </div>
 </div>
@@ -891,8 +892,8 @@ It is important to use the <code>Release</code> version for the app store. </p>
 <p>//TODO @Paolo</p>
 </div>
 <div class="tabbed-block">
-<p>The <code>NextomeMapHandler</code> provides a UIViewController that you can use to show the flutter map.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">indoorMapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">=</span> <span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initializeFlutterViewController</span><span class="p">()</span>
+<p>The <code>PhoenixMapHandler</code> provides a UIViewController that you can use to show the flutter map.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">lazy</span> <span class="kd">var</span> <span class="nv">indoorMapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">=</span> <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">initializeFlutterViewController</span><span class="p">()</span>
 </code></pre></div></p>
 </div>
 </div>
@@ -900,7 +901,7 @@ It is important to use the <code>Release</code> version for the app store. </p>
 </li>
 </ol>
 <h3 id="show-a-new-indoor-map">Show a new indoor map</h3>
-<p>Once a map is available, pass the <code>tiles local directory</code>, <code>height</code> and <code>width</code> of the map to the <code>NextomeMapHandler</code>.
+<p>Once a map is available, pass the <code>tiles local directory</code>, <code>height</code> and <code>width</code> of the map to the <code>PhoenixMapHandler</code>.
 Those parameters can be obtained from the <code>LocalizationRunningState</code> during localization or from the specific map returned in the <code>NextomeVenueData</code>. More info on the venue data can be retrieve <a href="../features/venue-data/">here</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Android</label><label for="__tabbed_5_2">iOS</label></div>
 <div class="tabbed-content">
@@ -908,7 +909,7 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 <p>//TODO @Paolo</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMap</span><span class="p">(</span><span class="n">tilesZipPath</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">tilesZipPath</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMap</span><span class="p">(</span><span class="n">tilesZipPath</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">tilesZipPath</span><span class="p">,</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>                                    <span class="n">mapHeight</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapHeight</span><span class="p">,</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>                                    <span class="n">mapWidth</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapWidth</span><span class="p">)</span>
 </code></pre></div>
@@ -916,7 +917,7 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 </div>
 </div>
 <h3 id="update-user-live-position">Update user live position</h3>
-<p>When a new indoor user position is available, notify <code>NextomeMapHandler</code> to update the blue point with:</p>
+<p>When a new indoor user position is available, notify <code>PhoenixMapHandler</code> to update the blue point with:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Android</label><label for="__tabbed_6_2">iOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -928,7 +929,7 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">let</span> <span class="nv">watcher</span> <span class="p">=</span> <span class="n">nextomeSdk</span><span class="p">.</span><span class="n">getLocalizationObservable</span><span class="p">().</span><span class="n">watch</span><span class="p">(</span><span class="n">block</span><span class="p">:</span> <span class="p">{</span><span class="n">position</span> <span class="k">in</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="k">if</span> <span class="kd">let</span> <span class="nv">position</span> <span class="p">=</span> <span class="n">position</span><span class="p">{</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="kc">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="p">=</span> <span class="n">position</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePositionOnMap</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePositionOnMap</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="p">}</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">})</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
@@ -947,7 +948,7 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">let</span> <span class="nv">pois</span><span class="p">:</span> <span class="p">[</span><span class="n">NextomePoi</span><span class="p">]</span> <span class="p">=</span> <span class="n">runningState</span><span class="p">.</span><span class="n">venueData</span><span class="p">.</span><span class="n">getPoisByMapId</span><span class="p">(</span><span class="n">mapId</span><span class="p">:</span> <span class="n">runningState</span><span class="p">.</span><span class="n">mapId</span><span class="p">)</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePoiList</span><span class="p">(</span><span class="n">pois</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePoiList</span><span class="p">(</span><span class="n">pois</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -961,7 +962,7 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">func</span> <span class="nf">showPath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="p">[</span><span class="n">Vertex</span><span class="p">]){</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">updatePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
 </code></pre></div>
 </div>
@@ -984,10 +985,17 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 </code></pre></div>
 </li>
 <li>
-<p>Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.</p>
+<p>Implement the onPoiClicked method to be notified when the user clicked on a POI.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">func</span> <span class="nf">onPoiClicked</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">NextomePoi</span><span class="p">){</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Implement the onNavigationSelected method to be notified when the user wants to navigate to a POI.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">func</span> <span class="nf">onPoiClicked</span><span class="p">(</span><span class="n">poi</span><span class="p">:</span> <span class="n">NextomePoi</span><span class="p">){</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1011,14 +1019,14 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 <ol>
 <li>
 <p>Extend the <code>NextomeMapDelegate</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">fabEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">fabEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1034,9 +1042,9 @@ Those parameters can be obtained from the <code>LocalizationRunningState</code> 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The compass feature will only work if the app has the following permissions:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>android.permission.INTERNET
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>android.permission.ACCESS_COARSE_LOCATION
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>android.permission.ACCESS_FINE_LOCATION
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>android.permission.INTERNET
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>android.permission.ACCESS_COARSE_LOCATION
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>android.permission.ACCESS_FINE_LOCATION
 </code></pre></div>
 If those permissions are not denied, the navigation button will only follow user position without rotating.</p>
 </div>
@@ -1045,15 +1053,15 @@ If those permissions are not denied, the navigation button will only follow user
 <ol>
 <li>
 <p>Extend the <code>NextomeMapDelegate</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">class</span> <span class="nc">MapViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="n">NextomeMapDelegate</span> <span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement the onPoiClicked method to be notified when the user want to navigate to a certain POI.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">let</span> <span class="nv">remotePath</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="n">http</span><span class="p">:</span><span class="c1">//nextome.com/position-icon.png&quot;&quot;</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">NextomeMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">customPositionResourceUrl</span><span class="p">:</span> <span class="n">remotePath</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">let</span> <span class="nv">remotePath</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="n">http</span><span class="p">:</span><span class="c1">//nextome.com/position-icon.png&quot;&quot;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">PhoenixMapHandler</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">setMapSettings</span><span class="p">(</span><span class="n">customPositionResourceUrl</span><span class="p">:</span> <span class="n">remotePath</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
