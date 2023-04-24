@@ -4,7 +4,7 @@ A full working example app is available on [this repository](https://github.com/
 
 ## Prerequisites
 
-- Xcode 14.2
+- Xcode 14.3
 - Make sure that your project meets these requirements: 
     - Swift 5.7
     - Minimum deployment: iOS 13.2
@@ -49,9 +49,9 @@ Then it is necessary to configure our private Spec Repo.
         `chmod 0600 ~/.netrc`
      
 
-3. Add an Artifactort repository
+3. Add an Artifactory repository
     ``` bash 
-    pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-sdk-cocoapods-local"
+    pod repo-art add nextome-sdk-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-sdk-cocoapods-local"
     ```
 
 4. Synchronize the cocoapods-art plugin with artifactory.

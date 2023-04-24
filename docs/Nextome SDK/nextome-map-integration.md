@@ -15,24 +15,51 @@ You have two options to integrate the UI component:
 ## Integrate PhoenixMapUtils
 :octicons-tag-24: PhoenixMapUtils 1.4.3
 
-In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation. <INSERISCI LINK A FLUTER MAP>
+In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation.
 
 ### Install the dependency
 
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
-    1. Add the pod dependency inside the `Podfile`. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
-        ```swift
-        pod PhoenixMapUtils_Release
-        ```
+    1. Add the Artifactory repository
+    ```swift
+    pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local"
+    ```
+    2. Update the `Podfile` adding the source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
+    ```swift
+    platform :ios, '13.2'
+
+    source 'https://github.com/CocoaPods/Specs.git'
+
+    plugin 'cocoapods-art', :sources => [
+        'nextome-map-cocoapods-local',
+        'nextome-sdk-cocoapods-local'
+    ]
+
+    use_frameworks!
+
+    target 'MyApp' do
+        pod 'PhoenixMapUtils_Release'
+    end
+
+    post_install do |installer|
+        installer.generated_projects.each do |project|
+            project.targets.each do |target|
+                target.build_configurations.each do |config|
+                    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.2'
+                end
+            end
+        end
+    end
+    ```
 
         !!! note
             The PhoenixMapUtils is distributed in two different pod version, `Release` and `Debug`. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the `Debug` version instead. 
             It is important to use the `Release` version for the app store. 
 
-    2. Install the dependency
+    3. Install the dependency
         ```swift
         pod install
         ```
@@ -42,7 +69,7 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
 The first step is to initialize the module.
 
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
 
@@ -67,7 +94,7 @@ The `PhoenixMapHandler` provide a UIViewController/Fragment and some methods to 
 1. Import the module
 
     === "Android"
-        //TODO @Paolo
+        //WIP
 
     === "iOS"
         
@@ -78,7 +105,7 @@ The `PhoenixMapHandler` provide a UIViewController/Fragment and some methods to 
 2. Initialize the Fragment/UIViewController
 
     === "Android"
-        //TODO @Paolo
+         //WIP
 
     === "iOS"
         The `PhoenixMapHandler` provides a UIViewController that you can use to show the flutter map.
@@ -91,7 +118,7 @@ The `PhoenixMapHandler` provide a UIViewController/Fragment and some methods to 
 Once a map is available, pass the `tiles local directory`, `height` and `width` of the map to the `PhoenixMapHandler`.
 Those parameters can be obtained from the `LocalizationRunningState` during localization or from the specific map returned in the `NextomeVenueData`. More info on the venue data can be retrieve [here](features/venue-data.md).
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
     ```swift
@@ -105,7 +132,7 @@ Those parameters can be obtained from the `LocalizationRunningState` during loca
 When a new indoor user position is available, notify `PhoenixMapHandler` to update the blue point with:
 
 === "Android"
-        //TODO @Paolo
+        //WIP
 
 === "iOS"
     ```swift
@@ -125,7 +152,7 @@ When a new indoor user position is available, notify `PhoenixMapHandler` to upda
 You can set the list of Point of Interest to show on the map using this method:
    
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
     ```swift
@@ -137,7 +164,7 @@ You can set the list of Point of Interest to show on the map using this method:
 You can show a path on the map using this method and passing a list of Vertex. You can automatically get the Vertext between a start and end point of the map using the appropriate method on the [nextomeSdk](features/navigation.md):
 
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
     ```swift
@@ -150,7 +177,7 @@ You can show a path on the map using this method and passing a list of Vertex. Y
 With this observer you can be notified of events on the map, for example, when the user decides to navigate to a POI.
 
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
     1. Extend the `NextomeMapDelegate`
@@ -186,7 +213,7 @@ It’s possible to show an optional fab at the bottom right of the map. When cli
 To enable the button, use:
 
 === "Android"
-    //TODO @Paolo
+    //WIP
 
 === "iOS"
     1. Extend the `NextomeMapDelegate`
@@ -206,7 +233,7 @@ To enable the button, use:
 ### Change user position icon
 The default position icon is a blue dot. If you want to change the icon, you can load a remote resource from an url.
 === "Android"
-    //TODO @Paolo
+    //WIP
 
     !!! note
         The compass feature will only work if the app has the following permissions:

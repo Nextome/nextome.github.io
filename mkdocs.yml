@@ -49,8 +49,6 @@ extra:
 
 nav:
     - 'Introduction': 'index.md'
-    - 'Flutter Map':
-        - 'Changelog': 'Flutter Map/index.md'
     - 'Nextome SDK':
         - 'Introduction': 'Nextome SDK/introduction.md'
         - 'Getting started':
