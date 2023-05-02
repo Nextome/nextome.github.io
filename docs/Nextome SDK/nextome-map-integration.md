@@ -27,11 +27,12 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
     ```
 
 === "iOS"
-    1. Add the Artifactory repository
+    1. Follow the [How to include steps](https://docs.nextome.dev/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include) 
+    2. Add the Map Artifactory repository
     ```swift
-    pod repo-art add nextome-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local"
+    pod repo-art add nextome-map-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local"
     ```
-    2. Update the `Podfile` adding the source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
+    3. Update the `Podfile` adding the source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
     ```swift
     platform :ios, '13.2'
 
@@ -63,7 +64,7 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
             The PhoenixMapUtils is distributed in two different pod version, `Release` and `Debug`. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the `Debug` version instead. 
             It is important to use the `Release` version for the app store. 
 
-    3. Install the dependency
+    4. Install the dependency
         ```swift
         pod install
         ```
