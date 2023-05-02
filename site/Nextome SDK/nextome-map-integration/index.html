@@ -790,8 +790,9 @@ You have two options to integrate the UI component:</p>
 </div>
 <div class="tabbed-block">
 <ol>
-<li>Add the Artifactory repository
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pod</span> <span class="n">repo</span><span class="o">-</span><span class="n">art</span> <span class="n">add</span> <span class="n">nextome</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span> <span class="s">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local&quot;</span>
+<li>Follow the <a href="https://docs.nextome.dev/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include">How to include steps</a> </li>
+<li>Add the Map Artifactory repository
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pod</span> <span class="n">repo</span><span class="o">-</span><span class="n">art</span> <span class="n">add</span> <span class="n">nextome</span><span class="o">-</span><span class="bp">map</span><span class="o">-</span><span class="n">cocoapods</span><span class="o">-</span><span class="n">local</span> <span class="s">&quot;https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local&quot;</span>
 </code></pre></div></li>
 <li>
 <p>Update the <code>Podfile</code> adding the source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.

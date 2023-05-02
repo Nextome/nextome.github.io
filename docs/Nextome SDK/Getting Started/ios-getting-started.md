@@ -151,8 +151,7 @@ let nextomeSdk = NextomePhoenixSdk.Builder(clientId: CLIENT_ID, clientSecret: CL
 - See [Start Localization](../start-localization.md) to use Nextome SDK.
 
 ## Examples
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
-Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
+A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).
 
 
 <br>
