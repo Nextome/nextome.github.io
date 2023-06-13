@@ -3,7 +3,7 @@ title: Introduction
 hide:
   - footer
 ---
-# Nextome SDK Documentation
+# Nextome SDK Documentation Test
 
 ![Nextome Android SDK Cover](assets/cover.png)
 
