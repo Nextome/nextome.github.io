@@ -22,7 +22,7 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
 === "Android"
     1. In your `build.gradle` file, add dependencies for Nextome MapView and PhoenixMapUtils:
     ```kotlin
-        implementation("com.nextome.phoenix_map_utils:phoenix_map_utils:1.4.3")
+        implementation("com.nextome.phoenix_map_utils:phoenix_map_utils:1.4.3.1")
         implementation("net.nextome.nextome_map_module:flutter:1.4.3")
     ```
 
