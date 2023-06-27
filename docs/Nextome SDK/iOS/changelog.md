@@ -7,6 +7,9 @@ pod repo-art update nextome-sdk-cocoapods-local
 pod install
 ```
 
+### 2.0.0-rc3
+
+Bugfix and improvements
 
 ### 2.0.0-rc1
 
