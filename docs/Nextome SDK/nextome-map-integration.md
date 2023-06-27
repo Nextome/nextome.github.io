@@ -13,7 +13,7 @@ You have two options to integrate the UI component:
 <p style="text-align: center;"><img src="/assets/mapIos.jpeg" width="50%"></p>
 
 ## Integrate PhoenixMapUtils
-:octicons-tag-24: PhoenixMapUtils 1.4.3
+:octicons-tag-24: PhoenixMapUtils 1.4.3.1
 
 In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation.
 
