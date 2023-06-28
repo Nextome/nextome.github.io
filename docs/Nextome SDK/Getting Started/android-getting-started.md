@@ -31,7 +31,7 @@ Those credentials are available from your profile, in the Apps section.
                 google()
                 mavenCentral()
                 maven {
-                    url "https://nextome.jfrog.io/artifactory/nextome-libs-prod/"
+                    url "https://packages.nextome.dev/artifactory/nextome-libs-prod/"
 
                     credentials {
                         username "USERNAME"
@@ -52,7 +52,7 @@ Those credentials are available from your profile, in the Apps section.
                 google()
                 mavenCentral()
                 maven {
-                    url = uri("https://nextome.jfrog.io/artifactory/nextome-libs-prod/")
+                    url = uri("https://packages.nextome.dev/artifactory/nextome-libs-prod/")
 
                     credentials {
                         username = "USERNAME"
