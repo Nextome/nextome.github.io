@@ -1,5 +1,9 @@
 # Sdk Mobile Documentation
 
+## How to DEPLOY
+ * Simply push commits to `prod` branch. A Github Action will deploy the website automatically.
+
+
 Tools used: 
 
 - MkDocs: https://www.mkdocs.org/
