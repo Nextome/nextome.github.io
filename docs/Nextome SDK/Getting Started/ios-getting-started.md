@@ -15,19 +15,11 @@ A full working example app is available on [this repository](https://github.com/
 
 ### Cocoapods
 
-Phoenix Sdk is distributed with [Cocoapods](https://guides.cocoapods.org/) and artifactory. Be sure to have CocoaPods installed, or follow [this guide](https://guides.cocoapods.org/using/getting-started.html) to install it.
+Phoenix Sdk is distributed with [Cocoapods](https://guides.cocoapods.org/) using our Podspec repo. Be sure to have CocoaPods installed, or follow [this guide](https://guides.cocoapods.org/using/getting-started.html) to install it.
 
-Then it is necessary to configure our private Spec Repo.
+Then it is necessary to configure our Spec Repo.
 
-1. Install the cocoapods-art plugin
-    ``` bash 
-    gem install cocoapods-art
-    ```
-
-    !!! note
-        It is recommended to install both the CocoaPods client and the cocoapod-art plugin as gems
-
-2. Add artifactory credentials  in the netrc file
+1. Add credentials  in the netrc file
 
     ``` bash 
     nano ~/.netrc
@@ -35,7 +27,7 @@ Then it is necessary to configure our private Spec Repo.
     Copy this then close and save
 
     ```
-    machine nextome.jfrog.io
+    machine packages.nextome.dev
     login <USERNAME>
     password <ENCRYPTED-PASSWORD>
     ```
@@ -48,36 +40,19 @@ Then it is necessary to configure our private Spec Repo.
 
         `chmod 0600 ~/.netrc`
      
-
-3. Add an Artifactory repository
-    ``` bash 
-    pod repo-art add nextome-sdk-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-sdk-cocoapods-local"
-    ```
-
-4. Synchronize the cocoapods-art plugin with artifactory.
-
-    As opposed to the cocoapods client's default behavior, the cocoapods-art plugin does not automatically update its index whenever you run client commands (such as install). To keep your plugin's index synchronized with your CocoaPods repository, you need to update it by executing the following command:
-
-    ```bash
-    pod repo-art update
-    ```
-
-5. Create a Podfile if you don't already have one. From the root of your project directory, run the following command
+2. Create a Podfile if you don't already have one. From the root of your project directory, run the following command
 
     ```bash
     pod init
     ```
 
-6. To your Podfile, be sure that the platform is at least 13.2 then add the CocoaPods specs source and the cocoapods-art plugin. Then add the PhoenixSdk pod
+6. To your Podfile, be sure that the platform is at least 13.2 then add the CocoaPods specs source and our Nextome source. Then add the PhoenixSdk pod
 
     ```
     platform :ios, '13.2'
 
     source 'https://github.com/CocoaPods/Specs.git'
-
-    plugin 'cocoapods-art', :sources => [
-        'nextome-sdk-cocoapods-local'
-    ]
+    source 'https://github.com/Nextome/Specs'
 
     use_frameworks!
 
