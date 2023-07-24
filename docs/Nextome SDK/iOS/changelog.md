@@ -1,10 +1,8 @@
 # Nextome SDK - iOS Changelog
-
-The artifactory plugin does not update automatically the Spec Repo info. This means that every time there is a new version it is required to update the index manually
-
+Since the SDK is still in RC CocoaPods requires to specify the version explicitly like this
 ```swift
-pod repo-art update nextome-sdk-cocoapods-local
-pod install
+    pod 'PhoenixSdk', '2.0.0-rc3'
+
 ```
 
 ### 2.0.0-rc3
