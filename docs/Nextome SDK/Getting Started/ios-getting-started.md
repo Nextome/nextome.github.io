@@ -61,6 +61,13 @@ Then it is necessary to configure our Spec Repo.
     end
     ```
 
+    !!!note
+        Since SDK is still in RC CocoaPods require to specify the version explicitly like this
+        ```swift
+            pod 'PhoenixSdk', '2.0.0-rc3'
+        ```
+
+
 7. Install the pods, then open your .xcworkspace file to see the project in Xcode
 
     ```bash
