@@ -48,6 +48,7 @@ extra:
 
 
 nav:
+    - 'Fundamental Concepts': 'Fundamental Concepts/fundamental-concepts.md'
     - 'Introduction': 'index.md'
     - 'Nextome SDK':
         - 'Introduction': 'Nextome SDK/introduction.md'
