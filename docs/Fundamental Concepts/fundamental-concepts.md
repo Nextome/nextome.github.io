@@ -1,5 +1,6 @@
 ﻿# Prerequisites
 In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. The content of this document is essential for understanding the meaning of the documents:
+
 -   Nextome Hub Web Guide
 -   Venue Configurator Guide
 -   SDK Documentation 
@@ -9,11 +10,13 @@ In this document, all the definitions of the fundamental concepts within the Nex
 -   Smartphone Tracking Installation Guide
 
 The foundational documents for understanding this document are:
+
 -   The two technologies
 -   The tools
 
 # Introduction and Context
 For the operation of the two Nextome technologies, the following steps are necessary:
+
 1. Creation within the Nextome Hub of the 'Venue' resource, which represents the area where the technology is installed.
 2. Creation within the Nextome Hub of 'Map' resources, one for each floor, and association with the corresponding Venue.
 3. Physical installation of hardware within the structure.
@@ -37,15 +40,13 @@ In the following figure, a diagram is presented that illustrates the relationshi
 # Concepts related to the location where the technology is installed
 
 ## Venue
-:cellphone-cog: Smartphone Tracking 
-:tag: Tag Tracking 
+:material-cellphone-cog: Smartphone Tracking 
+:material-tag: Tag Tracking 
 *Definition*
-The concept of 'Venue' represents the location where the Nextome technology is installed. 
+The concept of '**Venue**' represents the location where the Nextome technology is installed. 
 
 For each Venue, at least one 'Map' must be associated, referring to a single floor within the structure. If there are multiple floors, there will be multiple Maps associated with the Venue.
-
 The concept of Venue is linked to the timezone to be associated with the positions of devices calculated by the installation within that specific Venue.
-
 Furthermore, since the functionality of the technology is configurable based on the Venue, the settings that the technology uses must be associated with the Venue.
 
 The Venue concept can also be associated with an address and latitude and longitude coordinates for georeferencing purposes.
