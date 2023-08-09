@@ -1,7 +1,4 @@
 ﻿# Prerequisites
-
-:fontawesome-regular-face-laugh-wink:
-
 In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. The content of this document is essential for understanding the meaning of the documents:
 
 -   Nextome Hub Web Guide
@@ -43,29 +40,19 @@ In the following figure, a diagram is presented that illustrates the relationshi
 # Concepts related to the location where the technology is installed
 
 ## Venue
-
-:material-cellphone-cog: 
-
-Smartphone Tracking 
-
-:material-tag: Tag Tracking 
+:material-cellphone-cog: Smartphone Tracking  :material-tag: Tag Tracking 
 
 *Definition*
 The concept of '**Venue**' represents the location where the Nextome technology is installed. 
-
 For each Venue, at least one 'Map' must be associated, referring to a single floor within the structure. If there are multiple floors, there will be multiple Maps associated with the Venue.
 The concept of Venue is linked to the timezone to be associated with the positions of devices calculated by the installation within that specific Venue.
 Furthermore, since the functionality of the technology is configurable based on the Venue, the settings that the technology uses must be associated with the Venue.
 The Venue concept can also be associated with an address and latitude and longitude coordinates for georeferencing purposes.
 
 ##Map
-
-:material-cellphone-cog: Smartphone Tracking 
-
-:material-tag: Tag Tracking 
+:material-cellphone-cog: Smartphone Tracking   :material-tag: Tag Tracking 
 
 **Definition**
-
 The concept of '**Map**' refers to a single floor of a specific Venue. 
 For each Map, an image of the floor plan must be associated in the form of a PNG file, along with its corresponding scale. The PNG file is created by the Nextome team following specific standards, starting from any floor plan representation provided by the user. 
 The PNG file plays a crucial role as all resources are characterized by a map position in the form of pixel coordinates (x, y).
@@ -78,7 +65,6 @@ If the technology is installed in a three-floors hospital, a Venue will be creat
 In this section, concepts related to the hardware components of the two technologies are defined. To enable the functionality of the technologies, every hardware component installed in the environment must be registered within the Nextome Hub. After registering the hardware components that make up the installed architecture, the system is capable of calculating the position of Tags or Devices (smartphones) accordingly, depending on whether it is tag tracking or smartphone tracking.
 
 ## Beacon
-
 :material-cellphone-cog: Smartphone Tracking 
 
 *Definition*
@@ -92,21 +78,18 @@ Once the corresponding Map object for the floor where the Beacon is installed is
 The Beacon object can also contain information related to the Beacon, such as battery level.
 
 ## Tag
-
 :material-tag: Tag Tracking 
 
 *Definition*
 The concept of '**Tag**' refers to a sensor to be located within the context of tag tracking technology. The Tag can be associated with an object or a person.
 Each sensor physically associated with the entity to be located must have a corresponding Tag object within the Nextome system. The Tag object is uniquely identified by the triplet (UUID, Minor, Major), and it must necessarily be associated with the Venue where the technology aiming to locate it is installed.
 It's not possible to associate a specific Map with the Tag since it refers to a locatable entity that could move from one Map to another.
-
 The Tag object can contain:
 
 - Information related to the sensor, such as battery level.
 - Information related to the object/person to be located, such as a label.
 
 ## Gateway
-
 :material-tag: Tag Tracking 
 
 *Definition*
@@ -124,10 +107,9 @@ One of the additional services is navigation to points of interest (POIs) regist
 Let's define the mentioned objects 'POI' and 'Path' below.
 
 ## POI (Point Of Interest)
-
 :material-cellphone-cog: Smartphone Tracking 
 
-**Definition**
+*Definition*
 The concept of '**POI**' represents a location to which the navigation service is enabled. Consequently, it must necessarily be associated with a map position.
 Its position is defined by two elements:
 
@@ -137,7 +119,6 @@ Its position is defined by two elements:
 The POI object is also characterized by information related to the point of interest, such as a name, a description, and optionally an image.
 
 ## Path
-
 :material-cellphone-cog: Smartphone Tracking 
 
 *Definition*
@@ -153,7 +134,6 @@ This service is currently available within the context of smartphone localizatio
 To utilize this service, it's necessary to create Fences on the PNG file of the Map.
 
 ## Fence
-
 :material-cellphone-cog: Smartphone Tracking 
 
 *Definition*
@@ -170,10 +150,7 @@ The Fence object also contains a description.
 The calculated position of a Tag or Smartphone is defined by the Map in which it resides and the pixel coordinates (x, y) on the map's floor plan file. This means that a position is not interpretable unless it is placed on the PNG file of the map. To overcome this limitation, the need arose to label certain subsections of the map, which are referred to as 'Rooms'.
 
 ## Room
-
-:material-cellphone-cog: Smartphone Tracking 
-
-:material-tag: Tag Tracking 
+:material-cellphone-cog: Smartphone Tracking  :material-tag: Tag Tracking 
 
 *Definition*
 The concept of '**Room**' is related to a section of the map, defined by a polygon or a circle, which in turn are defined by pixel coordinates (x, y) on the map's PNG file. The Room object is often characterized by a meaningful label for the end user. Every time the calculated position of a Tag or Smartphone falls within a Room, that position will be associated with the Room and can be interpreted by the user without requiring visualization on the PNG file.
@@ -183,20 +160,14 @@ The concept of '**Room**' is related to a section of the map, defined by a polyg
 The primary goal of the 'Tag tracking' and 'Smartphone tracking' technologies is to calculate the position of a Tag and a Smartphone, respectively. In this section, the definition of the 'Position' concept and its aggregated version 'Visit' is presented.
 
 ## Position
-
-:material-cellphone-cog: Smartphone Tracking 
-
-:material-tag: Tag Tracking 
+:material-cellphone-cog: Smartphone Tracking   :material-tag: Tag Tracking 
 
 *Definition*
 The concept of '**Position**' represents the location of the entities to be located, calculated by the localization technology. The Position is therefore linked to the Tag or Smartphone that is being localized by the localization technology. The Position must also be associated with the instant it is calculated and consists of the Map element and pixel coordinates (x, y) on the map's PNG file.
 If Rooms are defined for that specific map, the position can also include an association with the Room that contains the position.
 
 ## Visit
-
-:material-cellphone-cog: Smartphone Tracking 
-
-:material-tag: Tag Tracking 
+:material-cellphone-cog: Smartphone Tracking   :material-tag: Tag Tracking 
 
 *Definition*
 The concept of '**Visit**' aggregates all the positions of a specific Tag/Smartphone from the moment it enters a particular Room until the moment it exits.
