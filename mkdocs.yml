@@ -48,23 +48,32 @@ extra:
 
 
 nav:
-    - 'Fundamental Concepts': 'Fundamental Concepts/fundamental_concepts.md'
-    - 'Introduction': 'index.md'
-    - 'Nextome SDK':
-        - 'Introduction': 'Nextome SDK/introduction.md'
-        - 'Getting started':
-          - 'Android': 'Nextome SDK/Getting Started/android-getting-started.md'
-          - 'iOS': 'Nextome SDK/Getting Started/ios-getting-started.md'
-        - 'Basic Features': 'Nextome SDK/start-localization.md'
-        - 'Additional Features':
-          - 'Events': 'Nextome SDK/features/events.md'
-          - 'Navigation': 'Nextome SDK/features/navigation.md'
-          - 'Get Venue Data': 'Nextome SDK/features/venue-data.md'
-          - 'Force Venue': 'Nextome SDK/features/force-venue.md'
-          - 'Initial Resources': 'Nextome SDK/features/initial-resources.md'
-          - 'Override default settings': 'Nextome SDK/Android/settings.md'
-          - '[Android] Foreground service': 'Nextome SDK/Android/background-service.md'
-        - 'Nextome Map integration': 'Nextome SDK/nextome-map-integration.md'
-        - 'Changelog':
-          - 'Android': 'Nextome SDK/Android/changelog.md'
-          - 'iOS': 'Nextome SDK/iOS/changelog.md'
+    - 'Introductory concepts':
+      - 'The two technologies and the tools': 'The two technologies and the tools/the-two-technologies-and-the-tools.md'
+      - 'Fundamental Concepts': 'Fundamental Concepts/fundamental_concepts.md'
+    - 'Technical documentation':
+      - 'Nextome SDK':
+          - 'Introduction': 'Nextome SDK/introduction.md'
+          - 'Getting started':
+            - 'Android': 'Nextome SDK/Getting Started/android-getting-started.md'
+            - 'iOS': 'Nextome SDK/Getting Started/ios-getting-started.md'
+          - 'Basic Features': 'Nextome SDK/start-localization.md'
+          - 'Additional Features':
+            - 'Events': 'Nextome SDK/features/events.md'
+            - 'Navigation': 'Nextome SDK/features/navigation.md'
+            - 'Get Venue Data': 'Nextome SDK/features/venue-data.md'
+            - 'Force Venue': 'Nextome SDK/features/force-venue.md'
+            - 'Initial Resources': 'Nextome SDK/features/initial-resources.md'
+            - 'Override default settings': 'Nextome SDK/Android/settings.md'
+            - '[Android] Foreground service': 'Nextome SDK/Android/background-service.md'
+          - 'Nextome Map integration': 'Nextome SDK/nextome-map-integration.md'
+          - 'Changelog':
+            - 'Android': 'Nextome SDK/Android/changelog.md'
+            - 'iOS': 'Nextome SDK/iOS/changelog.md'
+      - 'Web APIs' : 'Web APIs/web-apis.md' 
+      - 'Map View' : 'Map View/map-view.md'
+    - 'Manuals':
+      - 'Nextome Hub Web Guide' : 'Manuals/nextome-hub-web-guide.md'
+    - 'Standard operating procedures':
+      - 'Installation guide for smartphone-based localization' : 'Standard operating procedures/installation-guide-for-smartphone-based-localization.md'
+      - 'Installation guide for tag tracking' : 'Standard operating procedures/installation-guide-for-tag-tracking.md'
