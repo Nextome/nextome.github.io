@@ -1,4 +1,5 @@
-﻿# Prerequisites
+﻿# Fundamental Definitions
+## Prerequisites
 In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. The content of this document is essential for understanding the meaning of the documents:
 
 -   Nextome Hub Web Guide
@@ -14,7 +15,7 @@ The foundational documents for understanding this document are:
 -   The two technologies
 -   The tools
 
-# Introduction and Context
+## Introduction and Context
 For the operation of the two Nextome technologies, the following steps are necessary:
 
 1. Creation within the Nextome Hub of the **'Venue'** resource, which represents the area where the technology is installed.
@@ -38,7 +39,7 @@ For each concept:
 - The context in which it is used will be briefly explained.
 - A definition will be provided based on its primary characteristics.
 
-## Examples
+### Examples
 Below we present two examples of configurations, in the case of the two technologies.
 
 *Example of tag tracking*
@@ -56,8 +57,8 @@ The following image shows the basic elements of the configuration.
 ![Smartphone Tracking example](../assets/Fundamental Conceps/smartphone_tracking.png)
 
 
-# Concepts related to the installation site
-## Venue
+## Concepts related to the installation site
+### Venue
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
 *Definition*
@@ -68,7 +69,7 @@ The concept of Venue is linked to the timezone to be associated with the positio
 Furthermore, since the functionality of the technology is configurable based on the Venue, the settings that the technology uses must be associated with the Venue.
 The Venue concept can also be associated with an address and latitude and longitude coordinates for georeferencing purposes.
 
-## Map
+### Map
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
 *Definition*
@@ -80,10 +81,10 @@ The PNG file plays a crucial role as all resources are characterized by a map po
 *Example:*
 If the technology is installed in a three-floors hospital, a Venue will be created, and three Maps will be associated with it, each with its corresponding PNG file representing the floor plan of the respective floor.
 
-# Concepts related to hardware
+## Concepts related to hardware
 In this section, concepts related to the hardware components of the two technologies are defined. To enable the functionality of the technologies, every hardware component installed in the environment must be registered within the Nextome Hub. After registering the hardware components that make up the installed architecture, the system is capable of calculating the position of Tags or Devices (smartphones) accordingly, depending on whether it is tag tracking or smartphone tracking.
 
-## Beacon
+### Beacon
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>
 
 *Definition*
@@ -97,7 +98,7 @@ Once the corresponding Map object for the floor where the Beacon is installed is
 
 The Beacon object can also contain information related to the Beacon, such as battery level.
 
-## Tag
+### Tag
 <span style="color:#7B29EA">:material-tag: Tag Tracking</span>  
 
 *Definition*
@@ -110,7 +111,7 @@ The Tag object can contain:
 - Information related to the sensor, such as battery level.
 - Information related to the object/person to be located, such as a label.
 
-## Gateway
+### Gateway
 <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
 *Definition*
@@ -123,11 +124,11 @@ The Gateway object is uniquely identified by a specific serial number of the ant
 
 The Gateway object can also contain information related to the Gateway, such as a label.
 
-# Concepts related to the navigation service
+## Concepts related to the navigation service
 One of the additional services is navigation to points of interest (POIs) registered within the system. This service is relevant only in the context of 'smartphone tracking' technology and can be accessed through an app that integrates the Nextome SDK. The calculation of the recommended navigation path by the navigation service is based on paths (Paths) registered within the system.
 Let's define the mentioned objects 'POI' and 'Path' below.
 
-## POI (Point Of Interest)
+### POI (Point Of Interest)
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>
 
 *Definition*
@@ -140,7 +141,7 @@ Its position is defined by two elements:
 
 The POI object is also characterized by information related to the point of interest, such as a name, a description, and optionally an image.
 
-## Path
+### Path
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>
 
 *Definition*
@@ -152,12 +153,12 @@ In the following image, an example of a recommended route by navigation based on
 ![Path](../assets/Fundamental Conceps/path.png)
 
 
-# Concepts related to the geofencing service
+## Concepts related to the geofencing service
 One of the additional services is the ability to define events to be invoked when conditions related to the relationship between the position of the Tag/smartphone to be located and predefined areas on the map's floor plan, called 'Fence', occur.
 This service is currently available within the context of smartphone localization technology, which assumes that a mobile application with the Nextome SDK is active. The available conditions at the moment are 'entry' and 'exit' into and from a Fence. In other words, it's possible to detect when a smartphone enters or exits a 'Fence'.
 To utilize this service, it's necessary to create Fences on the PNG file of the Map.
 
-## Fence
+### Fence
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>
 
 *Definition*
@@ -170,20 +171,20 @@ The concept of '**Fence**' represents a circular area defined by:
 
 The Fence object also contains a description.
 
-# Concepts related to virtual room creation
+## Concepts related to virtual room creation
 The calculated position of a Tag or Smartphone is defined by the Map in which it resides and the pixel coordinates (x, y) on the map's floor plan file. This means that a position is not interpretable unless it is placed on the PNG file of the map. To overcome this limitation, the need arose to label certain subsections of the map, which are referred to as 'Rooms'.
 
-## Room
+### Room
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
 *Definition*
 
 The concept of '**Room**' is related to a section of the map, defined by a polygon or a circle, which in turn are defined by pixel coordinates (x, y) on the map's PNG file. The Room object is often characterized by a meaningful label for the end user. Every time the calculated position of a Tag or Smartphone falls within a Room, that position will be associated with the Room and can be interpreted by the user without requiring visualization on the PNG file.
 
-# Concepts related to calculated positions
+## Concepts related to calculated positions
 The primary goal of the 'Tag tracking' and 'Smartphone tracking' technologies is to calculate the position of a Tag and a Smartphone, respectively. In this section, the definition of the 'Position' concept and its aggregated version 'Visit' is presented.
 
-## Position
+### Position
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span>  
 
 *Definition*
@@ -191,7 +192,7 @@ The primary goal of the 'Tag tracking' and 'Smartphone tracking' technologies is
 The concept of '**Position**' represents the location of the entities to be located, calculated by the localization technology. The Position is therefore linked to the Tag or Smartphone that is being localized by the localization technology. The Position must also be associated with the instant it is calculated and consists of the Map element and pixel coordinates (x, y) on the map's PNG file.
 If Rooms are defined for that specific map, the position can also include an association with the Room that contains the position.
 
-## Visit
+### Visit
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span>  
 
 *Definition*
@@ -208,7 +209,7 @@ If the tag, with id 10, enters in the room, with id 3, at 10:00 and leaves at 11
 - starting time :material-arrow-right: 10:00:00
 - final time :material-arrow-right: 11:00:00
 
-# Interactions between tools and concepts
+## Interactions between tools and concepts
 
 |             | Nextome Hub Web            | Api                        | Venue Configurator         | NextomeSDK                 |
 | ----------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
