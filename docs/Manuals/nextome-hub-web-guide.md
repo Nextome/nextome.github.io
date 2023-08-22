@@ -1,6 +1,10 @@
 ﻿# Nextome Hub Web Guide
 
 ## Prerequisites
+Before reading this document, it is recommended that you read the documents:
+
+- The two technologies and the tools.
+- Fundamental definitions.
 
 ## Aim of the document
 The purpose of the present document is to provide a guide to use all the sections of the Nextome Hub Web. 
