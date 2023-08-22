@@ -216,9 +216,28 @@ The settings section allows you to act on localization technologies on various l
 ### Generals
 Below is the explanation for each of the items available in the box in Figure 26:
 
-- *Timezone* → allows the selection of the time zone associated with the Venue 
-- Real-time smartphone tracking enabled → allows you to save the smartphone positions that are calculated by the app, the positions can then be displayed on the portal within the limits of the permissions related to the user
-- Hybrid tag localization enabled → allows the smartphone on which the app is installed to detect the tags registered in the 'Resource management >> Tag' section 
+- *Timezone* → Allows the selection of the time zone associated with the Venue.
+- *Real-time smartphone tracking enabled* → Allows you to save the smartphone positions that are calculated by the app, the positions can then be displayed on the portal within the limits of the permissions related to the user.
+- *Hybrid tag localization enabled* → Allows the smartphone on which the app is installed to detect the tags registered in the 'Resource management >> Tag' section.
+
+<p style="text-align: center;"><img src="/assets/Nextome Hub Web Guide/26.png" width="120%"><figcaption style="text-align: center;"><font size="2"> Figura 26: Generals settings.</font></figcaption></p>
+
+### Historicization
+
+The settings in the box in Figure 27 allow you to manage the data retention methods and are specific for each of the two localization technologies 'Tag History enabled' and 'Smartphone History enabled.
+<p style="text-align: center;"><img src="/assets/Nextome Hub Web Guide/27.png" width="120%"><figcaption style="text-align: center;"><font size="2"> Figura 27: Data historicization settings.</font></figcaption></p>
+
+#### Historicization settings for tags 
+Below we delve into the first three settings related to Tag tracking.
+By default the tag positions calculated by the server are sent to the server and therefore the display of the calculated positions in real time on the portal is always available.
+As with smartphone locations (which we'll cover in the next section), tag locations can be subject to the following features:
+
+1. Historicization.
+2. Calculation of metrics on aggregated and processed data.
+
+To manage functions 1. and 2. it is possible to use the settings relating to tag tracking inside the box in the figure and described in the following table:
+
+
 
 
 
