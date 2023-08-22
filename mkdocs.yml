@@ -49,8 +49,8 @@ extra:
 
 nav:
     - 'Introductory concepts':
-        - 'The two technologies and the tools': 'The two technologies and the tools/the-two-technologies-and-the-tools.md'
-        - 'Fundamental Concepts': 'Fundamental Concepts/fundamental_concepts.md'
+      - 'The two technologies and the tools': 'The two technologies and the tools/the-two-technologies-and-the-tools.md'
+      - 'Fundamental Definitions': 'Fundamental Concepts/fundamental_concepts.md'
     - 'Technical documentation':
       - 'Nextome SDK':
           - 'Introduction': 'Nextome SDK/introduction.md'
