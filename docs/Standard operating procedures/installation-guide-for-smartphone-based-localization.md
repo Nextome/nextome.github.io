@@ -23,7 +23,7 @@ The items required for the technology to work are listed below:
 - *'Nextome’* application to be installed on each smartphone to be localized.
 
 ## Installation phases
-### Phase 1
+### Phase 1 - App download
 Download the application ‘Venue Configurator’ that is needed to execute the installation.
 
 <p style="text-align: center;"><img src="/assets/Installation guide for smartphone based localization/1.jpeg" width="35%"><figcaption style="text-align: center;"> <font size="2"> Figure 1: Download the ‘Venue Configurator’ app.</font> </figcaption></p>
@@ -31,7 +31,7 @@ Download the application ‘Venue Configurator’ that is needed to execute the 
 
 Login with the credential that are released by Nextome.
 
-### Phase 2
+### Phase 2 - Beacons installation and registration
 Placement and registration of Beacon sensors playing the role of referencere anchors using the ‘Venue Configurator’ application.
 Search and select the right venue among those that are registered.
 
@@ -68,7 +68,7 @@ A red icon will be displayed on the map in the selected release point.
 After registering the Beacon, it will be possible to place the sensor on the ceiling or on the walls in the corresponding point of the map. For better results, the Beacons should be installed at about 3 m height (in case of lower ceilings, place the Beacons as high as possible). It is important to try to install the beacons all at the same height because the algorithm expects the heights to be equal. For installation purposes, please consider using screws or tape.
 To avoid disturbing the signal, avoid placing the Beacons behind metal walls or inside metal containers.
 
-### Phase 3
+### Phase 3 - Location of the smartphone
 Download and execution of the ‘Nextome Indoor Positioning’ application, that is needed for the calculation, visualization, and memorization (if needed) of the position of the smartphone placed inside the building.
 <p style="text-align: center;"><img src="/assets/Installation guide for smartphone based localization/10.jpeg" width="35%"><figcaption style="text-align: center;"> <font size="2"> Figure 10: Download the 'Nextome Indoor Positioning' application from the App Store (Android or iOS).</font></figcaption></p>
 
@@ -98,7 +98,7 @@ If the settings are changed from the app, they are valid only on the smartphone 
 
 Once the positions are saved on the database, it is possible to access them by means of dedicated APIs that are described in a dedicated document. It is worth noting that data retention times follow the rules established by the Nextome Hub Web. The positions on the database are subject to a daily cancelation, so the available positions are related to the current day. The access to prior positions can be granted by Nextome if this is explicitly required to Nextome, together with the desired period.
 
-#### Phase 3.1
+#### Phase 3.1 - Navigation
 If you want to use the navigation service, you must first add the 'POIs' and ‘Paths’ through the 'Nextome Hub web' portal.
 The POIs, i.e. the points to which navigation can be enabled, will therefore be viewable and navigable within the 'Nextome Indoor Positioning' app, in the following two ways:
 
