@@ -70,8 +70,9 @@ nav:
           - 'Changelog':
             - 'Android': 'Nextome SDK/Android/changelog.md'
             - 'iOS': 'Nextome SDK/iOS/changelog.md'
-      - 'Web APIs' : 'Web APIs/web-apis.md' 
       - 'Map View' : 'Map View/map-view.md'
+      - 'Web APIs' : 'Web APIs/web-apis.md' 
+      
     - 'Manuals':
       - 'Nextome Hub Web Guide' : 'Manuals/nextome-hub-web-guide.md'
     - 'Standard operating procedures':
