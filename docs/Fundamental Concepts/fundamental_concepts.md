@@ -1,4 +1,4 @@
-﻿# Fundamental Definitions
+﻿# Nextome Terminology
 ## Prerequisites
 In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. 
 
