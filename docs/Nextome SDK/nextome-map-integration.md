@@ -13,7 +13,7 @@ You have two options to integrate the UI component:
 <p style="text-align: center;"><img src="/assets/mapIos.jpeg" width="50%"></p>
 
 ## Integrate PhoenixMapUtils
-:octicons-tag-24: PhoenixMapUtils 1.4.3
+:octicons-tag-24: PhoenixMapUtils 1.4.3.3
 
 In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation.
 
@@ -22,26 +22,18 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
 === "Android"
     1. In your `build.gradle` file, add dependencies for Nextome MapView and PhoenixMapUtils:
     ```kotlin
-        implementation("com.nextome.phoenix_map_utils:phoenix_map_utils:1.4.3")
+        implementation("com.nextome.phoenix_map_utils:phoenix_map_utils:1.4.3.3")
         implementation("net.nextome.nextome_map_module:flutter:1.4.3")
     ```
 
 === "iOS"
     1. Follow the [How to include steps](https://docs.nextome.dev/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include) 
-    2. Add the Map Artifactory repository
-    ```swift
-    pod repo-art add nextome-map-cocoapods-local "https://nextome.jfrog.io/artifactory/api/pods/nextome-map-cocoapods-local"
-    ```
-    3. Update the `Podfile` adding the source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
+    2. Update the `Podfile` adding the CocoaPods source and the Nextome source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
     ```swift
     platform :ios, '13.2'
 
     source 'https://github.com/CocoaPods/Specs.git'
-
-    plugin 'cocoapods-art', :sources => [
-        'nextome-map-cocoapods-local',
-        'nextome-sdk-cocoapods-local'
-    ]
+    source 'https://github.com/Nextome/Specs'
 
     use_frameworks!
 
@@ -286,3 +278,67 @@ The default position icon is a blue dot. If you want to change the icon, you can
         let remotePath = ""http://nextome.com/position-icon.png""
         PhoenixMapHandler.instance.setMapSettings(customPositionResourceUrl: remotePath)
         ```
+
+
+### React to activity lifecycle (Android Only)
+:octicons-tag-24: PhoenixMapUtils 1.4.3.3
+
+On Android, we suggest to foward to PhoenixMapUtils all the methods releated to the management of the activity lifecycle.
+This will allow to save and recover the state of the map if configuration changes happens (for example, when the user rotates the phone screen).
+
+To do so, override the following methods in your activity:
+```kotlin
+    fun onPostResume() {
+        super.onPostResume()
+        handler.onPostResume()
+    }
+
+    fun onNewIntent(intent: Intent) {
+        handler.onNewIntent(intent)
+    }
+
+    fun onBackPressed() {
+        handler.onBackPressed()
+    }
+
+    fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        handler.onRequestPermissionsResult(
+            requestCode,
+            permissions,
+            grantResults
+        )
+    }
+
+    fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        super.onActivityResult(requestCode, resultCode, data)
+        handler.onActivityResult(
+            requestCode,
+            resultCode,
+            data
+        )
+    }
+
+    fun onUserLeaveHint() {
+        handler.onUserLeaveHint()
+    }
+
+    fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        handler.onTrimMemory(level)
+    }
+```
+
+Additionally, you must add this line in `AndroidManifest.xml` to all the activities that use NextomeMap:
+```xml
+    <activity
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
+        ...
+```

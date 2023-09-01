@@ -1,4 +1,8 @@
-# Sdk Mobile Documentation
+# Nextome Documentation docs.nextome.dev
+
+## How to DEPLOY
+ * Simply push commits to `prod` branch. A Github Action will deploy the website automatically.
+
 
 Tools used: 
 
