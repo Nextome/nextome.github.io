@@ -1,4 +1,10 @@
-﻿# The two technologies and the tools
+---
+title: The two technologies and the tools
+hide:
+  - footer
+---
+ 
+# The two technologies and the tools
 
 ## Prerequisites
 It is recommended to read this document before the others to get an overview of the main Nextome technologies and choose the one that best suits your use case.
