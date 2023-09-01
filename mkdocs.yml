@@ -48,9 +48,10 @@ extra:
 
 
 nav:
-    - 'Introductory concepts':
+    - 'Introduction':
       - 'The two technologies and the tools': 'The two technologies and the tools/the-two-technologies-and-the-tools.md'
-      - 'Fundamental Definitions': 'Fundamental Concepts/fundamental_concepts.md'
+      - 'Nextome Terminology': 'Fundamental Concepts/fundamental_concepts.md'
+      - 'Types of users and grants': 'Types of users and grants/types_of_users_and_grants.md'
     - 'Technical documentation':
       - 'Nextome SDK':
           - 'Introduction': 'Nextome SDK/introduction.md'
