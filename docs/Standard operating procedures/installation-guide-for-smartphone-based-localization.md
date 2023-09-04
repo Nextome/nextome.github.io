@@ -81,6 +81,8 @@ Open the app and enable the required permissions on the following screens.
 
 <p style="text-align: center;"><img src="/assets/Installation guide for smartphone based localization/14.jpeg" width="35%"><figcaption style="text-align: center;"> <font size="2"> Figure 14: Bluetooth activation screen.</font></figcaption></p>
 
+If you need the app to work in the background as well, it's important to ensure that the app's battery optimization settings are not enabled. These settings are organized differently for each mobile phone model. You can find a guide on how to prevent the app from being terminated while running in the background for your specific smartphone model at the following link https://dontkillmyapp.com/.
+
 Once all permissions are accepted, it is possible to log in and activate localization by selecting 'Enter' in the screen shown in following figure.
 <p style="text-align: center;"><img src="/assets/Installation guide for smartphone based localization/15.jpeg" width="35%"><figcaption style="text-align: center;"> <font size="2"> Figure 15: Initial screen of the 'Nextome Indoor Positioning' application.</font></figcaption></p>
 
