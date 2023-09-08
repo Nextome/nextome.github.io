@@ -3,8 +3,8 @@ title: Introduction
 hide:
   - footer
 ---
-# Nextome SDK Documentation
+# Nextome Documentation
 
 ![Nextome Android SDK Cover](assets/cover.png)
 
-Welcome to Nextome Documentation!
+Welcome to Nextome Documentation! prova
