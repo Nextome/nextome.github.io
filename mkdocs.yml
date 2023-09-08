@@ -6,7 +6,6 @@ theme:
   logo: assets/logo-white.svg
   favicon: material/library
   features:
-    - navigation.sections
     - content.code.annotate 
     - content.tabs.link
   custom_dir: material/.overrides
