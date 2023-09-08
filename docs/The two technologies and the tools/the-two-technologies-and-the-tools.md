@@ -63,15 +63,18 @@ The API calls allow you to perform all the necessary configuration operations fo
 
 ### The services
 
-#### Sdk and Test App
+#### White label mobile App
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span> 
 
+The white label mobile app 'Nextome Indoor Positioning app' is available on both the Android and Apple stores and is ready for use. This app allows users to visualize their position on a map and utilize all the associated services, such as navigating to points of interest or receiving notifications when approaching specific geo-fenced areas. Prior to using the app, it's necessary to activate a license with Nextome, upload the map to the Nextome Hub Web to configure the system, and install and register the Beacons.
+
+This mobile app contains the Nextome SDK and the Map View component, both of which can be integrated by third parties into other mobile apps.
+
+##### SDK
 Nextome provides an SDK that can be integrated into native applications (Android, iOS), enabling the functionality of smartphone localization for devices where it's installed.
 
-To test the functionality of smartphone localization, the 'Nextome Indoor Positioning app' is ready for use. This app allows users to visualize their position on a map and utilize all the associated services, such as navigating to points of interest or receiving notifications when approaching specific geo-fenced areas. Prior to using the app, it's necessary to install and register Beacons in the environment and configure additional resources through the Venue Configurator, Nextome Hub Web, or APIs.
 
-#### Map view
-<span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>   <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
+##### Map view
 
 The Map View is an integrable component for native applications (Android, iOS) that provides the capability to display two-dimensional environment represented by maps, such as floor plans. On these maps, it's possible to visualize "customizable" additional information like markers, paths, and polygons (or shapes). Specifically, markers are images uploaded by the user that can represent specific point-based information, such as a Point of Interest (POI).
 
