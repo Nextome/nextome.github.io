@@ -193,6 +193,11 @@ The screen relating to the 'BEACONS' resource allows you to monitor the battery 
 
 <p style="text-align: center;"><img src="/assets/Nextome Hub Web Guide/19.png" width="120%"><figcaption style="text-align: center;"><font size="2"> Figura 19: Content management - Beacons tab.</font></figcaption></p>
 
+!!! Note
+
+    The battery level is only available for Android. The IOS SDK does not provide this functionality.
+
+    
 #### Gateway
 <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
@@ -216,6 +221,11 @@ By clicking on 'ADD NEW' a new tag can be registered through the screen highligh
 Figure 23 shows the two labels which represent, from left to right, a tag associated with a person and a tag associated with an object.
 
 <p style="text-align: center;"><img src="/assets/Nextome Hub Web Guide/23.png" width="15%"><figcaption style="text-align: center;"><font size="2"> Figura 23: Asset and people labels.</font></figcaption></p>
+
+!!! Note
+
+    The battery level information is available only on gateways produced by selected suppliers.
+
 
 ### Monitoring
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
