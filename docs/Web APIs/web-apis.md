@@ -39,5 +39,5 @@ For example:
 ```
 
 
-The API call specifications are avaible at the [Swagger](https://api.nextome.dev/swagger-ui/index.html#/) 
+The API call specifications are avaible at the [Swagger](https://api.nextome.dev/swagger-ui/index.html#/).
 
