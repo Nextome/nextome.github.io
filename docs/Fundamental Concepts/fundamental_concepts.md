@@ -1,8 +1,7 @@
 ﻿# Nextome Terminology
-## Prerequisites
-In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. 
 
-Before reading this document, it is recommended that you read the document 'The two technologies and the tools'.
+!!! warning "Prerequisites"
+    Before reading this document, it is recommended that you read the document 'The two technologies and the tools'.In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. 
 
 The content of this document is essential for understanding the meaning of the documents:
 

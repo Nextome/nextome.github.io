@@ -1,19 +1,19 @@
 ---
-title: The two technologies and the tools
+title: The two solutions and the tools
 hide:
   - footer
 ---
  
-# The two technologies and the tools
+# The two solutions and the tools
 
 !!! warning "Prerequisites"
     It is recommended to read this document before the others to get an overview of the main Nextome technologies and choose the one that best suits your use case.
 
 ## The two solutions
-The Nextome Indoor localization system is based on **Bluetooth technology** and consist of two main solutions:
+The Nextome Indoor localization system is based on **Bluetooth technology** and consist of **two main solutions**:
 
-- Smartphone tracking --> which allows the localization of the smartphone on which an application is installed.
-- Tag tracking --> which enables the localization of small battery-powered tags.
+- **Smartphone tracking** --> which allows the localization of the smartphone on which an application is installed.
+- **Tag tracking** --> which enables the localization of small battery-powered tags.
 
 ### Smartphone tracking
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  
@@ -30,7 +30,7 @@ To calculate the position of an object or a person, it's possible to associate a
 <p style="text-align: center;"><img src="/assets/Technologies and tools/2.png" width="100%"><figcaption style="text-align: center;"> <font size="2"> Figure 2: Tag tracking architecture.</font> </figcaption></p>
 
 ## The tools 
-This section will introduce the tools that allow interfacing with the Nextome Hub, providing the ability to utilize the technologies described above.
+This section will introduce the tools that allow interfacing with the Nextome Hub, providing the ability to utilize the solutions described above.
 
 <p style="text-align: center;"><img src="/assets/Technologies and tools/3.png" width="100%"><figcaption style="text-align: center;"> <font size="2"> Figure 3: Overview tools.</font> </figcaption></p>
 
@@ -59,7 +59,7 @@ The Venue Configurator is a smartphone app that allows for the easy registration
 #### Hub APIs
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>   <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
-REST APIs that allow you to perform all the necessary configuration operations for the technology's operation and to download calculated positions (functionalities also available in the Nextome Hub Web and the Venue Configurator).
+REST APIs that allow you to perform all the necessary configuration operations to make the solutions work and to download calculated positions (functionalities also available in the Nextome Hub Web and the Venue Configurator App).
 
 ### The services
 
