@@ -48,9 +48,9 @@ extra:
 
 nav:
     - 'Introduction':
-      - 'The two technologies and the tools': 'The two technologies and the tools/the-two-technologies-and-the-tools.md'
+      - 'The two solutions and the tools': 'The two technologies and the tools/the-two-technologies-and-the-tools.md'
       - 'Nextome Terminology': 'Fundamental Concepts/fundamental_concepts.md'
-      - 'Types of users and grants': 'Types of users and grants/types_of_users_and_grants.md'
+      #- 'Types of users and grants': 'Types of users and grants/types_of_users_and_grants.md'
     - 'Technical documentation':
       - 'Nextome SDK':
           - 'Introduction': 'Nextome SDK/introduction.md'
@@ -70,7 +70,7 @@ nav:
           - 'Changelog':
             - 'Android': 'Nextome SDK/Android/changelog.md'
             - 'iOS': 'Nextome SDK/iOS/changelog.md'
-      - 'Map View' : 'Map View/map-view.md'
+      #- 'Map View' : 'Map View/map-view.md'
       - 'Web APIs' : 'Web APIs/web-apis.md' 
       
     - 'Manuals':

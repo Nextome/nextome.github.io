@@ -5,6 +5,13 @@ hide:
 ---
  
 # Web APIs
+
+!!! warning "Prerequisites"
+    Before reading this document, it is recommended that you read the documents:
+    
+      - The two technologies and the tools.
+      - Fundamental definitions.
+
 ## Connection operations
 The system offers JSON REST APIs, the authentication procedure is handled via the OAuth 2 protocol based on credentials. 
 To make authentication possible, the user must have a Nextome account. The user must then provide Nextome with an email and follow the instructions to set the password and activate the account.

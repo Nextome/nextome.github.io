@@ -1,14 +1,20 @@
 ﻿# Installation guide for smartphone based localization
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>
 
-## Prerequisites
-Before reading this document, it is recommended that you read the document *'The two technologies and the tools'* and the definitions of the following concepts (in the document *'Fundamental Definitions'*):
 
-- Beacon.
-- Map.
-- Venue.
-- POI.
-- Path.
+!!! warning "Prerequisites"
+    Before reading this document, it is recommended that you read the document *'The two technologies and the tools'* and the definitions of the following concepts (in the document *'Fundamental Definitions'*):
+
+    - Beacon.
+
+    - Map.
+
+    - Venue.
+
+    - POI.
+
+    - Path.
+
 
 
 

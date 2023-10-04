@@ -1,13 +1,17 @@
 ﻿# Installation guide for tag tracking
 <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
-## Prerequisites
-Before reading this document, it is recommended that you read the document *'The two technologies and the tools'* and the definitions of the following concepts (in the document *'Fundamental Definitions'*):
+!!! warning "Prerequisites"
+    Before reading this document, it is recommended that you read the document *'The two technologies and the tools'* and the definitions of the following concepts (in the document *'Fundamental Definitions'*):
 
-- Gateway.
-- Map.
-- Venue.
-- Tag.
+    - Gateway.
+
+    - Map.
+
+    - Venue.
+
+    - Tag.
+
 
 ## Aim of the document
 Install the technology that allows to localize the position of assets/people associated to Tag sensors.
