@@ -23,7 +23,7 @@ Below is a guide to using the documentation
 
 **Manuals**
 
-- *Nextome Hub Web Guide* -> Guida utente portale 
+- *Nextome Hub Web Guide* -> User guide for the web interface 
 
 **Standard operating procedures**
 

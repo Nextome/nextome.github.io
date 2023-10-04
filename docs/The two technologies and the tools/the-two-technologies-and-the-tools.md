@@ -6,11 +6,11 @@ hide:
  
 # The two technologies and the tools
 
-## Prerequisites
-It is recommended to read this document before the others to get an overview of the main Nextome technologies and choose the one that best suits your use case.
+!!! warning "Prerequisites"
+    It is recommended to read this document before the others to get an overview of the main Nextome technologies and choose the one that best suits your use case.
 
-## The two technologies
-The two main Nextome Indoor localization systems are based on **Bluetooth technology** and consist of:
+## The two solutions
+The Nextome Indoor localization system is based on **Bluetooth technology** and consist of two main solutions:
 
 - Smartphone tracking --> which allows the localization of the smartphone on which an application is installed.
 - Tag tracking --> which enables the localization of small battery-powered tags.
@@ -40,14 +40,14 @@ This section will introduce the tools that allow interfacing with the Nextome Hu
 The Nextome Hub is the core of the Nextome system, housing the localization engine, all the necessary information for calculation, and the history of calculated data where required.
 
 ### The interfaces
-To interface with the Nextome Hub, you can use the Nextome Hub Web and the Venue Configurator. These have been developed with a user-friendly interface by the Nextome team. Alternatively, you can directly use the API calls that allow integrating all functionalities into other systems.
+To interface with the Nextome Hub, you can use the Nextome Hub Web and the Venue Configurator App. These have been developed with a user-friendly interface by the Nextome team. Alternatively, you can directly use the Hub API calls that allow integrating all functionalities into other systems.
 
 #### Nextome Hub web
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>   <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
 The Nextome Hub Web is a web portal that allows:
 
-- Management of maps and all the resources necessary for the operation of the technologies.
+- Management of maps and all the resources necessary for the operation of the solutions.
 - Monitoring the status of the hardware installed in the environment.
 - Visualization of calculated positions.
 
@@ -59,7 +59,7 @@ The Venue Configurator is a smartphone app that allows for the easy registration
 #### Hub APIs
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>   <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
-The API calls allow you to perform all the necessary configuration operations for the technology's operation and to download calculated positions (functionalities also available in the Nextome Hub Web and the Venue Configurator).
+REST APIs that allow you to perform all the necessary configuration operations for the technology's operation and to download calculated positions (functionalities also available in the Nextome Hub Web and the Venue Configurator).
 
 ### The services
 
