@@ -9,7 +9,7 @@ hide:
 !!! warning "Prerequisites"
     Before reading this document, it is recommended that you read the documents:
 
-      - The two technologies and the tools.
+      - The two solutions and the tools.
       - Fundamental definitions.
 
 ## Connection operations
