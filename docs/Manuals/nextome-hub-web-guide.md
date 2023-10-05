@@ -3,7 +3,7 @@
 !!! warning "Prerequisites"
     Before reading this document, it is recommended that you read the documents:
     
-    - The two technologies and the tools.
+    - The two solutions and the tools.
 
     - Fundamental definitions.
 
@@ -19,7 +19,7 @@ The main functionalities of the Nextome Hub Web portal can be divided into the f
 
 - Installation management:
 
-    - Registration of hardware (Beacons, Gateways, Tags) that are installed in facilities to enable tracking technologies.
+    - Registration of hardware (Beacons, Gateways, Tags) that are installed in facilities to enable indoor positioning technology.
     - Battery monitoring of installed Beacons and Tags.
     - Ability to delete, modify or move previously installed harware (Beacons, Gateways, Tags).
 
@@ -65,7 +65,7 @@ The 'Add app API' functionality can be used to create the token that allows you 
 
 ### Maps
 
-The 'Maps' section allows you to configure the system to enable location technologies and various additional services.
+The 'Maps' section allows you to configure the system to enable indoor positioning technology and various additional services.
 This part is organized into 4 subsections 'overview', 'edit rooms', 'color piker', 'installation tips' which will be analyzed below.
 
 #### Overview
@@ -256,7 +256,7 @@ Like the other sections, this too depends on the permissions associated with the
 Once a new user is created, an email is sent to the associated address which enables the user to create his own password.
 
 ### Settings
-The settings section allows you to act on localization technologies on various levels. Below is a discussion of each of the types of settings.
+The settings section allows you to act on localization solutions on various levels. Below is a discussion of each of the types of settings.
 
 #### Generals
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
@@ -271,7 +271,7 @@ Below is the explanation for each of the items available in the box in Figure 26
 
 #### Historicization
 
-The settings in the box in Figure 27 allow you to manage the data retention methods and are specific for each of the two localization technologies 'Tag History enabled' and 'Smartphone History enabled.
+The settings in the box in Figure 27 allow you to manage the data retention methods and are specific for each of the two localization solutions 'Tag History enabled' and 'Smartphone History enabled.
 <p style="text-align: center;"><img src="/assets/Nextome Hub Web Guide/27.png" width="120%"><figcaption style="text-align: center;"><font size="2"> Figura 27: Data historicization settings.</font></figcaption></p>
 
 ##### Historicization settings for tags 
