@@ -1,26 +1,23 @@
 ﻿# Nextome Terminology
 
 !!! warning "Prerequisites"
-    Before reading this document, it is recommended that you read the document 'The two technologies and the tools'.In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. 
+    Before reading this document, it is recommended that you read the document 'The two solutions and the tools'.In this document, all the definitions of the fundamental concepts within the Nextome Hub are provided. 
 
 The content of this document is essential for understanding the meaning of the documents:
 
--   SDK Documentation 
--   Web APIs Documentation
--   Map View Documentation
--   Nextome Hub Web Guide
--   Installation Guide for Smartphone - based localization
--   Installation Guide for Tag Tracking 
+-   Technical documentation.  
+-   Manuals.
+-   Standard operating procedures.
 
 
 ## Introduction and Context
-For the operation of the two Nextome technologies, the following steps are necessary:
+For the operation of the two Nextome solutions, the following steps are necessary:
 
 1. Creation within the Nextome Hub of the **'Venue'** resource, which represents the area where the technology is installed.
 2. Creation within the Nextome Hub of **'Map'** resources, one for each floor, and association with the corresponding Venue.
 3. Physical installation of hardware within the structure.
 4. Registration of the installed hardware within the Nextome Hub.
-Once the above steps are completed, the technology is capable of calculating the 'Positions' of the items being localized, which can be a **'Tag'** or a **'Device'** (smartphone).
+Once the above steps are completed, the solution is capable of calculating the 'Positions' of the items being localized, which can be a **'Tag'** or a **'Device'** (smartphone).
 5. To enable additional services beyond position calculation, such as **navigation** or **geofencing** , it is necessary to create additional resources on the relevant 'Maps' within the Nextome Hub.
 
 The concepts introduced in points 1 and 2 will be explored in-depth in the **'Concepts related to the installation site'** section.
@@ -33,16 +30,16 @@ The concepts related to the calculated positions from the localization engine wi
 
 For each concept:
 
-- It will be specified which technology it involves (tag tracking, smartphone tracking, or both).
+- It will be specified which solution it involves (tag tracking, smartphone tracking, or both).
 - The context in which it is used will be briefly explained.
 - A definition will be provided based on its primary characteristics.
 
 ### Examples
-Below we present two examples of configurations, in the case of the two technologies.
+Below we present two examples of configurations, in the case of the two solutions.
 
 *Example of tag tracking*
 
-Tracing 100 tags in a hospital with 2 floors, the technology is based on the detections of 20 gateways installed on each floor.
+Tracing 100 tags in a hospital with 2 floors, the solution is based on the detections of 20 gateways installed on each floor.
 50 virtual rooms are created on the first floor. 
 The following image shows the basic elements of the configuration.
 ![Tag tracking example](../assets/Fundamental Conceps/tag_tracking.png)
@@ -64,7 +61,7 @@ The following image shows the basic elements of the configuration.
 The concept of '**Venue**' represents the location where the Nextome technology is installed. 
 For each Venue, at least one 'Map' must be associated, referring to a single floor within the structure. If there are multiple floors, there will be multiple Maps associated with the Venue.
 The concept of Venue is linked to the timezone to be associated with the positions of devices calculated by the installation within that specific Venue.
-Furthermore, since the functionality of the technology is configurable based on the Venue, the settings that the technology uses must be associated with the Venue.
+Furthermore, since the functionalities of the solution are configurable based on the Venue, the settings that the solution uses must be associated with the Venue.
 The Venue concept can also be associated with an address and latitude and longitude coordinates for georeferencing purposes.
 
 ### Map
@@ -80,14 +77,14 @@ The PNG file plays a crucial role as all resources are characterized by a map po
 If the technology is installed in a three-floors hospital, a Venue will be created, and three Maps will be associated with it, each with its corresponding PNG file representing the floor plan of the respective floor.
 
 ## Concepts related to hardware
-In this section, concepts related to the hardware components of the two technologies are defined. To enable the functionality of the technologies, every hardware component installed in the environment must be registered within the Nextome Hub. After registering the hardware components that make up the installed architecture, the system is capable of calculating the position of Tags or Devices (smartphones) accordingly, depending on whether it is tag tracking or smartphone tracking.
+In this section, concepts related to the hardware components of the two solutions are defined. To enable the functionality of the solutions, every hardware component installed in the environment must be registered within the Nextome Hub. After registering the hardware components that make up the installed architecture, the system is capable of calculating the position of Tags or Devices (smartphones) accordingly, depending on whether it is tag tracking or smartphone tracking.
 
 ### Beacon
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>
 
 *Definition*
 
-The concept of '**Beacon**' refers to a physical device installed in the environment that serves as a reference anchor within the context of the 'Smartphone tracking' technology.
+The concept of '**Beacon**' refers to a physical device installed in the environment that serves as a reference anchor within the context of the 'Smartphone tracking' solution.
 Each Beacon physically installed in this context must have a corresponding Beacon object within the Nextome system. The Beacon object is uniquely identified by the triplet (UUID, Major, Minor), and it must be associated with the location where the Beacon is installed.
 Once the corresponding Map object for the floor where the Beacon is installed is determined, its position is defined by two elements:
 
@@ -101,7 +98,7 @@ The Beacon object can also contain information related to the Beacon, such as ba
 
 *Definition*
 
-The concept of '**Tag**' refers to a sensor to be located within the context of tag tracking technology. The Tag can be associated with an object or a person.
+The concept of '**Tag**' refers to a sensor to be located within the context of tag tracking solution. The Tag can be associated with an object or a person.
 Each sensor physically associated with the entity to be located must have a corresponding Tag object within the Nextome system. The Tag object is uniquely identified by the triplet (UUID, Minor, Major), and it must necessarily be associated with the Venue where the technology aiming to locate it is installed.
 It's not possible to associate a specific Map with the Tag since it refers to a locatable entity that could move from one Map to another.
 The Tag object can contain:
@@ -114,7 +111,7 @@ The Tag object can contain:
 
 *Definition*
 
-The concept of '**Gateway**' refers to the Bluetooth antenna that serves as a reference anchor, physically installed in the environment within the context of 'Tag tracking' technology. Each antenna installed in this context must have a corresponding Gateway object within the Nextome system.
+The concept of '**Gateway**' refers to the Bluetooth antenna that serves as a reference anchor, physically installed in the environment within the context of 'Tag tracking' solution. Each antenna installed in this context must have a corresponding Gateway object within the Nextome system.
 The Gateway object is uniquely identified by a specific serial number of the antenna, and it must necessarily be associated with the location where the antenna is installed. Once the corresponding Map object for the floor where the Gateway is installed is determined, its position is defined by two elements:
 
 1. The Map object.
@@ -123,7 +120,7 @@ The Gateway object is uniquely identified by a specific serial number of the ant
 The Gateway object can also contain information related to the Gateway, such as a label.
 
 ## Concepts related to the navigation service
-One of the additional services is navigation to points of interest (POIs) registered within the system. This service is relevant only in the context of 'smartphone tracking' technology and can be accessed through an app that integrates the Nextome SDK. The calculation of the recommended navigation path by the navigation service is based on paths (Paths) registered within the system.
+One of the additional services is navigation to points of interest (POIs) registered within the system. This service is relevant only in the context of 'smartphone tracking' solution and can be accessed through an app that integrates the Nextome SDK. The calculation of the recommended navigation path by the navigation service is based on paths (Paths) registered within the system.
 Let's define the mentioned objects 'POI' and 'Path' below.
 
 ### POI (Point Of Interest)
@@ -153,7 +150,7 @@ In the following image, an example of a recommended route by navigation based on
 
 ## Concepts related to the geofencing service
 One of the additional services is the ability to define events to be invoked when conditions related to the relationship between the position of the Tag/smartphone to be located and predefined areas on the map's floor plan, called 'Fence', occur.
-This service is currently available within the context of smartphone localization technology, which assumes that a mobile application with the Nextome SDK is active. The available conditions at the moment are 'entry' and 'exit' into and from a Fence. In other words, it's possible to detect when a smartphone enters or exits a 'Fence'.
+This service is currently available within the context of smartphone localization solution, which assumes that a mobile application with the Nextome SDK is active. The available conditions at the moment are 'entry' and 'exit' into and from a Fence. In other words, it's possible to detect when a smartphone enters or exits a 'Fence'.
 To utilize this service, it's necessary to create Fences on the PNG file of the Map.
 
 ### Fence
@@ -180,7 +177,7 @@ The calculated position of a Tag or Smartphone is defined by the Map in which it
 The concept of '**Room**' is related to a section of the map, defined by a polygon or a circle, which in turn are defined by pixel coordinates (x, y) on the map's PNG file. The Room object is often characterized by a meaningful label for the end user. Every time the calculated position of a Tag or Smartphone falls within a Room, that position will be associated with the Room and can be interpreted by the user without requiring visualization on the PNG file.
 
 ## Concepts related to calculated positions
-The primary goal of the 'Tag tracking' and 'Smartphone tracking' technologies is to calculate the position of a Tag and a Smartphone, respectively. In this section, the definition of the 'Position' concept and its aggregated version 'Visit' is presented.
+The primary goal of the 'Tag tracking' and 'Smartphone tracking' solutions is to calculate the position of a Tag and a Smartphone, respectively. In this section, the definition of the 'Position' concept and its aggregated version 'Visit' is presented.
 
 ### Position
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>  <span style="color:#7B29EA">:material-tag: Tag Tracking</span>  
@@ -209,7 +206,7 @@ If the tag, with id 10, enters in the room, with id 3, at 10:00 and leaves at 11
 
 ## Interactions between tools and concepts
 
-|             | Nextome Hub Web            | Api                        | Venue Configurator         | NextomeSDK                 |
+|             | Nextome Hub Web            | Api                        | Venue Configurator App     | NextomeSDK                 |
 | ----------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | Venue       | Create, Edit, View         | Create, Edit, View, Delete |               View         |               View         |
 | Map         | Create, Edit, View, Delete | Create, Edit, View, Delete |         Edit, View         |               View         |

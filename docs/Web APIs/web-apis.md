@@ -1,14 +1,14 @@
 ﻿---
-title: Web APIs
+title: REST APIs
 hide:
   - footer
 ---
  
-# Web APIs
+# REST APIs
 
 !!! warning "Prerequisites"
     Before reading this document, it is recommended that you read the documents:
-    
+
       - The two technologies and the tools.
       - Fundamental definitions.
 
