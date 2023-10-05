@@ -51,7 +51,7 @@ The Nextome Hub Web is a web portal that allows:
 - Monitoring the status of the hardware installed in the environment.
 - Visualization of calculated positions.
 
-#### Venue Configurator
+#### Venue Configurator App
 <span style="color:#5BC4F0">:material-cellphone-cog: Smartphone Tracking</span>   <span style="color:#7B29EA">:material-tag: Tag Tracking</span> 
 
 The Venue Configurator is a smartphone app that allows for the easy registration of hardware installed in the environment. It is also possible to register hardware through the Nextome Hub Web. However, the Venue Configurator simplifies and expedites the process, offering additional installation verification capabilities by leveraging the smartphone's scanner functionality.
