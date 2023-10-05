@@ -3,7 +3,7 @@
 
 
 !!! warning "Prerequisites"
-    Before reading this document, it is recommended that you read the document *'The two technologies and the tools'* and the definitions of the following concepts (in the document *'Fundamental Definitions'*):
+    Before reading this document, it is recommended that you read the document *'The two solutions and the tools'* and the definitions of the following concepts (in the document *'Fundamental Definitions'*):
 
     - Beacon.
 
@@ -22,7 +22,7 @@
 This document explains how to install the technology that allows to locate the position of the smartphone on which the 'Nextome' application is installed.
 
 ## Components
-The items required for the technology to work are listed below:
+The items required for the solution to work are listed below:
 
 - Beacon sensors working as anchor references.
 - *‘Venue Configurator’* application to be installed on the smartphone used to install the technology.
@@ -54,7 +54,7 @@ For each sensor:
 <p style="text-align: center;"><img src="/assets/Installation guide for smartphone based localization/4.jpeg" width="35%"><figcaption style="text-align: center;"> <font size="2"> Figure 4: Map on which the Beacons will be registered.</font></figcaption></p>
 
 
-- The scanner will detect the Beacons that are close to it. All the detected Beacons will appear in form of a list. Keeping the Beacons as close as possible to the smartphone (see following figure) while it is in “reception” mode will make the scanner able to detect the Beacons with lower Received Signal Strength Indicator (RSSI) values. The higher the RSSI value, the closer the Beacon.
+- The scanner will detect the Beacons that are close to it. All the detected Beacons will appear in form of a list. Keeping the Beacons as close as possible to the smartphone (see following figure) while it is in “reception” mode will make the scanner able to detect the Beacons with higher Received Signal Strength Indicator (RSSI) values. The higher the RSSI value, the closer the Beacon.
 
 <p style="text-align: center;"><img src="/assets/Installation guide for smartphone based localization/5.jpeg" width="35%"><figcaption style="text-align: center;"> <font size="2"> Figure 5: Selecting the right Beacon from the list.</font></figcaption></p>
 
