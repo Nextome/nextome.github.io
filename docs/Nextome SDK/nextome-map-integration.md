@@ -36,7 +36,7 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
     use_frameworks!
 
     target 'MyApp' do
-        pod 'PhoenixMapUtils_Release'
+        pod 'PhoenixMapUtils_Release', '1.4.4.1'
     end
 
     post_install do |installer|

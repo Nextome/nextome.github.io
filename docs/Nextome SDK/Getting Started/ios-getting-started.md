@@ -4,7 +4,7 @@ A full working example app is available on [this repository](https://github.com/
 
 ## Prerequisites
 
-- Xcode 14.3
+- Xcode 15.0
 - Make sure that your project meets these requirements: 
     - Swift 5.7
     - Minimum deployment: iOS 13.2
@@ -64,7 +64,7 @@ Then it is necessary to configure our Spec Repo.
     !!!note
         Since SDK is still in RC CocoaPods require to specify the version explicitly like this
         ```swift
-            pod 'PhoenixSdk', '2.0.0-rc3'
+            pod 'PhoenixSdk', '2.0.0-rc4'
         ```
 
 
