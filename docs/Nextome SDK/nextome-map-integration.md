@@ -13,8 +13,6 @@ You have two options to integrate the UI component:
 <p style="text-align: center;"><img src="/assets/mapIos.jpeg" width="50%"></p>
 
 ## Integrate PhoenixMapUtils
-:octicons-tag-24: PhoenixMapUtils 1.4.3.3
-
 In this sections we will go through the integration of the PhoenixMapUtils. If you're interested in th NextomeMap approach you can refer to this documentation.
 
 ### Install the dependency
@@ -23,7 +21,7 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
     1. In your `build.gradle` file, add dependencies for Nextome MapView and PhoenixMapUtils:
     ```kotlin
         implementation("com.nextome.phoenix_map_utils:phoenix_map_utils:1.4.3.3")
-        implementation("net.nextome.nextome_map_module:flutter:1.4.3")
+        implementation("net.nextome.nextome_map_module:flutter:1.5.1")
     ```
 
 === "iOS"
