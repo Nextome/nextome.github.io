@@ -76,7 +76,7 @@ Those credentials are available from your profile, in the Apps section.
         ``` kotlin title="project/build.gradle.kts"
         implementation ("net.nextome.phoenix:sdk:{last_version}")
         ```
-    Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
+    Check latest released version [here](../Android/changelog.md)
 
 ## Required permissions
 To run, Nextome SDK requires the following permissions:
