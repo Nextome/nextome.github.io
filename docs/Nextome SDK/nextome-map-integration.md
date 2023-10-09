@@ -25,7 +25,7 @@ In this sections we will go through the integration of the PhoenixMapUtils. If y
     ```
 
 === "iOS"
-    1. Follow the [How to include steps](https://docs.nextome.dev/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include) 
+    1. Follow the [How to include steps](/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include) 
     2. Update the `Podfile` adding the CocoaPods source and the Nextome source, the pod dependency and the post install script. You don't need to specify the Phoenix sdk because it is already defined as PhoenixMapUtils dependency.
     ```swift
     platform :ios, '13.2'
