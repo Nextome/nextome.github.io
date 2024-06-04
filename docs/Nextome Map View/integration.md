@@ -22,15 +22,15 @@ To integrate the Nextome Map View you need to add the following code in your `pu
 - Have working credentials for our Artifactory repository
 
 !!! warning "Credentials"
-    If you need access to artifactory, contact us at [info@nextome.com](mailto:info@nextome.com).
+If you need access to artifactory, contact us at [info@nextome.com](mailto:info@nextome.com).
 
 ### How to include
 
 1. Add our repositories in the Gradle Project Settings `settings.gradle.kts`:
 
-    === "Groovy"
-        ``` groovy title="settings.gradle"
-        
+   === "Groovy"
+   ``` groovy title="settings.gradle"
+
         dependencyResolutionManagement {
             repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
             repositories {
@@ -52,9 +52,9 @@ To integrate the Nextome Map View you need to add the following code in your `pu
             }
         }
         ```
-    === "KTS"
-        ``` kotlin title="settings.gradle.kts"
-    
+   === "KTS"
+   ``` kotlin title="settings.gradle.kts"
+
         dependencyResolutionManagement {
             repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
             repositories {
@@ -79,18 +79,18 @@ To integrate the Nextome Map View you need to add the following code in your `pu
 
 2. In your module (app-level) Gradle file, add the dependency for the NextomeMapView:
 
-    === "Groovy"
+   === "Groovy"
 
         ``` groovy title="project/build.gradle"
         implementation 'com.nextome.nextomemapview:nextomemapview:{last_version}'
         ```
 
-    === "KTS"
+   === "KTS"
 
         ``` kotlin title="project/build.gradle.kts"
         implementation ("com.nextome.nextomemapview:nextomemapview:{last_version}")
         ```
-    Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
+   Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
 
 ### Required permissions
 To run, NextomeMapView requires the following permissions:
@@ -105,24 +105,20 @@ To run, NextomeMapView requires the following permissions:
 
 - See [Map-usage](./Usage/initialize.md) to use Nextome MapView component.
 
-### Examples
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
-Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
-
 <br>
 
 ## IOS integraton
 
 ### Prerequisites
 
-- Xcode 14.3
-- Make sure that your project meets these requirements: 
-    - Swift 5.7
-    - Minimum deployment: iOS 13.2
+- Xcode 15.3
+- Make sure that your project meets these requirements:
+   - Swift 5.7
+   - Minimum deployment: iOS 13.2
 - Have working credentials for our Artifactory repository
 
 !!! warning "Credentials"
-    If you need access to artifactory, contact us at [info@nextome.com](mailto:info@nextome.com).
+If you need access to artifactory, contact us at [info@nextome.com](mailto:info@nextome.com).
 
 ### How to include
 
@@ -137,7 +133,7 @@ Then it is necessary to configure our private Spec Repo.
     ``` bash 
     nano ~/.netrc
     ```
-    Copy this then close and save
+   Copy this then close and save
 
     ```
     machine packages.nextome.dev
@@ -145,47 +141,46 @@ Then it is necessary to configure our private Spec Repo.
     password <ENCRYPTED-PASSWORD>
     ```
 
-    !!! note
-        If you get an error of this type: "Permission bits, should be 0600, but are 644"
-        
+   !!! note
+   If you get an error of this type: "Permission bits, should be 0600, but are 644"
+
         Run this command: 
 
         `chmod 0600 ~/.netrc`
-     
+
 
 2. Create a Podfile if you don't already have one. From the root of your project directory, run the following command
     ``` bash 
     pod init
     ```
 
-3. To your Podfile, be sure that the platform is at least 13.2 then add the CocoaPods specs source and our Nextome source. Then add the NextomeMapView pod
+3. To your Podfile, be sure that the platform is at least 13.2 then add the CocoaPods specs source and our Nextome source. Then add the NextomeMapView_Environment pod where Environment can be can be Release or Debug.
 
-    As opposed to the cocoapods client's default behavior, the cocoapods-art plugin does not automatically update its index whenever you run client commands (such as install). To keep your plugin's index synchronized with your CocoaPods repository, you need to update it by executing the following command:
 
     ```bash
     platform :ios, '13.2'
 
-    source 'https://github.com/CocoaPods/Specs.git'TODO
+    source 'https://github.com/CocoaPods/Specs.git'
     source 'https://github.com/Nextome/Specs'
 
     use_frameworks!
 
     target 'MyApp' do
-        pod 'NextomeMapView', '{last_version}'
+        pod 'NextomeMapView_Release', '{last_version}'
     end
     ```
 
     !!! note
-        Since NextomeMapView is still in RC CocoaPods require to specify the version explicitly like this
-        `pod 'NextomeMapView', '2.0.0-rc1'`
+        The `Release` dependency will not work properly in the simulator. The app will compile but the map will not be visible
 
-4. Install the pods, then open your .xcworkspace file to see the project in Xcode
+
+5. Install the pods, then open your .xcworkspace file to see the project in Xcode
 
     ```bash
     pod install
     ```
 
-5. Open your `xcworkspace` file and start to use NextomeMapView
+6. Open your `xcworkspace` file and start to use NextomeMapView
 
 ### Next steps
 
