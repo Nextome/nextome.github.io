@@ -14,7 +14,6 @@ Please, update the version number incrementally when updating the zip file other
             nextomeSdk = NextomeLocalizationSdk(
                 clientId = CLIENT_ID,
                 clientSecret = CLIENT_SECRET,
-                context = context as ApplicationContext,
                 initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))
          ```
     === "iOS"
@@ -32,7 +31,6 @@ Please, update the version number incrementally when updating the zip file other
         nextomeSdk = NextomePhoenixSdk(
             clientId = CLIENT_ID,
             clientSecret = CLIENT_SECRET,
-            context = context as ApplicationContext,
             initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))
       ```
 === "iOS"
@@ -50,7 +48,6 @@ If you don't want to bundle the initial data inside the `assets` folder (for exa
         nextomeSdk = NextomeLocalizationSdk(
         clientId = CLIENT_ID,
         clientSecret = CLIENT_SECRET,
-        context = context as ApplicationContext,
         initialData = LocalResource(path = LOCAL_PATH, venueId: myVenueId,  version = 1)
         )
     ```

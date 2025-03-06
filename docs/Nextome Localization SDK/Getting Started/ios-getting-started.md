@@ -60,12 +60,13 @@ Then it is necessary to configure our Spec Repo.
         pod 'NextomeLocalization'
     end
     ```
-
+    
     !!!note
-        Since SDK is still in RC CocoaPods require to specify the version explicitly like this
+        If you want to use a specified SDK the version, explicitly it like this
         ```swift
-            pod 'NextomeLocalization', '3.0.0-rc02'
+            pod 'NextomeLocalization', '3.0.1'
         ```
+        See all released version [here](../iOS/changelog.md)
 
 
 7. Install the pods, then open your .xcworkspace file to see the project in Xcode
@@ -138,4 +139,4 @@ A full working example app is available on [this repository](https://github.com/
 
 <br>
 
-**© 2023 Nextome srl | All Rights Reserved.**
+**© 2025 Nextome srl | All Rights Reserved.**

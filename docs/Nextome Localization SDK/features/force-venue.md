@@ -7,7 +7,6 @@ During the SDK Initialization, specify the `forcedVenueId`, this way the SDK wil
     nextomeSdk = NextomeLocalizationSdk(
     clientId = CLIENT_ID,
     clientSecret = CLIENT_SECRET,
-    context = context as ApplicationContext,
     forcedVenueId = FORCED_VENUE_ID
     )
     ```

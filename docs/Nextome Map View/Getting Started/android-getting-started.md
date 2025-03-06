@@ -138,4 +138,4 @@ Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless 
 
 <br>
 
-**© 2023 Nextome srl | All Rights Reserved.**
+**© 2025 Nextome srl | All Rights Reserved.**

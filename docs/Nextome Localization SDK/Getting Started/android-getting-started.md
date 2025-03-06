@@ -117,8 +117,7 @@ It requires the `application context`, the given `Client` and `Secret Key`.
 ```kotlin
     nextomeSdk = NextomeLocalizationSdk(
         clientId = CLIENT_ID,
-        clientSecret = CLIENT_SECRET,
-        context = context as ApplicationContext,
+        clientSecret = CLIENT_SECRET
     )
 ```
 
@@ -138,4 +137,4 @@ Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless 
 
 <br>
 
-**© 2023 Nextome srl | All Rights Reserved.**
+**© 2025 Nextome srl | All Rights Reserved.**

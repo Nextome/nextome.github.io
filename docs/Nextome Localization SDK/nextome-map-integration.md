@@ -25,39 +25,41 @@ In this sections we will go through the integration of the NextomeLocalizationMa
     ```
 
 === "iOS"
-1. Follow the [How to include steps](https://docs.nextome.dev/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include)
-2. Update the `Podfile` adding the CocoaPods source and the Nextome source, the pod dependency and the post install script. You don't need to specify the Nextome Localization sdk because it is already defined as NextomeLocalizationMapUtils dependency.
-   ```swift
-       platform :ios, '13.2'
+    1. Follow the [How to include steps](https://docs.nextome.dev/Nextome%20SDK/Getting%20Started/ios-getting-started/#how-to-include)
+    2. Update the `Podfile` adding the CocoaPods source and the Nextome source, the pod dependency and the post install script. You don't need to specify the Nextome Localization sdk because it is already defined as NextomeLocalizationMapUtils dependency.
+    
+        ```swift
+            platform :ios, '13.2'
 
-       source 'https://github.com/CocoaPods/Specs.git'
-       source 'https://github.com/Nextome/Specs'
+            source 'https://github.com/CocoaPods/Specs.git'
+            source 'https://github.com/Nextome/Specs'
 
-       use_frameworks!
+            use_frameworks!
 
-       target 'MyApp' do
-           pod 'NextomeLocalizationMapUtils_Release', '1.4.4.2'
-       end
+            target 'MyApp' do
+                pod 'NextomeLocalizationMapUtils_Release', '1.4.4.2'
+            end
 
-       post_install do |installer|
-           installer.generated_projects.each do |project|
-               project.targets.each do |target|
-                   target.build_configurations.each do |config|
-                       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.2'
-                   end
-               end
-           end
-       end
-       ```
+            post_install do |installer|
+                installer.generated_projects.each do |project|
+                    project.targets.each do |target|
+                        target.build_configurations.each do |config|
+                            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.2'
+                        end
+                    end
+                end
+            end
+        ```
 
-           !!! note
-               The NextomeLocalizationUtils is distributed in two different pod version, `Release` and `Debug`. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the `Debug` version instead. 
-               It is important to use the `Release` version for the app store. 
+        !!! note
+            The NextomeLocalizationUtils is distributed in two different pod version, `Release` and `Debug`. Th release version will compile also for the simulate but will not show the map view. To test the map on the simulator you can use the `Debug` version instead. 
+            It is important to use the `Release` version for the app store. 
 
-       4. Install the dependency
-           ```swift
-           pod install
-           ```
+    3. Install the dependency
+
+        ```swift
+            pod install
+        ```
 
 ### Initialization 
 

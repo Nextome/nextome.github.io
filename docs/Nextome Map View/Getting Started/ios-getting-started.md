@@ -156,4 +156,4 @@ A full working example app is available on [this repository](https://github.com/
 
 <br>
 
-**© 2023 Nextome srl | All Rights Reserved.**
+**© 2025 Nextome srl | All Rights Reserved.**

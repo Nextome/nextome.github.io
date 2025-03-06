@@ -52,40 +52,39 @@ nav:
       - 'Nextome Terminology': 'Fundamental Concepts/fundamental_concepts.md'
       #- 'Types of users and grants': 'Types of users and grants/types_of_users_and_grants.md'
     - 'Technical documentation':
-      - 'Nextome SDK':
-          - 'Introduction': 'Nextome SDK/introduction.md'
+      - 'Nextome Localization SDK':
+          - 'Introduction': 'Nextome Localization SDK/introduction.md'
           - 'Getting started':
-            - 'Android': 'Nextome SDK/Getting Started/android-getting-started.md'
-            - 'iOS': 'Nextome SDK/Getting Started/ios-getting-started.md'
-          - 'Basic Features': 'Nextome SDK/start-localization.md'
+            - 'Android': 'Nextome Localization SDK/Getting Started/android-getting-started.md'
+            - 'iOS': 'Nextome Localization SDK/Getting Started/ios-getting-started.md'
+          - 'Basic Features': 'Nextome Localization SDK/start-localization.md'
           - 'Additional Features':
-            - 'Events': 'Nextome SDK/features/events.md'
-            - 'Navigation': 'Nextome SDK/features/navigation.md'
-            - 'Get Venue Data': 'Nextome SDK/features/venue-data.md'
-            - 'Force Venue': 'Nextome SDK/features/force-venue.md'
-            - 'Initial Resources': 'Nextome SDK/features/initial-resources.md'
-            - 'Override default settings': 'Nextome SDK/Android/settings.md'
-            - '[Android] Foreground service': 'Nextome SDK/Android/background-service.md'
-          - 'Nextome Map integration': 'Nextome SDK/nextome-map-integration.md'
+            - 'Events': 'Nextome Localization SDK/features/events.md'
+            - 'Navigation': 'Nextome Localization SDK/features/navigation.md'
+            - 'Get Venue Data': 'Nextome Localization SDK/features/venue-data.md'
+            - 'Force Venue': 'Nextome Localization SDK/features/force-venue.md'
+            - 'Initial Resources': 'Nextome Localization SDK/features/initial-resources.md'
+            - 'Override default settings': 'Nextome Localization SDK/Android/settings.md'
+            - '[Android] Foreground service': 'Nextome Localization SDK/Android/background-service.md'
+          - 'Nextome Map integration': 'Nextome Localization SDK/nextome-map-integration.md'
           - 'Changelog':
-            - 'Android': 'Nextome SDK/Android/changelog.md'
-            - 'iOS': 'Nextome SDK/iOS/changelog.md'
-      - 'Map View' :
-        - 'Nextome MapView':
-          - 'Introduction': 'Nextome Map View/introduction.md'
-          - 'Integration': 'Nextome Map View/integration.md'
-          - 'NextomeMapView class': 'Nextome Map View/nextomeMapViewClass.md'
-          - 'Usage':
-            - 'Initialize': 'Nextome Map View/Usage/initialize.md'
-            - 'Events': 'Nextome Map View/Usage/events.md'
-            - 'Tile': 'Nextome Map View/Usage/manage-tiles.md'
-            - 'Layers': 'Nextome Map View/Usage/manage-layers.md'
-            - 'Markers': 'Nextome Map View/Usage/manage-markers.md'
-            - 'Enums': 'Nextome Map View/Usage/enums.md'
-          - 'Changelog':
-            - "Android": "Nextome Map View/Changelog/changelog-android.md"
-            - "iOS": "Nextome Map View/Changelog/changelog-ios.md"
-          - 'Example': 'Nextome Map View/example.md'
+            - 'Android': 'Nextome Localization SDK/Android/changelog.md'
+            - 'iOS': 'Nextome Localization SDK/iOS/changelog.md'
+      - 'Nextome MapView':
+        - 'Introduction': 'Nextome Map View/introduction.md'
+        - 'Integration': 'Nextome Map View/integration.md'
+        - 'NextomeMapView class': 'Nextome Map View/nextomeMapViewClass.md'
+        - 'Usage':
+          - 'Initialize': 'Nextome Map View/Usage/initialize.md'
+          - 'Events': 'Nextome Map View/Usage/events.md'
+          - 'Tile': 'Nextome Map View/Usage/manage-tiles.md'
+          - 'Layers': 'Nextome Map View/Usage/manage-layers.md'
+          - 'Markers': 'Nextome Map View/Usage/manage-markers.md'
+          - 'Enums': 'Nextome Map View/Usage/enums.md'
+        - 'Changelog':
+          - "Android": "Nextome Map View/Changelog/changelog-android.md"
+          - "iOS": "Nextome Map View/Changelog/changelog-ios.md"
+        - 'Example': 'Nextome Map View/example.md'
       - 'REST APIs' : 'Web APIs/web-apis.md' 
       
     - 'Manuals':
