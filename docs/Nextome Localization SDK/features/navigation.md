@@ -6,19 +6,22 @@
 
 Nextome Sdk is able to calculate the shortest path between two points of the same venue.
 
-The function takes (x, y) coordinates and map of the starting point and (x, y) coordinates and map of the destination point.
+The function takes the venueId, (x, y) coordinates and map of the starting point, (x, y) coordinates and map of the destination point and the algorithm to use between ASTAR (by default) and DIJKSTRA.
 
 === "Android"
     ```kotlin
         val path = nextomeSdk.findPath(
+            venueId,
             startX.toInt(), startY.toInt(), startMapId,
-            targetX.toInt(), targetY.toInt(), targetMapId)
+            targetX.toInt(), targetY.toInt(), targetMapId,
+            algorithm)
     ```
 === "iOS"
     ```swift
-        nextomeSdk.findPath(venueId: venueId, sourceX: startX,
-            sourceY: startY, sourceMap: startMapId,
+        nextomeSdk.findPath(venueId: venueId, 
+            sourceX: startX, sourceY: startY, sourceMap: startMapId,
             destX: targetX, destY: targetY, destMap: targetMapId,
+            algorithm,
             completionHandler: {path, error in
                 guard error == nil else { return }
                 guard let path = path else{ return }

@@ -26,6 +26,12 @@ A `NextomeVenueData` object could be retreived in `getStateObservable when Nexto
              val path = venueData.path
              val pathNodesOfMap = venueData.getPathNodesOfMapId(currentMap)
             
+             val gcps = venueData.gcps
+
+             val rooms = venueData.rooms
+
+             val pois = venueData.allPois
+
              val settings = venueData.settings
             }
         }
@@ -52,13 +58,20 @@ A `NextomeVenueData` object could be retreived in `getStateObservable when Nexto
         let path = venueData.path
         let pathNodesOfMap = venueData.getPathNodesOfMapId(mapId: currentMap)
     
+        let gcps = venueData.gcps
+
+        let rooms = venueData.rooms
+
+        let pois = venueData.allPois
+
         let settings = venueData.settings
        
     }
     ```
 
 ### Query venue data
-It is also possible to query venue data while Nextome SDK is not running calling `nextomeSdk.getVenueData(venueId)`.
+It is also possible to query venue data while Nextome SDK is not running calling `nextomeSdk.getVenueData(venueId, onProgress)` where onProgress is a callback that return a double (0.0 to 1.0) to take aware of the amount of retrieving progress.
+
 
 !!! note "Source of venue data"
     Venue data can be retrieved:
