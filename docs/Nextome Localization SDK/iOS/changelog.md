@@ -2,9 +2,14 @@
 !!!note
     If you want to user SDK to specify the version, then explicitly like this
     ```swift
-        pod 'NextomeLocalization', '3.0.6'
+        pod 'NextomeLocalization', '3.0.7'
 
     ```
+
+### 3.0.7 | December 2025
+ * Added georeferenced and outdoor fields on map entity;
+ * Added sending outdoor positions from outside;
+ * Added intenrally check on permissions;
 
 ### 3.0.6 | October 2025
  * Added pre-resources download based on GPS position;

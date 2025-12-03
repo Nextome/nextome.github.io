@@ -1,4 +1,10 @@
 # Nextome SDK - Android Changelog
+
+### 3.0.7 | December 2025
+ * Added georeferenced and outdoor fields on map entity;
+ * Added sending outdoor positions from outside;
+ * Added intenrally check on permissions;
+
 ### 3.0.6 | October 2025
  * Added pre-resources download based on GPS position;
  * Added pre-resources download via venue specification;
