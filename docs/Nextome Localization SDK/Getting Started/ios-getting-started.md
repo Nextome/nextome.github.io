@@ -4,7 +4,7 @@ A full working example app is available on [this repository](https://github.com/
 
 ## Prerequisites
 
-- Xcode 15.0
+- Xcode 16.2
 - Make sure that your project meets these requirements: 
     - Swift 5.7
     - Minimum deployment: iOS 13.2
@@ -64,7 +64,7 @@ Then it is necessary to configure our Spec Repo.
     !!!note
         If you want to use a specified SDK the version, explicitly it like this
         ```swift
-            pod 'NextomeLocalization', '3.0.1'
+            pod 'NextomeLocalization', '3.2.1'
         ```
         See all released version [here](../iOS/changelog.md)
 
@@ -107,9 +107,9 @@ Add these permissions in the `info.plist`:
 
 ### Retrive SDK Credentials
 Log-in the web dashboard and retrieve the `Client` and `Secret Key` for the SDK.
-Those credentials are available from your profile, in the Apps section. 
+Those credentials are available from choosen Venue, Users and Roles at the Applications section.
 
-![Retrieve SDK Credentials](../../assets/sdk_key.png)
+![Retrieve SDK Credentials](../../assets/sdk_key_new.png)
 
 ## SDK Initialization
 Firsty import the Nextome Localization SDK Module
@@ -130,6 +130,18 @@ let nextomeSdk = NextomeLocalizationSdk.Builder(clientId: CLIENT_ID, clientSecre
     The NextomeLocalizationSdk.Builder allows to override some of those as described in the next sections.
     But please notice that this operation is extremely dangerous and should only be made in accordance with the Nextome Team because has an huge impact on the localization's performance.
 
+## Usage rules permissions
+
+To be localized, the application associated with the client_id entered during initialization must have CORE permissions. These permissions are:
+
+- At least Read permission on the Venues resource
+- At least Read permission on the Maps resource
+- At least Read permission on the Beacons resource
+- At least Read permission on the BeaconModels resource
+
+If the core permission are not granted, the SDK will not works.
+Check the role type assigned to the user on the Nextome Hub.
+
 ## Next steps
 - See [Start Localization](../start-localization.md) to use Nextome SDK.
 
@@ -139,4 +151,4 @@ A full working example app is available on [this repository](https://github.com/
 
 <br>
 
-**© 2025 Nextome srl | All Rights Reserved.**
+**© 2026 Nextome srl | All Rights Reserved.**

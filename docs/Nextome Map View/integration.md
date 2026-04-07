@@ -18,7 +18,7 @@ To integrate the Nextome Map View you need to add the following code in your `pu
 ## Android integraton
 
 ### Prerequisites
-- Your project has min SDK version >= 23
+- Your project has min SDK version >= 24
 - Have working credentials for our Artifactory repository
 
 !!! warning "Credentials"
@@ -82,15 +82,16 @@ If you need access to artifactory, contact us at [info@nextome.com](mailto:info@
    === "Groovy"
 
         ``` groovy title="project/build.gradle"
-        implementation 'com.nextome.nextomemapview:nextomemapview:{last_version}'
+        implementation 'com.nextome.nextomemapview:nextomemapview:2.1.4.0'
+        implementation 'net.nextome.nextome_map_module:flutter_release:2.1.4'
         ```
 
    === "KTS"
 
         ``` kotlin title="project/build.gradle.kts"
-        implementation ("com.nextome.nextomemapview:nextomemapview:{last_version}")
+        implementation("com.nextome.nextomemapview:nextomemapview:2.1.4.0")
+        implementation("net.nextome.nextome_map_module:flutter_release:2.1.4")
         ```
-   Check latest released version [here](/docs/Nextome%20SDK/Android/changelog.md)
 
 ### Required permissions
 To run, NextomeMapView requires the following permissions:
@@ -111,7 +112,7 @@ To run, NextomeMapView requires the following permissions:
 
 ### Prerequisites
 
-- Xcode 15.3
+- Xcode 16.2
 - Make sure that your project meets these requirements:
    - Swift 5.7
    - Minimum deployment: iOS 13.2
@@ -166,7 +167,7 @@ Then it is necessary to configure our private Spec Repo.
     use_frameworks!
 
     target 'MyApp' do
-        pod 'NextomeMapView_Release', '{last_version}'
+        pod 'NextomeMapView_Release', '2.1.5.0'
     end
     ```
 

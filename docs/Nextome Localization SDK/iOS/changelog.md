@@ -2,9 +2,16 @@
 !!!note
     If you want to user SDK to specify the version, then explicitly like this
     ```swift
-        pod 'NextomeLocalization', '3.0.7'
+        pod 'NextomeLocalization', '3.2.1'
 
     ```
+
+### 3.2.1 | March 2026
+ * BREAKING - Removed FindFloorState and replaced with EvaluateIndoorOutdoorState;
+ * Updated to Android SDK 36;
+ * Better distinction between the various types of logs;
+ * EXPERIMENTAL - Added turn-by-turn navigation. Documentation WIP;
+ * Minor bug fixes;
 
 ### 3.0.7 | December 2025
  * Added georeferenced and outdoor fields on map entity;

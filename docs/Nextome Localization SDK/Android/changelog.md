@@ -1,5 +1,12 @@
 # Nextome SDK - Android Changelog
 
+### 3.2.1 | March 2026
+ * BREAKING - Removed FindFloorState and replaced with EvaluateIndoorOutdoorState;
+ * Updated to Android SDK 36;
+ * Better distinction between the various types of logs;
+ * EXPERIMENTAL - Added turn-by-turn navigation. Documentation WIP;
+ * Minor bug fixes;
+
 ### 3.0.7 | December 2025
  * Added georeferenced and outdoor fields on map entity;
  * Added sending outdoor positions from outside;

@@ -61,6 +61,7 @@ nav:
           - 'Additional Features':
             - 'Events': 'Nextome Localization SDK/features/events.md'
             - 'Navigation': 'Nextome Localization SDK/features/navigation.md'
+            - 'Navigation turn-by-turn [EXPERIMENTAL]': 'Nextome Localization SDK/features/navigation-turn-by-turn.md'
             - 'Get Venue Data': 'Nextome Localization SDK/features/venue-data.md'
             - 'Force Venue': 'Nextome Localization SDK/features/force-venue.md'
             - 'Initial Resources': 'Nextome Localization SDK/features/initial-resources.md'
@@ -81,9 +82,9 @@ nav:
           - 'Layers': 'Nextome Map View/Usage/manage-layers.md'
           - 'Markers': 'Nextome Map View/Usage/manage-markers.md'
           - 'Enums': 'Nextome Map View/Usage/enums.md'
-        - 'Changelog':
-          - "Android": "Nextome Map View/Changelog/changelog-android.md"
-          - "iOS": "Nextome Map View/Changelog/changelog-ios.md"
+        #- 'Changelog':
+        #  - "Android": "Nextome Map View/Changelog/changelog-android.md"
+        #  - "iOS": "Nextome Map View/Changelog/changelog-ios.md"
         - 'Example': 'Nextome Map View/example.md'
       - 'REST APIs' : 'Web APIs/web-apis.md' 
       
