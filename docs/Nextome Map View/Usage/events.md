@@ -69,6 +69,27 @@ OnMapLongPress event return the long pressed point on the map. X and Y can be in
         populate()
     }
     ```
+## ON POINTER DOWN
+OnPointerDdown event return the any press on the screen. X and Y can be intendeed like position in pixel of the pointer (based on width and height) or can be intedeed as latitude and longitude in accordance to your map usage.
+
+=== "Android"
+    ```kotlin
+    // Suppose mapview has been declared in some part of your code
+    val mapview: NextomeMapViewHandler = NextomeMapViewHandler()
+    ...
+    mapview.setOnPointerDown {  x, y ->
+        println("EVENT ON POINTER DOWN $x $y")
+    }
+    ...
+    ```
+=== "iOS"
+    ```swift
+    NextomeMapViewHandler.instance.setOnPointerDown(callback: mapPointerDown)
+    ...
+    func mapPointerDown(x: Double, y: Double) -> Void {
+        print("CALLBACK ON POINTER DOWN \(x) \(y)")
+    }
+    ```
 
 ## ON MARKER TAP
 OnMarkerTap event return the marker tapped

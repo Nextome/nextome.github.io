@@ -2,9 +2,12 @@
 !!!note
     If you want to user SDK to specify the version, then explicitly like this
     ```swift
-        pod 'NextomeLocalization', '3.2.5'
+        pod 'NextomeLocalization', '3.2.7'
 
     ```
+
+### 3.2.7 | August 2026
+ * Fix on history positions;
 
 ### 3.2.5 | May 2026
  * Fix on events data sync with server;

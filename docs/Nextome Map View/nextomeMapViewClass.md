@@ -195,15 +195,15 @@ To get a marker, call:
 ### Go to point
 
 Move on a specific point. Note that the point must match the coordinates system choose during initialization.
-You can pass pixel coordinates or lat-long coordinates.
+You can pass pixel coordinates or lat-long coordinates and zoom if needed.
 
 === "Android"
     ```kotlin
-    fun goToPosition(x: Double, y: Double)
+    fun goToPosition(x: Double, y: Double, zoom: Double? = null)
     ```
 === "iOS"
     ```swift
-    public func goToPosition(x: Double, y: Double)
+    public func goToPosition(x: Double, y: Double, zoom: Double? = nil)
     ```
 
 ### Set Zoom
@@ -239,15 +239,34 @@ Show a default map scale-bar
 
 ### Enable/Disable the map orientation using device compass
 
+!!! warning "DEPRECATED"
+    The useCompass method has been deprecated. Use startCompass/stopCompass instead.
+    === "Android"
+        ```kotlin
+        fun useCompass(use: Boolean)
+        ```
+    === "iOS"
+        ```swift
+        public func useCompass(use: Bool)
+        ```
+
 === "Android"
     ```kotlin
-    fun useCompass(use: Boolean)
+    fun startCompass(startRoration: Double)
     ```
 === "iOS"
     ```swift
-    public func useCompass(use: Bool)
+    public func endCompass()
     ```
 
+=== "Android"
+    ```kotlin
+    fun stopCompass(resetRotation: Boolean)
+    ```
+=== "iOS"
+    ```swift
+    public func stopCompass(resetRotation: Bool)
+    ```
 
 ## Manage Events
 
@@ -273,12 +292,19 @@ When an empty point on the map is tapped or is pressed for a long time
     ```kotlin
     fun setOnMapTap(callback: (Double, Double) -> Unit){ this.onMapTap = callback }
     fun setOnMapLongPress(callback: (Double, Double) -> Unit){ this.onMapLongPress = callback }
+    fun onPointerDown(callback: (Double, Double) -> Unit){ this.onPointerDown = callback }
     ```
 === "iOS"
     ```swift
     private var onMapTap: ((Double, Double) -> Void)? = nil
     private var onMapLongPress: ((Double, Double) -> Void)? = nil
+    private var onPointerDown: ((Double, Double) -> Void)? = nil
     ```
+
+The difference between OnMapTap, onMapLongPress and OnPointerDown is based on the release of the finger.
+When the finger is on the screen, the onPointerDown is fired. 
+When the finger is released from the screen, the onMapTap is fired. 
+If the finger il released after more then one second, the onMapLongPress is fired.
 
 ### Marker Events
 

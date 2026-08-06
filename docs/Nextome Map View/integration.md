@@ -22,7 +22,7 @@ To integrate the Nextome Map View you need to add the following code in your `pu
 - Have working credentials for our Artifactory repository
 
 !!! warning "Credentials"
-If you need access to artifactory, contact us at [info@nextome.com](mailto:info@nextome.com).
+    If you need access to artifactory, contact us at [info@nextome.com](mailto:info@nextome.com).
 
 ### How to include
 
@@ -82,15 +82,15 @@ If you need access to artifactory, contact us at [info@nextome.com](mailto:info@
    === "Groovy"
 
         ``` groovy title="project/build.gradle"
-        implementation 'com.nextome.nextomemapview:nextomemapview:2.1.4.0'
-        implementation 'net.nextome.nextome_map_module:flutter_release:2.1.4'
+        implementation 'com.nextome.nextomemapview:nextomemapview:2.1.10.2'
+        implementation 'net.nextome.nextome_map_module:flutter_release:2.1.10'
         ```
 
    === "KTS"
 
         ``` kotlin title="project/build.gradle.kts"
-        implementation("com.nextome.nextomemapview:nextomemapview:2.1.4.0")
-        implementation("net.nextome.nextome_map_module:flutter_release:2.1.4")
+        implementation("com.nextome.nextomemapview:nextomemapview:2.1.10.2")
+        implementation("net.nextome.nextome_map_module:flutter_release:2.1.10")
         ```
 
 ### Required permissions
@@ -167,7 +167,7 @@ Then it is necessary to configure our private Spec Repo.
     use_frameworks!
 
     target 'MyApp' do
-        pod 'NextomeMapView_Release', '2.1.5.0'
+        pod 'NextomeMapView_Release', '2.1.10.1'
     end
     ```
 

@@ -1,5 +1,8 @@
 # Nextome SDK - Android Changelog
 
+### 3.2.7 | August 2026
+ * Fix on history positions;
+
 ### 3.2.5 | May 2026
  * Android support for 16Kb;
  * Fix on events data sync with server;
