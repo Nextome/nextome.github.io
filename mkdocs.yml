@@ -65,6 +65,7 @@ nav:
             - 'Get Venue Data': 'Nextome Localization SDK/features/venue-data.md'
             - 'Force Venue': 'Nextome Localization SDK/features/force-venue.md'
             - 'Initial Resources': 'Nextome Localization SDK/features/initial-resources.md'
+            - 'Multimedia': 'Nextome Localization SDK/features/multimedia.md'
             - 'Override default settings': 'Nextome Localization SDK/Android/settings.md'
             - '[Android] Foreground service': 'Nextome Localization SDK/Android/background-service.md'
           - 'Nextome Map integration': 'Nextome Localization SDK/nextome-map-integration.md'
