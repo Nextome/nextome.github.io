@@ -1,5 +1,10 @@
 # Nextome SDK - Android Changelog
 
+### 3.4.0 | October 2026
+ * Added Particle Filter for position stabilization
+ * Changed Optimization for offline improved 
+ * Bugfix authentication
+
 ### 3.3.1 | September 2026
  * Bugfix Outdoor GPS coordinates
 

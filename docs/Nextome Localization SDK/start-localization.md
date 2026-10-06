@@ -75,7 +75,7 @@ You can use this data to start initializing the map or showing messages to the u
 ### Nextome SDK State
 `NextomeSdkState` is a simple state machine that can have different states:
 <figure markdown>
-  ![State Flows](../../assets/flussoSDK_new.png)
+  ![State Flows](../../assets/flussoSDK_v3.png)
   <figcaption>Nextome SDK State</figcaption>
 </figure>
 
@@ -104,6 +104,19 @@ Nextome is currently scanning nearby beacons to determine in which venue the use
     | Property          | Description                         |
     |:------------------|:------------------------------------|
     | `isOutdoor: Bool` | Will always be `true` in this state |
+
+#### NoVenueState
+Used to indicate that no venue has been found after the maximun number of attempts specified in the SDK constructor with the parameter **maxSearchingAttempt**. 
+This state stops the sdk and it needs to be restarted. If the parameter **maxSearchingAttempt** is set with null or 0, the NoVenueState will never be triggered.
+
+=== "Android"
+    | Property          | Description                         |
+    |:------------------|:------------------------------------|
+    | `noVenue: Bool` | Will always be `true` in this state |
+=== "iOS"
+    | Property          | Description                         |
+    |:------------------|:------------------------------------|
+    | `noVenue: Bool` | Will always be `true` in this state |
 
 #### GetPacketState
 Nextome knows the venue of the user and it's downloading from the server the associated resources (Maps, POIs, Patches...);
@@ -191,6 +204,12 @@ See more on [Nextome Map integration docs](nextome-map-integration.md).
                         showOpenStreetMap()
                         updateState("Searching Venue...")
                     }
+
+                    is NoVenueState -> {
+                        // Make your behaviour here, for example:
+                        // showOpenStreetMap()
+                        // updateState("No venue has been found...")
+                    }
     
                     is GetPacketState -> {
                         showOpenStreetMap()
@@ -241,6 +260,12 @@ See more on [Nextome Map integration docs](nextome-map-integration.md).
                     self.showOpenStreetMap()
                     self.updateState(value: "Sdk is searching for a venue")
     
+                }else if state is NoVenueState{
+                    
+                    // Make your behaviour here, for example:
+                    // showOpenStreetMap()
+                    // updateState("No venue has been found...")
+
                 }else if let getPacketState = state as? GetPacketState{
     
                     self.showOpenStreetMap()
